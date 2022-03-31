@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zhangchenqi123.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="双指针782. 避嫌抢劫小镇沿街分布（可以理解为都在数轴上），有 n 家银行（位置以数轴的坐标表示，金额表示可以被抢走的金额）。 两个绑匪试图分别抢劫一个银行，为了让警方多奔波他们商定选择的两个银行距离不小于 d。 请问，符合约定的情况下他们能抢到的总金额最大是多少。 输入格式输入包含 n+1 行。 第一行包含两个整数 n 和 d，分别表示银行的数量和约定的距离。 接下来 n 行，每行包含两个整数">
+<meta property="og:type" content="website">
+<meta property="og:title" content="端点星">
+<meta property="og:url" content="https://zhangchenqi123.github.io/categories/%E7%AE%97%E6%B3%95/%E5%8F%8C%E6%8C%87%E9%92%88.html">
+<meta property="og:site_name" content="端点星">
+<meta property="og:description" content="双指针782. 避嫌抢劫小镇沿街分布（可以理解为都在数轴上），有 n 家银行（位置以数轴的坐标表示，金额表示可以被抢走的金额）。 两个绑匪试图分别抢劫一个银行，为了让警方多奔波他们商定选择的两个银行距离不小于 d。 请问，符合约定的情况下他们能抢到的总金额最大是多少。 输入格式输入包含 n+1 行。 第一行包含两个整数 n 和 d，分别表示银行的数量和约定的距离。 接下来 n 行，每行包含两个整数">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-28T16:18:13.515Z">
+<meta property="article:modified_time" content="2022-03-28T16:18:13.515Z">
+<meta property="article:author" content="zcq">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://zhangchenqi123.github.io/categories/%E7%AE%97%E6%B3%95/%E5%8F%8C%E6%8C%87%E9%92%88">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | 端点星
+</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">端点星</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">银河帝国第一基地</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+  
+
+          <div class="content page posts-expand">
+            
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">
+</h1>
+
+<div class="post-meta">
+  
+  <ul class="breadcrumb">
+          
+            <li><a href="/categories/">CATEGORIES</a></li>
+            <li><a href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li>
+            <li>双指针</li>
+          
+  </ul>
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <h1 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h1><h3 id="782-避嫌抢劫"><a href="#782-避嫌抢劫" class="headerlink" title="782. 避嫌抢劫"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/784/">782. 避嫌抢劫</a></h3><p>小镇沿街分布（可以理解为都在数轴上），有 n 家银行（位置以数轴的坐标表示，金额表示可以被抢走的金额）。</p>
+<p>两个绑匪试图分别抢劫一个银行，为了让警方多奔波他们商定选择的两个银行距离不小于 d。</p>
+<p>请问，符合约定的情况下他们能抢到的总金额最大是多少。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>输入包含 n+1 行。</p>
+<p>第一行包含两个整数 n 和 d，分别表示银行的数量和约定的距离。</p>
+<p>接下来 n 行，每行包含两个整数 a 和 b，分别表示坐标和金额。</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出一个数字表示可以获得的最大金额。</p>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>1≤n≤2×105,<br>1≤d,a,b≤108</p>
+<p><strong>注意</strong>：数据中保证至少存在两个银行之间的距离不小于 d。</p>
+<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">6 3</span><br><span class="line">1 1</span><br><span class="line">3 5</span><br><span class="line">4 8</span><br><span class="line">6 4</span><br><span class="line">10 3</span><br><span class="line">11 2</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">11</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><p>对每个银行按照坐标从小到大排序，然后双指针算法从前往后遍历</p>
+<p>对于一个特定的<code>i</code>，假设<code>j</code>指向<code>i</code>之后的第一个和<code>i</code>相隔大于<code>d</code>的位置，那么<code>j</code>及<code>j</code>之后的银行都是可以被抢劫的，此时我们从<code>j</code>即<code>j</code>之后的银行中挑一家钱数最多的银行抢劫，受益最大，即：答案应该更新为：$res &#x3D; max(res, a[i].y + M)$, 其中M的表达式：$M &#x3D; max(a[k].y), k &#x3D; j, j + 1, … ,n -1$</p>
+<p>如果我们对于每一个<code>i</code>，都要遍历找<code>j</code>及<code>j</code>之后的钱数最多的银行，那么时间复杂度为$O(n^2)$,会超时</p>
+<p>所以我们可以开一个“后缀最大值”数组<code>b</code>,其中<code>b[j]</code>表示：<code>j</code>及<code>j</code>之后的银行中钱数的最大值。</p>
+<h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> x first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> y second</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; PII;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">200010</span>;</span><br><span class="line"><span class="type">int</span> n, d;</span><br><span class="line">PII a[N];</span><br><span class="line"><span class="type">int</span> b[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; d;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++ )cin &gt;&gt; a[i].x &gt;&gt; a[i].y;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">sort</span>(a, a + n);</span><br><span class="line">    <span class="type">int</span> bm = <span class="number">0</span>;<span class="comment">//behind_max</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i --)&#123;</span><br><span class="line">        bm = <span class="built_in">max</span>(bm, a[i].y);</span><br><span class="line">        b[i] = bm;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">1</span>; i &lt; n; i ++)&#123;</span><br><span class="line">        <span class="keyword">while</span>(j &lt; n &amp;&amp; a[j].x - a[i].x &lt; d)j ++;</span><br><span class="line">        <span class="keyword">if</span>(j &gt;= n)<span class="keyword">break</span>;</span><br><span class="line">        res = <span class="built_in">max</span>(res, a[i].y + b[j]);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="61-最长不含重复字符的子字符串"><a href="#61-最长不含重复字符的子字符串" class="headerlink" title="61. 最长不含重复字符的子字符串"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/57/">61. 最长不含重复字符的子字符串</a></h3><p>请从字符串中找出一个最长的不包含重复字符的子字符串，计算该最长子字符串的长度。</p>
+<p>假设字符串中只包含从 <code>a</code> 到 <code>z</code> 的字符。</p>
+<h4 id="数据范围-1"><a href="#数据范围-1" class="headerlink" title="数据范围"></a>数据范围</h4><p>输入字符串长度 [0,1000]。</p>
+<h4 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：&quot;abcabc&quot;</span><br><span class="line"></span><br><span class="line">输出：3</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="思路：-1"><a href="#思路：-1" class="headerlink" title="思路："></a>思路：</h4><ul>
+<li>用哈希表存储两个指针之间的每个字母出现的次数</li>
+<li>每次把j向后移动一个，同时检查最后一个字母出现的次数，若大于1，则把i往后移，直到最后一个字母出现的次数为1.</li>
+<li><strong>以后指针为标准进行遍历</strong></li>
+</ul>
+<h4 id="代码：-1"><a href="#代码：-1" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longestSubstringWithoutDuplication</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">char</span>,<span class="type">int</span>&gt; hash;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>,j = <span class="number">0</span>;j &lt; s.<span class="built_in">size</span>();j ++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(++hash[s[j]] &gt; <span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">while</span>(i &lt; j)&#123;</span><br><span class="line">                    hash[s[i ++]] --;</span><br><span class="line">                    <span class="keyword">if</span>(hash[s[j]] == <span class="number">1</span>)<span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            res = <span class="built_in">max</span>(res,j - i + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="76-和为S的连续正数序列"><a href="#76-和为S的连续正数序列" class="headerlink" title="76. 和为S的连续正数序列"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/72/">76. 和为S的连续正数序列</a></h3><p>输入一个非负整数 S，打印出所有和为 S 的连续正数序列（至少含有两个数）。</p>
+<p>例如输入 15，由于 1+2+3+4+5&#x3D;4+5+6&#x3D;7+8&#x3D;15,所以结果打印出 3 个连续序列 1∼5、4∼6 和 7∼8。</p>
+<h4 id="数据范围-2"><a href="#数据范围-2" class="headerlink" title="数据范围"></a>数据范围</h4><p>0≤S≤1000</p>
+<h4 id="样例-1"><a href="#样例-1" class="headerlink" title="样例"></a>样例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：15</span><br><span class="line"></span><br><span class="line">输出：[[1,2,3,4,5],[4,5,6],[7,8]]</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="思路：-2"><a href="#思路：-2" class="headerlink" title="思路："></a>思路：</h4><ul>
+<li><p>s中存储：以i开头的，总和不超过目标值S的，最长的连续子数组的和。</p>
+</li>
+<li><p>i,j具有单调性：当i向后移的时候，由于总和减少，j一定不会向前移。</p>
+</li>
+<li><p><strong>以前指针i为标准进行遍历</strong></p>
+</li>
+<li><p><strong>数字和的问题也可以联想前缀和！</strong></p>
+</li>
+</ul>
+<h4 id="代码：-2"><a href="#代码：-2" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt; &gt; <span class="built_in">findContinuousSequence</span>(<span class="type">int</span> sum) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>, j = <span class="number">1</span>, s = <span class="number">1</span>;i &lt;= sum/<span class="number">2</span>; i ++)&#123;</span><br><span class="line">            <span class="keyword">while</span>(s &lt; sum)s += ++j;</span><br><span class="line">            <span class="keyword">if</span>(s == sum &amp;&amp; j &gt; i)&#123;</span><br><span class="line">                vector&lt;<span class="type">int</span>&gt; line;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> k = i;k &lt;= j; k ++)line.<span class="built_in">push_back</span>(k);</span><br><span class="line">                res.<span class="built_in">push_back</span>(line);</span><br><span class="line">            &#125;</span><br><span class="line">            s -= i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="77-翻转单词顺序"><a href="#77-翻转单词顺序" class="headerlink" title="77. 翻转单词顺序"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/73/">77. 翻转单词顺序</a></h3><p>输入一个英文句子，<strong>单词之间用一个空格隔开，且句首和句尾没有多余空格</strong>。</p>
+<p>翻转句子中单词的顺序，但单词内字符的顺序不变。</p>
+<p>为简单起见，标点符号和普通字母一样处理。</p>
+<p>例如输入字符串<code>&quot;I am a student.&quot;</code>，则输出<code>&quot;student. a am I&quot;</code>。</p>
+<h4 id="数据范围-3"><a href="#数据范围-3" class="headerlink" title="数据范围"></a>数据范围</h4><p>输入字符串长度 、[0,1000]。</p>
+<h4 id="样例-2"><a href="#样例-2" class="headerlink" title="样例"></a>样例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：&quot;I am a student.&quot;</span><br><span class="line"></span><br><span class="line">输出：&quot;student. a am I&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="思路：-3"><a href="#思路：-3" class="headerlink" title="思路："></a>思路：</h4><ul>
+<li>首先反转整个串，然后再逐个反转每个单词。</li>
+<li>注意reverse函数反转单词：reverse(单词的第一个字母，单词后面的空格)</li>
+</ul>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码:"></a>代码:</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">reverseWords</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">reverse</span>(s.<span class="built_in">begin</span>(),s.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i ++)&#123;</span><br><span class="line">            <span class="type">int</span> j = i;</span><br><span class="line">            <span class="keyword">while</span>(j &lt; s.<span class="built_in">size</span>() &amp;&amp; s[j] != <span class="string">&#x27; &#x27;</span>)j ++;</span><br><span class="line">            <span class="built_in">reverse</span>(s.<span class="built_in">begin</span>() + i, s.<span class="built_in">begin</span>() + j);</span><br><span class="line">            i = j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="双指针-子数组"><a href="#双指针-子数组" class="headerlink" title="双指针+子数组"></a>双指针+子数组</h2><h3 id="3801-最佳连续子数组"><a href="#3801-最佳连续子数组" class="headerlink" title="3801. 最佳连续子数组"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/3804/">3801. 最佳连续子数组</a></h3><p><strong>标签：双指针、子数组</strong></p>
+<p>给定一个长度为 n 的数组 a1,a2,…,an。</p>
+<p>请你找到其中的最佳<strong>连续</strong>子数组。</p>
+<p>最佳连续子数组需满足：</p>
+<ol>
+<li>子数组内各元素的算术平均数（即所有元素之和除以元素个数）尽可能大。</li>
+<li>满足条件 11 的前提下，子数组的长度尽可能长。</li>
+</ol>
+<p>输出最佳连续子数组的长度。</p>
+<h4 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h4><p>子区间长度平均值最大值：就是最大的数</p>
+<p>等于最大值的元素有多个，并且相邻，则这个最大值子区间的长度就是所求长度。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="type">int</span> n, t;</span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span>(t -- )&#123;</span><br><span class="line">        <span class="type">int</span> n;</span><br><span class="line">        cin &gt;&gt; n;</span><br><span class="line">        <span class="type">int</span> mx = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++)&#123;</span><br><span class="line">            cin &gt;&gt; a[i];</span><br><span class="line">            mx = <span class="built_in">max</span>(mx, a[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i] == mx)&#123;</span><br><span class="line">                <span class="type">int</span> j = i + <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">while</span>(j &lt; n &amp;&amp; a[j] == a[i])j ++;</span><br><span class="line">                res = <span class="built_in">max</span>(res, j - i);</span><br><span class="line">                i = j - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><p>双指针、子数组问题，用i从前往后遍历，当i遍历到符合条件的时候，进入if语句：出现j，j &#x3D; i + 1，当退出if语句的时候,i &#x3D; j - 1:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n;i ++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(a[i] ...)&#123;</span><br><span class="line">        <span class="type">int</span> j = i + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j &lt; n &amp;&amp; a[j] ..)j ++ ...;</span><br><span class="line">        </span><br><span class="line">        i = j - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>同样，如下题：</p>
+<h3 id="2074-倒计数"><a href="#2074-倒计数" class="headerlink" title="2074. 倒计数"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/2076/">2074. 倒计数</a></h3><p>艾弗里有一个由 NN 个正整数构成的数组。</p>
+<p>数组中的第 i 个整数是 Ai。</p>
+<p>如果一个连续的子数组的长度为 m，并且按顺序包含整数 m,m−1,m−2,…,2,1，则称它为 m 倒计数。</p>
+<p>例如，[3,2,1] 是 3 倒计数。</p>
+<p>请帮助艾弗里计算她的数组中有多少个 K 倒计数。</p>
+<p>例如，输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">12 3//长度12的数组里，有几个3倒计数？</span><br><span class="line">1 2 3 7 9 3 2 1 8 3 2 1</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>解答：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++)&#123;</span><br><span class="line">    cin &gt;&gt; a[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(a[i] == k)&#123;</span><br><span class="line">        <span class="type">int</span> j = i + <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> k_ = k - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j &lt; n &amp;&amp; a[j] == k_ &amp;&amp; k_)&#123;</span><br><span class="line">            k_ --, j ++;</span><br><span class="line">            <span class="keyword">if</span>(k_ == <span class="number">0</span>)&#123;</span><br><span class="line">                res ++;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        i = j - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; res &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="双指针-前缀和"><a href="#双指针-前缀和" class="headerlink" title="双指针+前缀和"></a>双指针+前缀和</h2><h3 id="102-最佳牛围栏"><a href="#102-最佳牛围栏" class="headerlink" title="102. 最佳牛围栏 "></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/104/">102. 最佳牛围栏 </a></h3><p>农夫约翰的农场由 N 块田地组成，每块地里都有一定数量的牛，其数量不会少于 1 头，也不会超过 2000 头。</p>
+<p>约翰希望用围栏将一部分连续的田地围起来，并使得围起来的区域内每块地包含的牛的数量的平均值达到最大。</p>
+<p>围起区域内至少需要包含 F 块地，其中 F 会在输入中给出。</p>
+<p>在给定条件下，计算围起区域内每块地包含的牛的数量的平均值可能的最大值是多少。</p>
+<h4 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行输入整数 N 和 F，数据间用空格隔开。</p>
+<p>接下来 N 行，每行输入一个整数，第i+1 行输入的整数代表第 i 片区域内包含的牛的数目。</p>
+<h4 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出一个整数，表示平均值的最大值乘以 1000 再 <strong>向下取整</strong> 之后得到的结果。</p>
+<h4 id="数据范围-4"><a href="#数据范围-4" class="headerlink" title="数据范围"></a>数据范围</h4><p>1≤N≤100000<br>1≤F≤N</p>
+<h4 id="输入样例：-1"><a href="#输入样例：-1" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">10 6</span><br><span class="line">6 </span><br><span class="line">4</span><br><span class="line">2</span><br><span class="line">10</span><br><span class="line">3</span><br><span class="line">8</span><br><span class="line">5</span><br><span class="line">9</span><br><span class="line">4</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例：-1"><a href="#输出样例：-1" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6500</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="思路：-4"><a href="#思路：-4" class="headerlink" title="思路："></a>思路：</h4><ol>
+<li>由于平均值的最大值具有二段性：小于等于最大值的可能出现，大于最大值的都不可能出现，因此可以用二分法</li>
+<li>二分的check(avg)函数：检查是否存在一个区间，其平均值大于avg。<ol>
+<li>某个区间的平均值大于avg，相当于区间内的所有数都-avg，然后看总和是否大于0.</li>
+<li>区间和的问题，用前缀和。</li>
+<li>是否存在区间[i, j]，区间和大于0，sum[j] - sum[i] &gt;&#x3D; 0,相当于sum[j] &gt;&#x3D; sum[i]是否有解，那么我们可以让sum[i]尽可能的小，可以用一个变量来存储sum[i]在遍历过程中的最小值。</li>
+</ol>
+</li>
+</ol>
+<h4 id="代码：-3"><a href="#代码：-3" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="type">int</span> n, f;</span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"><span class="type">double</span> sum[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">double</span> avg)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )sum[i] = sum[i - <span class="number">1</span>] + a[i] - avg;</span><br><span class="line">    <span class="type">double</span> mi = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>, j = f; j &lt;= n; i ++, j ++)</span><br><span class="line">    &#123;</span><br><span class="line">        mi = <span class="built_in">min</span>(mi, sum[i]);</span><br><span class="line">        <span class="keyword">if</span>(sum[j] &gt;= mi)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;   </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; f;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )&#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">double</span> l = <span class="number">0</span>, r = <span class="number">2000</span>;</span><br><span class="line">    <span class="keyword">while</span>(r - l &gt; <span class="number">1e-5</span>)&#123;</span><br><span class="line">        <span class="type">double</span> mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">check</span>(mid))l = mid;</span><br><span class="line">        <span class="keyword">else</span> r = mid;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">int</span>(r * <span class="number">1000</span>) &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="1528-火星购物"><a href="#1528-火星购物" class="headerlink" title="1528. 火星购物 "></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/1530/">1528. 火星购物 </a></h3><p>在火星购物是一个完全不同的体验。</p>
+<p>火星人用被链子连在一起的钻石付款，每颗钻石都有一定的价值。</p>
+<p>付款时，只能在链条的某一位置上切割一次，然后一些钻石就会一个接着一个的从链条上脱落。</p>
+<p>一旦钻石脱离链条，就不能在穿回去。</p>
+<p>例如，如果我们有一个钻石链条，上面有 8 颗钻石，价值分别为 3,2,1,5,4,6,8,7 元，而我们需要支付的价格为 15 元。</p>
+<p>我们有三种选择：</p>
+<ol>
+<li>在 4 和 6 之间剪断链条，然后取走前 5 颗钻石，价值为 3+2+1+5+4&#x3D;15。</li>
+<li>在 5 之前或 6 之后剪断链条，然后取走第 4∼6 颗钻石，价值为 5+4+6&#x3D;15。</li>
+<li>在 8 之前剪断链条，然后取走后 2 颗钻石，价值为 8+7&#x3D;15。</li>
+</ol>
+<p>现在给定钻石链条上钻石的价值以及顾客需要支付的价钱，请你帮助顾客确定他有多少种选择方案。</p>
+<p>如果无法恰好凑出顾客需要支付的确切金额，那就凑出足够支付的情况下的最少金额，从而避免钻石浪费。</p>
+<h4 id="输入格式-2"><a href="#输入格式-2" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含两个整数 N 和 M，分别表示链条上的钻石数量以及顾客需要支付的金额。</p>
+<p>第二行包含 N 个整数，D1,D2,…,DN，表示钻石的价值。</p>
+<h4 id="输出格式-2"><a href="#输出格式-2" class="headerlink" title="输出格式"></a>输出格式</h4><p>每行输出一种可行方案，具体格式为 <code>i-j</code>，表示 Di+…+Dj&#x3D;M</p>
+<p>如果方案不唯一，则按照 i 递增的顺序输出所有方案。</p>
+<p>如果无法准确凑出 M，仍然输出 <code>i-j</code>，表示 Di+…+Dj&gt;M 并且 Di+…+Dj−M的值最小。</p>
+<p>如果方案不唯一，则按照 i递增的顺序输出所有方案。</p>
+<h4 id="数据范围-5"><a href="#数据范围-5" class="headerlink" title="数据范围"></a>数据范围</h4><p>1≤N≤105<br>1≤M≤108<br>1≤Di≤103<br>∑Di≥M</p>
+<h4 id="输入样例1："><a href="#输入样例1：" class="headerlink" title="输入样例1："></a>输入样例1：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">16 15</span><br><span class="line">3 2 1 5 4 6 8 7 16 10 15 11 9 12 14 13</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例1："><a href="#输出样例1：" class="headerlink" title="输出样例1："></a>输出样例1：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1-5</span><br><span class="line">4-6</span><br><span class="line">7-8</span><br><span class="line">11-11</span><br></pre></td></tr></table></figure>
+
+<h4 id="输入样例2："><a href="#输入样例2：" class="headerlink" title="输入样例2："></a>输入样例2：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5 13</span><br><span class="line">2 4 5 7 9</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例2："><a href="#输出样例2：" class="headerlink" title="输出样例2："></a>输出样例2：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2-4</span><br><span class="line">4-5</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="非前缀和做法："><a href="#非前缀和做法：" class="headerlink" title="非前缀和做法："></a>非前缀和做法：</h4><ul>
+<li>s中存储的是：以i开头的，j结尾的区间和</li>
+<li><strong>注意，第二次循环的时候要先将s归零！！！</strong></li>
+</ul>
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码:"></a>代码:</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">100010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)&#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> s = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> mins = <span class="number">1e9</span>; </span><br><span class="line">    <span class="type">bool</span> flag = <span class="literal">false</span>;<span class="comment">//false为无精确解</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>, j = <span class="number">0</span>; j &lt;= n &amp;&amp; i &lt;= n;s -= a[i ++])&#123;</span><br><span class="line">        <span class="keyword">while</span>(s &lt; m)&#123;</span><br><span class="line">            s += a[++ j];</span><br><span class="line">            <span class="keyword">if</span>(j &gt; n)<span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(s == m)&#123;</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; <span class="string">&#x27;-&#x27;</span> &lt;&lt; j &lt;&lt; endl;</span><br><span class="line">            flag = <span class="literal">true</span>;</span><br><span class="line">        &#125;<span class="keyword">if</span>(s &gt; m)&#123;</span><br><span class="line">            mins = <span class="built_in">min</span>(mins, s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!flag)&#123;</span><br><span class="line">        s = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>, j = <span class="number">0</span>; j &lt;= n &amp;&amp; i &lt;= n;s -= a[i ++])&#123;</span><br><span class="line">            <span class="keyword">while</span>(s &lt; m)&#123;</span><br><span class="line">                s += a[++ j];</span><br><span class="line">                <span class="keyword">if</span>(j &gt; n)<span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(s == mins)&#123;</span><br><span class="line">                cout &lt;&lt; i &lt;&lt; <span class="string">&#x27;-&#x27;</span> &lt;&lt; j &lt;&lt; endl;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      </div>
+      
+      
+      
+    </div>
+    
+  <ul class="breadcrumb">
+          
+            <li><a href="/categories/">CATEGORIES</a></li>
+            <li><a href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li>
+            <li>双指针</li>
+          
+  </ul>
+
+    
+    
+    
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88"><span class="nav-number">1.</span> <span class="nav-text">双指针</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#782-%E9%81%BF%E5%AB%8C%E6%8A%A2%E5%8A%AB"><span class="nav-number">1.0.1.</span> <span class="nav-text">782. 避嫌抢劫</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A"><span class="nav-number">1.0.1.4.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A"><span class="nav-number">1.0.1.5.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A"><span class="nav-number">1.0.1.6.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="nav-number">1.0.1.7.</span> <span class="nav-text">代码：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#61-%E6%9C%80%E9%95%BF%E4%B8%8D%E5%90%AB%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.0.2.</span> <span class="nav-text">61. 最长不含重复字符的子字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-1"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A-1"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A-1"><span class="nav-number">1.0.2.4.</span> <span class="nav-text">代码：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#76-%E5%92%8C%E4%B8%BAS%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%AD%A3%E6%95%B0%E5%BA%8F%E5%88%97"><span class="nav-number">1.0.3.</span> <span class="nav-text">76. 和为S的连续正数序列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-2"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-1"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A-2"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A-2"><span class="nav-number">1.0.3.4.</span> <span class="nav-text">代码：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#77-%E7%BF%BB%E8%BD%AC%E5%8D%95%E8%AF%8D%E9%A1%BA%E5%BA%8F"><span class="nav-number">1.0.4.</span> <span class="nav-text">77. 翻转单词顺序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-3"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-2"><span class="nav-number">1.0.4.2.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A-3"><span class="nav-number">1.0.4.3.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.0.4.4.</span> <span class="nav-text">代码:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88-%E5%AD%90%E6%95%B0%E7%BB%84"><span class="nav-number">1.1.</span> <span class="nav-text">双指针+子数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3801-%E6%9C%80%E4%BD%B3%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84"><span class="nav-number">1.1.1.</span> <span class="nav-text">3801. 最佳连续子数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E6%9E%90%EF%BC%9A"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">分析：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">总结：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2074-%E5%80%92%E8%AE%A1%E6%95%B0"><span class="nav-number">1.1.2.</span> <span class="nav-text">2074. 倒计数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88-%E5%89%8D%E7%BC%80%E5%92%8C"><span class="nav-number">1.2.</span> <span class="nav-text">双指针+前缀和</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#102-%E6%9C%80%E4%BD%B3%E7%89%9B%E5%9B%B4%E6%A0%8F"><span class="nav-number">1.2.1.</span> <span class="nav-text">102. 最佳牛围栏 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-1"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-1"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-4"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A-1"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A-1"><span class="nav-number">1.2.1.5.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A-4"><span class="nav-number">1.2.1.6.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A-3"><span class="nav-number">1.2.1.7.</span> <span class="nav-text">代码：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1528-%E7%81%AB%E6%98%9F%E8%B4%AD%E7%89%A9"><span class="nav-number">1.2.2.</span> <span class="nav-text">1528. 火星购物 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-2"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-2"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-5"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B1%EF%BC%9A"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">输入样例1：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B1%EF%BC%9A"><span class="nav-number">1.2.2.5.</span> <span class="nav-text">输出样例1：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B2%EF%BC%9A"><span class="nav-number">1.2.2.6.</span> <span class="nav-text">输入样例2：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B2%EF%BC%9A"><span class="nav-number">1.2.2.7.</span> <span class="nav-text">输出样例2：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%9E%E5%89%8D%E7%BC%80%E5%92%8C%E5%81%9A%E6%B3%95%EF%BC%9A"><span class="nav-number">1.2.2.8.</span> <span class="nav-text">非前缀和做法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="nav-number">1.2.2.9.</span> <span class="nav-text">代码:</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">zcq</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zcq</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
