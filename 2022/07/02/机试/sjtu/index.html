@@ -21,7 +21,7 @@
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+<link href="/css/hl_theme/sublime.css?v=1.1.0" rel="stylesheet">
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
@@ -205,8 +205,6 @@
     </div>
     <div class="friends-content">
         <ul>
-            
-            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
             
         </ul>
     </div>
@@ -489,7 +487,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-09-05 16:51:15'>2022-07-02 02:41</time>
+            发布时间 : <time class="date" title='最后更新: 2022-09-05 19:30:32'>2022-07-02 02:41</time>
         
     </div>
     <div class="article-meta">
@@ -530,117 +528,710 @@
         <h3 id="日期差值"><a href="#日期差值" class="headerlink" title="日期差值"></a>日期差值</h3><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>有两个日期，求两个日期之间的天数，如果两个日期是连续的我们规定他们之间的天数为两天</p>
 <h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>先上日期三板斧</p>
 <p>int保存日期，然后从后往前摩，逐次取出来年月日，然后先加年，再加月，再加日</p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">10010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> months[<span class="number">13</span>] = &#123;<span class="number">0</span>, <span class="number">31</span>, <span class="number">28</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">is_leap_year</span><span class="params">(<span class="type">int</span> year)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ((year % <span class="number">4</span> == <span class="number">0</span> &amp;&amp; year % <span class="number">100</span> != <span class="number">0</span>) || (year % <span class="number">400</span> == <span class="number">0</span>))</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">days_of_month</span><span class="params">(<span class="type">int</span> year, <span class="type">int</span> month)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> months[month] + <span class="built_in">is_leap_year</span>(year);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> date1, date2;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; date1 &gt;&gt; date2) &#123;</span><br><span class="line">        <span class="type">int</span> y1, d1, m1, d2, m2, y2;</span><br><span class="line">        d1 = date1 % <span class="number">100</span>;</span><br><span class="line">        date1 /= <span class="number">100</span>;</span><br><span class="line">        m1 = date1 % <span class="number">12</span>;</span><br><span class="line">        date1 /= <span class="number">100</span>;</span><br><span class="line">        y1 = date1;</span><br><span class="line"></span><br><span class="line">        d2 = date2 % <span class="number">100</span>;</span><br><span class="line">        date2 /= <span class="number">100</span>;</span><br><span class="line">        m2 = date2 % <span class="number">12</span>;</span><br><span class="line">        date2 /= <span class="number">100</span>;</span><br><span class="line">        y2 = date2;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> cha = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = y1; i &lt; y2; i++) &#123;</span><br><span class="line">            cha += <span class="number">365</span> + <span class="built_in">is_leap_year</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = m1; i &lt; m2; i++) &#123;</span><br><span class="line">            cha += months[i];</span><br><span class="line">        &#125;</span><br><span class="line">        cha += d2 - d1;</span><br><span class="line">        cout &lt;&lt; cha + <span class="number">1</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><pre><code class="cpp">#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;iostream&gt;
 
+using namespace std;
 
+const int N = 10010;
 
+const int months[13] = &#123;0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31&#125;;
+
+int is_leap_year(int year) &#123;
+    if ((year % 4 == 0 &amp;&amp; year % 100 != 0) || (year % 400 == 0))
+        return 1;
+    return 0;
+&#125;
+
+int days_of_month(int year, int month) &#123;
+    return months[month] + is_leap_year(year);
+&#125;
+
+int date1, date2;
+
+int main() &#123;
+    while (cin &gt;&gt; date1 &gt;&gt; date2) &#123;
+        int y1, d1, m1, d2, m2, y2;
+        d1 = date1 % 100;
+        date1 /= 100;
+        m1 = date1 % 12;
+        date1 /= 100;
+        y1 = date1;
+
+        d2 = date2 % 100;
+        date2 /= 100;
+        m2 = date2 % 12;
+        date2 /= 100;
+        y2 = date2;
+
+        int cha = 0;
+        for (int i = y1; i &lt; y2; i++) &#123;
+            cha += 365 + is_leap_year(i);
+        &#125;
+        for (int i = m1; i &lt; m2; i++) &#123;
+            cha += months[i];
+        &#125;
+        cha += d2 - d1;
+        cout &lt;&lt; cha + 1 &lt;&lt; endl;
+    &#125;
+    return 0;
+&#125;
+
+</code></pre>
 <h3 id="字母统计"><a href="#字母统计" class="headerlink" title="字母统计"></a>字母统计</h3><h4 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h4><p>输入一行字符串，计算其中A-Z大写字母出现的次数</p>
 <h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><p>char[1000] s;</p>
 <p>int n &#x3D; strlen(s);</p>
 <p>for(int i &#x3D; 0; i &lt; n;i ++)…</p>
 <p>定义map:</p>
 <p>map&lt;char,int&gt; m;</p>
-<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">char</span> s[<span class="number">1000</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>, s)) &#123;</span><br><span class="line">        map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; m;</span><br><span class="line">        <span class="type">int</span> n = <span class="built_in">strlen</span>(s);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s[i] &gt;= <span class="string">&#x27;A&#x27;</span> &amp;&amp; s[i] &lt;= <span class="string">&#x27;Z&#x27;</span>) &#123;</span><br><span class="line">                m[s[i]]++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="string">&#x27;A&#x27;</span>; i &lt;= <span class="string">&#x27;Z&#x27;</span>; i++) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%c:%d\n&quot;</span>, i, m[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
 
+using namespace std;
 
+int main() &#123;
+    char s[1000];
 
+    while (~scanf(&quot;%s&quot;, s)) &#123;
+        map&lt;char, int&gt; m;
+        int n = strlen(s);
+        for (int i = 0; i &lt; n; i++) &#123;
+            if (s[i] &gt;= &#39;A&#39; &amp;&amp; s[i] &lt;= &#39;Z&#39;) &#123;
+                m[s[i]]++;
+            &#125;
+        &#125;
+        for (int i = &#39;A&#39;; i &lt;= &#39;Z&#39;; i++) &#123;
+            printf(&quot;%c:%d\n&quot;, i, m[i]);
+        &#125;
+    &#125;
+    return 0;
+&#125;
+</code></pre>
 <h3 id="后缀子串排序"><a href="#后缀子串排序" class="headerlink" title="后缀子串排序"></a>后缀子串排序</h3><h4 id="题目-2"><a href="#题目-2" class="headerlink" title="题目"></a>题目</h4><p>对于一个字符串，将其后缀子串进行排序，例如grain 其子串有： grain rain ain in n 然后对各子串按字典顺序排序，即： ain,grain,in,n,rain</p>
 <h4 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h4><p>逐个把后缀压入vector，注意不要压入空字符串！！</p>
-<h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(string a, string b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a &lt; b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string s;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; s) &#123;</span><br><span class="line">        vector&lt;string&gt; vec;</span><br><span class="line">        <span class="type">int</span> n = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            vec.<span class="built_in">push_back</span>(s.<span class="built_in">substr</span>(n - i));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(vec.<span class="built_in">begin</span>(), vec.<span class="built_in">end</span>(), cmp);</span><br><span class="line">        <span class="type">int</span> m = vec.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; m; j++) &#123;</span><br><span class="line">            cout &lt;&lt; vec[j] &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h4><pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
 
+using namespace std;
 
+bool cmp(string a, string b) &#123;
+    return a &lt; b;
+&#125;
 
+int main() &#123;
+    string s;
+    while (cin &gt;&gt; s) &#123;
+        vector&lt;string&gt; vec;
+        int n = s.size();
+        for (int i = 1; i &lt;= n; i++) &#123;
+            vec.push_back(s.substr(n - i));
+        &#125;
+        sort(vec.begin(), vec.end(), cmp);
+        int m = vec.size();
+        for (int j = 0; j &lt; m; j++) &#123;
+            cout &lt;&lt; vec[j] &lt;&lt; endl;
+        &#125;
+    &#125;
+    return 0;
+&#125;
+</code></pre>
 <h3 id="筛质数："><a href="#筛质数：" class="headerlink" title="筛质数："></a>筛质数：</h3><p>从2到n遍历，如果当前数是质数，就把它的所有倍数都置为合数</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> st[N], primes[N], cnt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">get_primes</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!st[i]) &#123;  <span class="comment">//如果i是质数</span></span><br><span class="line">            primes[cnt++] = i;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">2</span> * i; j &lt;= n; j += i)</span><br><span class="line">                st[j] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="built_in">get_primes</span>(n);</span><br><span class="line">    cout &lt;&lt; cnt &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; cnt; i++) &#123;</span><br><span class="line">        cout &lt;&lt; primes[i] &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
 
+using namespace std;
 
+const int N = 1e6 + 10;
+int st[N], primes[N], cnt;
 
+void get_primes(int n) &#123;
+    for (int i = 2; i &lt;= n; i++) &#123;
+        if (!st[i]) &#123;  //如果i是质数
+            primes[cnt++] = i;
+            for (int j = 2 * i; j &lt;= n; j += i)
+                st[j] = true;
+        &#125;
+    &#125;
+&#125;
+
+int main() &#123;
+    int n;
+    cin &gt;&gt; n;
+    get_primes(n);
+    cout &lt;&lt; cnt &lt;&lt; endl;
+    for (int i = 0; i &lt; cnt; i++) &#123;
+        cout &lt;&lt; primes[i] &lt;&lt; endl;
+    &#125;
+    return 0;
+&#125;
+</code></pre>
 <h3 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h3><p>把k分解成二进制的形式，从后往前逐位的乘$a^{2^i}$</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> st[N], primes[N], cnt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// a ^ k % p</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">qmi</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> k, <span class="type">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (k) &#123;</span><br><span class="line">        <span class="keyword">if</span> (k &amp; <span class="number">1</span>)</span><br><span class="line">            res = (<span class="type">long</span> <span class="type">long</span>)res * a % p;</span><br><span class="line">        k &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        a = (<span class="type">long</span> <span class="type">long</span>)a * a % p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">while</span> (n--) &#123;</span><br><span class="line">        <span class="type">int</span> a, k, p;</span><br><span class="line">        cin &gt;&gt; a &gt;&gt; k &gt;&gt; p;</span><br><span class="line">        cout &lt;&lt; <span class="built_in">qmi</span>(a, k, p) &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
 
+using namespace std;
 
+const int N = 1e6 + 10;
+int st[N], primes[N], cnt;
 
+// a ^ k % p
+int qmi(int a, int k, int p) &#123;
+    int res = 1;
+    while (k) &#123;
+        if (k &amp; 1)
+            res = (long long)res * a % p;
+        k &gt;&gt;= 1;
+        a = (long long)a * a % p;
+    &#125;
+    return res;
+&#125;
+
+int main() &#123;
+    int n;
+    cin &gt;&gt; n;
+    while (n--) &#123;
+        int a, k, p;
+        cin &gt;&gt; a &gt;&gt; k &gt;&gt; p;
+        cout &lt;&lt; qmi(a, k, p) &lt;&lt; endl;
+    &#125;
+    return 0;
+&#125;
+</code></pre>
 <h3 id="整除问题"><a href="#整除问题" class="headerlink" title="整除问题"></a>整除问题</h3><h4 id="题目-3"><a href="#题目-3" class="headerlink" title="题目"></a>题目</h4><p>给定n，a求最大的k，使n！可以被a^k整除但不能被a^(k+1)整除。</p>
 <h4 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h4><p>把n!和a^k都分解成多项式的乘积的形式，然后看每个质因子的指数的倍数关系，最小的倍数就是k</p>
-<h4 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">//得到数n的质因子及其个数</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">getPrime</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; factors, <span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>; i*i&lt;=n; i++)&#123;</span><br><span class="line">		<span class="keyword">while</span>(n % i == <span class="number">0</span>)&#123;</span><br><span class="line">			factors[i]++;</span><br><span class="line">			n /= i;</span><br><span class="line">			<span class="keyword">if</span>(n &lt;= <span class="number">1</span>)</span><br><span class="line">				<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(n &gt; <span class="number">1</span>)</span><br><span class="line">		factors[n]++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> n, a;</span><br><span class="line">	<span class="keyword">while</span>(cin &gt;&gt; n &gt;&gt; a)&#123;</span><br><span class="line">		<span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">factor_a</span><span class="params">(<span class="number">1000</span>)</span>, <span class="title">factor_n</span><span class="params">(<span class="number">1000</span>)</span></span>;</span><br><span class="line">		<span class="built_in">getPrime</span>(factor_a, a);</span><br><span class="line">		<span class="comment">//计算阶乘的每一个数的质因子及其个数；并进行个数的累加</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>; i&lt;=n; i++)</span><br><span class="line">			<span class="built_in">getPrime</span>(factor_n, i);</span><br><span class="line">		<span class="type">int</span> k = <span class="number">1000</span>;</span><br><span class="line">		<span class="comment">//看2~n包含多少个对应的质因子</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>; i&lt;=a; i++)</span><br><span class="line">			<span class="keyword">if</span>(factor_a[i])</span><br><span class="line">				k = <span class="built_in">min</span>(k, factor_n[i]/factor_a[i]);</span><br><span class="line">		cout &lt;&lt; k &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h4><pre><code class="cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
 
+//得到数n的质因子及其个数
+void getPrime(vector&lt;int&gt;&amp; factors, int n)&#123;
+    for(int i=2; i*i&lt;=n; i++)&#123;
+        while(n % i == 0)&#123;
+            factors[i]++;
+            n /= i;
+            if(n &lt;= 1)
+                return;
+        &#125;
+    &#125;
+    if(n &gt; 1)
+        factors[n]++;
+&#125;
 
+int main()&#123;
+    int n, a;
+    while(cin &gt;&gt; n &gt;&gt; a)&#123;
+        vector&lt;int&gt; factor_a(1000), factor_n(1000);
+        getPrime(factor_a, a);
+        //计算阶乘的每一个数的质因子及其个数；并进行个数的累加
+        for(int i=2; i&lt;=n; i++)
+            getPrime(factor_n, i);
+        int k = 1000;
+        //看2~n包含多少个对应的质因子
+        for(int i=2; i&lt;=a; i++)
+            if(factor_a[i])
+                k = min(k, factor_n[i]/factor_a[i]);
+        cout &lt;&lt; k &lt;&lt; endl;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="高精度"><a href="#高精度" class="headerlink" title="高精度"></a>高精度</h3><pre><code class="java">import java.util.Scanner;
+import java.math.BigInteger;
 
-<h3 id="高精度"><a href="#高精度" class="headerlink" title="高精度"></a>高精度</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">import</span> java.math.BigInteger;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">sr</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="keyword">while</span>(sr.hasNext())&#123;</span><br><span class="line">            BigInteger a, b;</span><br><span class="line">            a = sr.nextBigInteger();</span><br><span class="line">            b = sr.nextBigInteger();</span><br><span class="line">            System.out.println(a.add(b));</span><br><span class="line">            System.out.println(a.substract(b));</span><br><span class="line">            System.out.println(a.multiply(b));</span><br><span class="line">            System.out.println(a.divided(b));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+public class Main&#123;
+    public static void main(String[] args)&#123;
+        Scanner sr = new Scanner(System.in);
+        while(sr.hasNext())&#123;
+            BigInteger a, b;
+            a = sr.nextBigInteger();
+            b = sr.nextBigInteger();
+            System.out.println(a.add(b));
+            System.out.println(a.substract(b));
+            System.out.println(a.multiply(b));
+            System.out.println(a.divided(b));
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="运算表达式"><a href="#运算表达式" class="headerlink" title="运算表达式*"></a>运算表达式*</h3><pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
 
+using namespace std;
 
+const int N = 1e5 + 10;
 
+int num[N];  // 数组模拟栈
+int a, b;
+char op[N];
 
+void calc() &#123;
+    int y = num[a--];
+    int x = num[a--];
+    char ope = op[b--];
 
-<h3 id="运算表达式"><a href="#运算表达式" class="headerlink" title="运算表达式*"></a>运算表达式*</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> num[N];  <span class="comment">// 数组模拟栈</span></span><br><span class="line"><span class="type">int</span> a, b;</span><br><span class="line"><span class="type">char</span> op[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">calc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> y = num[a--];</span><br><span class="line">    <span class="type">int</span> x = num[a--];</span><br><span class="line">    <span class="type">char</span> ope = op[b--];</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> res;</span><br><span class="line">    <span class="keyword">if</span> (ope == <span class="string">&#x27;+&#x27;</span>)</span><br><span class="line">        res = x + y;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (ope == <span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">        res = x - y;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (ope == <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">        res = x * y;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        res = x / y;</span><br><span class="line"></span><br><span class="line">    num[++a] = res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; pr = &#123;&#123;<span class="string">&#x27;+&#x27;</span>, <span class="number">1</span>&#125;, &#123;<span class="string">&#x27;-&#x27;</span>, <span class="number">1</span>&#125;, &#123;<span class="string">&#x27;*&#x27;</span>, <span class="number">2</span>&#125;, &#123;<span class="string">&#x27;/&#x27;</span>, <span class="number">2</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line">    string str;</span><br><span class="line">    cin &gt;&gt; str;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; str[i]; i++) &#123;</span><br><span class="line">        <span class="type">char</span> c = str[i];</span><br><span class="line">        <span class="keyword">if</span> (c == <span class="string">&#x27;(&#x27;</span>)</span><br><span class="line">            op[++b] = c;      <span class="comment">// 读入`(`</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">&#x27;)&#x27;</span>) &#123;  <span class="comment">// 读入`)`</span></span><br><span class="line">            <span class="keyword">while</span> (op[b] ^ <span class="string">&#x27;(&#x27;</span>)</span><br><span class="line">                <span class="built_in">calc</span>();</span><br><span class="line">            b--;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">isdigit</span>(c)) &#123;  <span class="comment">// 读入数字</span></span><br><span class="line">            <span class="type">int</span> j = i, res = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (str[j] &amp;&amp; <span class="built_in">isdigit</span>(str[j]))</span><br><span class="line">                res = res * <span class="number">10</span> + str[j++] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            num[++a] = res;</span><br><span class="line">            i = j - <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;  <span class="comment">// 读入运算符</span></span><br><span class="line">            <span class="keyword">while</span> (b <span class="keyword">and</span> pr[c] &lt;= pr[op[b]])<span class="comment">//把栈中所有优先级大于等于当前运算符的都计算完</span></span><br><span class="line">                <span class="built_in">calc</span>();</span><br><span class="line">            op[++b] = c;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (b)</span><br><span class="line">        <span class="built_in">calc</span>();  <span class="comment">// 读入结束，处理结果。</span></span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; num[a];  <span class="comment">// 输出结果。</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    int res;
+    if (ope == &#39;+&#39;)
+        res = x + y;
+    else if (ope == &#39;-&#39;)
+        res = x - y;
+    else if (ope == &#39;*&#39;)
+        res = x * y;
+    else
+        res = x / y;
 
+    num[++a] = res;
+&#125;
 
+int main() &#123;
+    unordered_map&lt;char, int&gt; pr = &#123;&#123;'+', 1&#125;, &#123;'-', 1&#125;, &#123;'*', 2&#125;, &#123;'/', 2&#125;&#125;;
 
-<h3 id="求连通分量的个数"><a href="#求连通分量的个数" class="headerlink" title="求连通分量的个数"></a>求连通分量的个数</h3><h4 id="dfs1"><a href="#dfs1" class="headerlink" title="dfs1"></a>dfs1</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line">vector&lt;<span class="type">int</span>&gt;g[<span class="number">1010</span>];</span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> vis[<span class="number">1010</span>];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    vis[x]=<span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> y:g[x])&#123;</span><br><span class="line">        <span class="keyword">if</span>(!vis[y])&#123;</span><br><span class="line">            <span class="built_in">dfs</span>(y);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    unordered_set&lt;<span class="type">int</span>&gt;st;</span><br><span class="line">    <span class="type">int</span> x,y;</span><br><span class="line">    <span class="keyword">while</span>(cin&gt;&gt;x&gt;&gt;y)&#123;</span><br><span class="line">        st.<span class="built_in">insert</span>(x);</span><br><span class="line">        st.<span class="built_in">insert</span>(y);</span><br><span class="line">        g[x].<span class="built_in">push_back</span>(y);</span><br><span class="line">        g[y].<span class="built_in">push_back</span>(x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> x:st)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!vis[x])&#123;</span><br><span class="line">            ans++;</span><br><span class="line">            <span class="built_in">dfs</span>(x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    string str;
+    cin &gt;&gt; str;
 
+    for (int i = 0; str[i]; i++) &#123;
+        char c = str[i];
+        if (c == &#39;(&#39;)
+            op[++b] = c;      // 读入`(`
+        else if (c == &#39;)&#39;) &#123;  // 读入`)`
+            while (op[b] ^ &#39;(&#39;)
+                calc();
+            b--;
+        &#125; else if (isdigit(c)) &#123;  // 读入数字
+            int j = i, res = 0;
+            while (str[j] &amp;&amp; isdigit(str[j]))
+                res = res * 10 + str[j++] - &#39;0&#39;;
+            num[++a] = res;
+            i = j - 1;
+        &#125; else &#123;  // 读入运算符
+            while (b and pr[c] &lt;= pr[op[b]])//把栈中所有优先级大于等于当前运算符的都计算完
+                calc();
+            op[++b] = c;
+        &#125;
+    &#125;
+    while (b)
+        calc();  // 读入结束，处理结果。
 
+    cout &lt;&lt; num[a];  // 输出结果。
+    return 0;
+&#125;
+</code></pre>
+<h3 id="求连通分量的个数"><a href="#求连通分量的个数" class="headerlink" title="求连通分量的个数"></a>求连通分量的个数</h3><h4 id="dfs1"><a href="#dfs1" class="headerlink" title="dfs1"></a>dfs1</h4><pre><code class="c++">#include &lt;bits/stdc++.h&gt;
 
-<h4 id="dfs2"><a href="#dfs2" class="headerlink" title="dfs2"></a>dfs2</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> h[N], e[N], ne[N], idx, st[N];</span><br><span class="line"><span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">    st[x] = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = h[x]; i != <span class="number">-1</span>; i = ne[i]) &#123;</span><br><span class="line">        <span class="type">int</span> j = e[i];</span><br><span class="line">        <span class="keyword">if</span> (st[j]) &#123;</span><br><span class="line">            <span class="built_in">dfs</span>(j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">    e[idx] = b, ne[idx] = h[a], h[a] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="type">int</span> a, b;</span><br><span class="line">    <span class="type">int</span> mx = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; a &gt;&gt; b) &#123;</span><br><span class="line">        mx = <span class="built_in">max</span>(<span class="built_in">max</span>(a, b), mx);</span><br><span class="line">        <span class="built_in">add</span>(a, b);</span><br><span class="line">        <span class="built_in">add</span>(b, a);</span><br><span class="line">        st[a] = <span class="literal">true</span>;</span><br><span class="line">        st[b] = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= mx; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (st[i]) &#123;</span><br><span class="line">            <span class="built_in">dfs</span>(i);</span><br><span class="line">            cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; cnt;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+using namespace std;
 
+vector&lt;int&gt;g[1010];
 
+bool vis[1010];
+void dfs(int x)&#123;
+    vis[x]=true;
+    for(int y:g[x])&#123;
+        if(!vis[y])&#123;
+            dfs(y);
+        &#125;
+    &#125;
+&#125;
 
-<h4 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="type">int</span> p[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p[x] != x)</span><br><span class="line">        p[x] = <span class="built_in">find</span>(p[x]);</span><br><span class="line">    <span class="keyword">return</span> p[x];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        p[i] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    set&lt;<span class="type">int</span>&gt; s;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; a &gt;&gt; b) &#123;</span><br><span class="line">        s.<span class="built_in">insert</span>(a);</span><br><span class="line">        s.<span class="built_in">insert</span>(b);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">find</span>(a) != <span class="built_in">find</span>(b)) &#123;</span><br><span class="line">            p[a] = <span class="built_in">find</span>(b);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> x : s) &#123;</span><br><span class="line">        <span class="keyword">if</span> (p[x] == x)</span><br><span class="line">            res++;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+int main()&#123;
+    unordered_set&lt;int&gt;st;
+    int x,y;
+    while(cin&gt;&gt;x&gt;&gt;y)&#123;
+        st.insert(x);
+        st.insert(y);
+        g[x].push_back(y);
+        g[y].push_back(x);
+    &#125;
+    int ans=0;
+    for(int x:st)&#123;
+        if(!vis[x])&#123;
+            ans++;
+            dfs(x);
+        &#125;
+    &#125;
+    cout&lt;&lt;ans;
+    return 0;
+&#125;
+</code></pre>
+<h4 id="dfs2"><a href="#dfs2" class="headerlink" title="dfs2"></a>dfs2</h4><pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
 
+using namespace std;
 
+const int N = 1e5 + 10;
 
-<h3 id="n-后面0的个数"><a href="#n-后面0的个数" class="headerlink" title="n!后面0的个数"></a>n!后面0的个数</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; n) &#123;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (n) &#123;</span><br><span class="line">            n /= <span class="number">5</span>;</span><br><span class="line">            res += n;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+int h[N], e[N], ne[N], idx, st[N];
+int cnt = 0;
 
+void dfs(int x) &#123;
+    st[x] = false;
+    for (int i = h[x]; i != -1; i = ne[i]) &#123;
+        int j = e[i];
+        if (st[j]) &#123;
+            dfs(j);
+        &#125;
+    &#125;
+&#125;
 
+void add(int a, int b) &#123;
+    e[idx] = b, ne[idx] = h[a], h[a] = idx++;
+&#125;
 
+int main() &#123;
+    memset(h, -1, sizeof h);
+    int a, b;
+    int mx = 0;
+    while (cin &gt;&gt; a &gt;&gt; b) &#123;
+        mx = max(max(a, b), mx);
+        add(a, b);
+        add(b, a);
+        st[a] = true;
+        st[b] = true;
+    &#125;
 
+    for (int i = 1; i &lt;= mx; i++) &#123;
+        if (st[i]) &#123;
+            dfs(i);
+            cnt++;
+        &#125;
+    &#125;
+    cout &lt;&lt; cnt;
+    return 0;
+&#125;
+</code></pre>
+<h4 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h4><pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
 
-<h3 id="最长上升子序列"><a href="#最长上升子序列" class="headerlink" title="最长上升子序列"></a>最长上升子序列</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">100010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (j &lt; n) &#123;</span><br><span class="line">        <span class="keyword">while</span> (a[j] &gt; a[j - <span class="number">1</span>])</span><br><span class="line">            j++;</span><br><span class="line">        res = <span class="built_in">max</span>(res, j - i);</span><br><span class="line">        i = j;</span><br><span class="line">        j++;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+const int N = 100010;
+int p[N];
 
+int find(int x) &#123;
+    if (p[x] != x)
+        p[x] = find(p[x]);
+    return p[x];
+&#125;
 
+int main() &#123;
+    int a, b;
+    for (int i = 0; i &lt; N; i++) &#123;
+        p[i] = i;
+    &#125;
+    set&lt;int&gt; s;
+    while (cin &gt;&gt; a &gt;&gt; b) &#123;
+        s.insert(a);
+        s.insert(b);
+        if (find(a) != find(b)) &#123;
+            p[a] = find(b);
+        &#125;
+    &#125;
+    int res = 0;
+    for (auto x : s) &#123;
+        if (p[x] == x)
+            res++;
+    &#125;
+    cout &lt;&lt; res &lt;&lt; endl;
+    return 0;
+&#125;
+</code></pre>
+<h3 id="n-后面0的个数"><a href="#n-后面0的个数" class="headerlink" title="n!后面0的个数"></a>n!后面0的个数</h3><pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
 
+using namespace std;
+
+int main() &#123;
+    int n;
+    while (cin &gt;&gt; n) &#123;
+        int res = 0;
+        while (n) &#123;
+            n /= 5;
+            res += n;
+        &#125;
+        cout &lt;&lt; res &lt;&lt; endl;
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<h3 id="最长上升子序列"><a href="#最长上升子序列" class="headerlink" title="最长上升子序列"></a>最长上升子序列</h3><pre><code class="cpp">
+
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+const int N = 100010;
+
+int a[N];
+
+int main() &#123;
+    int n;
+    cin &gt;&gt; n;
+    for (int i = 0; i &lt; n; i++) &#123;
+        cin &gt;&gt; a[i];
+    &#125;
+    int res = 0;
+    int i = 0, j = 1;
+    while (j &lt; n) &#123;
+        while (a[j] &gt; a[j - 1])
+            j++;
+        res = max(res, j - i);
+        i = j;
+        j++;
+    &#125;
+    cout &lt;&lt; res &lt;&lt; endl;
+    return 0;
+&#125;
+</code></pre>
 <p>最小面积子矩阵</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="type">int</span> n, m, k;</span><br><span class="line"><span class="type">int</span> a[N][N], s[N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m &gt;&gt; k;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; m; j++) &#123;</span><br><span class="line">            cin &gt;&gt; s[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; m; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span> &amp;&amp; j == <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (i == <span class="number">0</span>)</span><br><span class="line">                s[i][j] += s[i][j - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (j == <span class="number">0</span>)</span><br><span class="line">                s[i][j] += s[i - <span class="number">1</span>][j];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                s[i][j] = s[i][j] - s[i - <span class="number">1</span>][j - <span class="number">1</span>] + s[i][j - <span class="number">1</span>] + s[i - <span class="number">1</span>][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">10000</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; m; j++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> ii = <span class="number">0</span>; ii &lt;= i; ii++) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> jj = <span class="number">0</span>; jj &lt;= j; jj++) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (s[i][j] - s[i][jj] - s[ii][j] + s[ii][jj] &gt;= k) &#123;</span><br><span class="line">                        res = <span class="built_in">min</span>(res, (i - ii) * (j - jj));</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
 
+using namespace std;
 
+const int N = 110;
+int n, m, k;
+int a[N][N], s[N][N];
 
-<h3 id="取中值"><a href="#取中值" class="headerlink" title="取中值"></a>取中值</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1000100</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> p[N], q[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; p[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">        cin &gt;&gt; q[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> a, b, c, d;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b &gt;&gt; c &gt;&gt; d;</span><br><span class="line">    <span class="built_in">sort</span>(p + a - <span class="number">1</span>, p + b);</span><br><span class="line">    <span class="built_in">sort</span>(q + c - <span class="number">1</span>, q + d);</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; f;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = a - <span class="number">1</span>; i &lt; b; i++) &#123;</span><br><span class="line">        f.<span class="built_in">push_back</span>(p[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = c - <span class="number">1</span>; i &lt; d; i++) &#123;</span><br><span class="line">        f.<span class="built_in">push_back</span>(q[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(f.<span class="built_in">begin</span>(), f.<span class="built_in">end</span>());</span><br><span class="line">    cout &lt;&lt; f[f.<span class="built_in">size</span>() / <span class="number">2</span>] &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+int main() &#123;
+    cin &gt;&gt; n &gt;&gt; m &gt;&gt; k;
+    for (int i = 0; i &lt; n; i++) &#123;
+        for (int j = 0; j &lt; m; j++) &#123;
+            cin &gt;&gt; s[i][j];
+        &#125;
+    &#125;
+    for (int i = 0; i &lt; n; i++) &#123;
+        for (int j = 0; j &lt; m; j++) &#123;
+            if (i == 0 &amp;&amp; j == 0)
+                continue;
+            else if (i == 0)
+                s[i][j] += s[i][j - 1];
+            else if (j == 0)
+                s[i][j] += s[i - 1][j];
+            else
+                s[i][j] = s[i][j] - s[i - 1][j - 1] + s[i][j - 1] + s[i - 1][j];
+        &#125;
+    &#125;
+    int res = 10000;
+    for (int i = 0; i &lt; n; i++) &#123;
+        for (int j = 0; j &lt; m; j++) &#123;
+            for (int ii = 0; ii &lt;= i; ii++) &#123;
+                for (int jj = 0; jj &lt;= j; jj++) &#123;
+                    if (s[i][j] - s[i][jj] - s[ii][j] + s[ii][jj] &gt;= k) &#123;
+                        res = min(res, (i - ii) * (j - jj));
+                    &#125;
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+    cout &lt;&lt; res &lt;&lt; endl;
+    return 0;
+&#125;
+</code></pre>
+<h3 id="取中值"><a href="#取中值" class="headerlink" title="取中值"></a>取中值</h3><pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
 
+using namespace std;
 
+const int N = 1000100;
 
+int n, m;
+int p[N], q[N];
 
+int main() &#123;
+    cin &gt;&gt; n &gt;&gt; m;
+    for (int i = 0; i &lt; n; i++) &#123;
+        cin &gt;&gt; p[i];
+    &#125;
+    for (int i = 0; i &lt; m; i++) &#123;
+        cin &gt;&gt; q[i];
+    &#125;
+    int a, b, c, d;
+    cin &gt;&gt; a &gt;&gt; b &gt;&gt; c &gt;&gt; d;
+    sort(p + a - 1, p + b);
+    sort(q + c - 1, q + d);
+    vector&lt;int&gt; f;
+    for (int i = a - 1; i &lt; b; i++) &#123;
+        f.push_back(p[i]);
+    &#125;
+    for (int i = c - 1; i &lt; d; i++) &#123;
+        f.push_back(q[i]);
+    &#125;
+    sort(f.begin(), f.end());
+    cout &lt;&lt; f[f.size() / 2] &lt;&lt; endl;
+    return 0;
+&#125;
+</code></pre>
+<pre><code class="cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+int main()&#123;
+    string s;
+    while(getline(cin,s))&#123;
+        int index = s.find(&#39; &#39;);
+        int sum = 0;
+        bool flag = true;
+        while(index!=-1 &amp;&amp; index&lt;s.size())&#123;
+            string tmp = s.substr(0,index);
+            int t = 0;
+            for(int i=tmp.size()-1,c=1;i&gt;=0;--i,c*=10)&#123;
+                if(tmp[i]&gt;&#39;9&#39;||tmp[i]&lt;&#39;0&#39;)&#123;
+                    flag = false;
+                    break;
+                &#125;
+                t+=(tmp[i]-&#39;0&#39;)*c;
+            &#125;
+            if(!flag)&#123;
+                break;
+            &#125;
+            sum+=t;
+            s = s.substr(index+1);
+            index = s.find(&#39; &#39;);
+        &#125;
+        if(s.size()!=0)&#123;
+            for (int i = s.size() - 1, c = 1; i &gt;= 0;--i,c*=10)&#123;
+                if(s[i]&gt;&#39;9&#39;||s[i]&lt;&#39;0&#39;)&#123;
+                    flag = false;
+                    break;
+                &#125;
+                sum += (s[i] - &#39;0&#39;) * c;
+            &#125;
+        &#125;
+        if(!flag)&#123;
+            cout&lt;&lt;&quot;ERROR&quot;&lt;&lt;endl;
+        &#125;else&#123;
+            int a = sum/2;
+            int b = sum-a;
+            cout&lt;&lt;b&lt;&lt;&quot; &quot;&lt;&lt;a&lt;&lt;endl;
+        &#125;
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<h3 id="最长公共子序列"><a href="#最长公共子序列" class="headerlink" title="最长公共子序列"></a>最长公共子序列</h3><pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
 
+using namespace std;
 
-
-
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    string s;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">getline</span>(cin,s))&#123;</span><br><span class="line">        <span class="type">int</span> index = s.<span class="built_in">find</span>(<span class="string">&#x27; &#x27;</span>);</span><br><span class="line">        <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="type">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">while</span>(index!=<span class="number">-1</span> &amp;&amp; index&lt;s.<span class="built_in">size</span>())&#123;</span><br><span class="line">            string tmp = s.<span class="built_in">substr</span>(<span class="number">0</span>,index);</span><br><span class="line">            <span class="type">int</span> t = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=tmp.<span class="built_in">size</span>()<span class="number">-1</span>,c=<span class="number">1</span>;i&gt;=<span class="number">0</span>;--i,c*=<span class="number">10</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(tmp[i]&gt;<span class="string">&#x27;9&#x27;</span>||tmp[i]&lt;<span class="string">&#x27;0&#x27;</span>)&#123;</span><br><span class="line">                    flag = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                t+=(tmp[i]-<span class="string">&#x27;0&#x27;</span>)*c;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!flag)&#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            sum+=t;</span><br><span class="line">            s = s.<span class="built_in">substr</span>(index+<span class="number">1</span>);</span><br><span class="line">            index = s.<span class="built_in">find</span>(<span class="string">&#x27; &#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(s.<span class="built_in">size</span>()!=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = s.<span class="built_in">size</span>() - <span class="number">1</span>, c = <span class="number">1</span>; i &gt;= <span class="number">0</span>;--i,c*=<span class="number">10</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(s[i]&gt;<span class="string">&#x27;9&#x27;</span>||s[i]&lt;<span class="string">&#x27;0&#x27;</span>)&#123;</span><br><span class="line">                    flag = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                sum += (s[i] - <span class="string">&#x27;0&#x27;</span>) * c;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!flag)&#123;</span><br><span class="line">            cout&lt;&lt;<span class="string">&quot;ERROR&quot;</span>&lt;&lt;endl;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="type">int</span> a = sum/<span class="number">2</span>;</span><br><span class="line">            <span class="type">int</span> b = sum-a;</span><br><span class="line">            cout&lt;&lt;b&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;a&lt;&lt;endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="最长公共子序列"><a href="#最长公共子序列" class="headerlink" title="最长公共子序列"></a>最长公共子序列</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string s1, s2;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; s1 &gt;&gt; s2) &#123;</span><br><span class="line">        s1 = <span class="string">&quot; &quot;</span> + s1;</span><br><span class="line">        s2 = <span class="string">&quot; &quot;</span> + s2;</span><br><span class="line">        <span class="type">int</span> n = s1.<span class="built_in">size</span>(), m = s2.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(n, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(m));</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt; m; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (s1[i] == s2[j]) &#123;</span><br><span class="line">                    dp[i][j] = dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    dp[i][j] = <span class="built_in">max</span>(dp[i - <span class="number">1</span>][j], dp[i][j - <span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; dp[n - <span class="number">1</span>][m - <span class="number">1</span>] &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="Day-of-week"><a href="#Day-of-week" class="headerlink" title="Day of week"></a>Day of week</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> xq[<span class="number">5000</span>][<span class="number">20</span>][<span class="number">50</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">isLeap</span><span class="params">(<span class="type">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(y%<span class="number">4</span>==<span class="number">0</span>&amp;&amp;y%<span class="number">100</span>!=<span class="number">0</span>||y%<span class="number">400</span>==<span class="number">0</span>)<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> m2d[<span class="number">5</span>][<span class="number">20</span>]=&#123;&#123;<span class="number">0</span>,<span class="number">31</span>,<span class="number">28</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>&#125;,&#123;<span class="number">0</span>,<span class="number">31</span>,<span class="number">29</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>&#125;&#125;;</span><br><span class="line"><span class="type">int</span> y2d[<span class="number">5</span>]=&#123;<span class="number">365</span>,<span class="number">366</span>&#125;;</span><br><span class="line">string dayName[<span class="number">10</span>]=&#123;<span class="string">&quot;Sunday&quot;</span>,<span class="string">&quot;Monday&quot;</span>,<span class="string">&quot;Tuesday&quot;</span>,<span class="string">&quot;Wednesday&quot;</span>,<span class="string">&quot;Thursday&quot;</span>,<span class="string">&quot;Friday&quot;</span>,<span class="string">&quot;Saturday&quot;</span>&#125;;</span><br><span class="line">string monthName[<span class="number">20</span>]=&#123;<span class="string">&quot;&quot;</span>,<span class="string">&quot;January&quot;</span>,<span class="string">&quot;February&quot;</span>,<span class="string">&quot;March&quot;</span>,<span class="string">&quot;April&quot;</span>,<span class="string">&quot;May&quot;</span>,<span class="string">&quot;June&quot;</span>,<span class="string">&quot;July&quot;</span>,<span class="string">&quot;August&quot;</span>,<span class="string">&quot;September&quot;</span>,<span class="string">&quot;October&quot;</span>,<span class="string">&quot;November&quot;</span>,<span class="string">&quot;December&quot;</span>&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> d,m,y;</span><br><span class="line">    string mn;</span><br><span class="line">    <span class="type">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> y=<span class="number">1</span>;y&lt;=<span class="number">2100</span>;++y)&#123;</span><br><span class="line">        <span class="type">int</span> l=<span class="built_in">isLeap</span>(y);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> m=<span class="number">1</span>;m&lt;=<span class="number">12</span>;++m)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> d=<span class="number">1</span>;d&lt;=m2d[l][m];++d)&#123;</span><br><span class="line">                cnt++;</span><br><span class="line">                xq[y][m][d]=cnt%<span class="number">7</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    unordered_map&lt;string,<span class="type">int</span>&gt;mn2m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">12</span>;++i)&#123;</span><br><span class="line">        mn2m[monthName[i]]=i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(cin&gt;&gt;d&gt;&gt;mn&gt;&gt;y)&#123;</span><br><span class="line">        m=mn2m[mn];</span><br><span class="line">        cout&lt;&lt;dayName[xq[y][m][d]]&lt;&lt;<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
+int main() &#123;
+    string s1, s2;
+    while (cin &gt;&gt; s1 &gt;&gt; s2) &#123;
+        s1 = &quot; &quot; + s1;
+        s2 = &quot; &quot; + s2;
+        int n = s1.size(), m = s2.size();
+        vector&lt;vector&lt;int&gt;&gt; dp(n, vector&lt;int&gt;(m));
+        for (int i = 1; i &lt; n; i++) &#123;
+            for (int j = 1; j &lt; m; j++) &#123;
+                if (s1[i] == s2[j]) &#123;
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                &#125; else &#123;
+                    dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
+                &#125;
+            &#125;
+        &#125;
+        cout &lt;&lt; dp[n - 1][m - 1] &lt;&lt; endl;
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<h3 id="Day-of-week"><a href="#Day-of-week" class="headerlink" title="Day of week"></a>Day of week</h3><pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+int n;
+int xq[5000][20][50];
+int isLeap(int y)&#123;
+    if(y%4==0&amp;&amp;y%100!=0||y%400==0)return 1;
+    else return 0;
+&#125;
+int m2d[5][20]=&#123;&#123;0,31,28,31,30,31,30,31,31,30,31,30,31&#125;,&#123;0,31,29,31,30,31,30,31,31,30,31,30,31&#125;&#125;;
+int y2d[5]=&#123;365,366&#125;;
+string dayName[10]=&#123;&quot;Sunday&quot;,&quot;Monday&quot;,&quot;Tuesday&quot;,&quot;Wednesday&quot;,&quot;Thursday&quot;,&quot;Friday&quot;,&quot;Saturday&quot;&#125;;
+string monthName[20]=&#123;&quot;&quot;,&quot;January&quot;,&quot;February&quot;,&quot;March&quot;,&quot;April&quot;,&quot;May&quot;,&quot;June&quot;,&quot;July&quot;,&quot;August&quot;,&quot;September&quot;,&quot;October&quot;,&quot;November&quot;,&quot;December&quot;&#125;;
+int main()&#123;
+    int d,m,y;
+    string mn;
+    int cnt=0;
+    for(int y=1;y&lt;=2100;++y)&#123;
+        int l=isLeap(y);
+        for(int m=1;m&lt;=12;++m)&#123;
+            for(int d=1;d&lt;=m2d[l][m];++d)&#123;
+                cnt++;
+                xq[y][m][d]=cnt%7;
+            &#125;
+        &#125;
+    &#125;
+    unordered_map&lt;string,int&gt;mn2m;
+    for(int i=1;i&lt;=12;++i)&#123;
+        mn2m[monthName[i]]=i;
+    &#125;
+    while(cin&gt;&gt;d&gt;&gt;mn&gt;&gt;y)&#123;
+        m=mn2m[mn];
+        cout&lt;&lt;dayName[xq[y][m][d]]&lt;&lt;&#39;\n&#39;;
+    &#125;
+    return 0;
+&#125;
+</code></pre>
 <h3 id="最长公共子串"><a href="#最长公共子串" class="headerlink" title="最长公共子串"></a>最长公共子串</h3><p>垃圾用例，为啥用b的子串在a里find就只能过50%</p>
 <p>用a的子串在b里find就能ac</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string a, b;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; a &gt;&gt; b) &#123;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="type">bool</span> hit = <span class="literal">false</span>;</span><br><span class="line">        <span class="type">int</span> n = a.<span class="built_in">size</span>(), m = b.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = n; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j + i &lt;= n; j++) &#123;</span><br><span class="line">                <span class="type">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line">                string tmp = a.<span class="built_in">substr</span>(j, i);</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; tmp.<span class="built_in">size</span>(); k++) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (<span class="built_in">isdigit</span>(tmp[k]))</span><br><span class="line">                        flag = <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (flag &amp;&amp; b.<span class="built_in">find</span>(tmp) != b.npos) &#123;</span><br><span class="line">                    hit = <span class="literal">true</span>;</span><br><span class="line">                    res = tmp;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (hit)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
 
+int main() &#123;
+    string a, b;
+    while (cin &gt;&gt; a &gt;&gt; b) &#123;
+        string res;
+        bool hit = false;
+        int n = a.size(), m = b.size();
+        for (int i = n; i &gt;= 1; i--) &#123;
+            for (int j = 0; j + i &lt;= n; j++) &#123;
+                bool flag = true;
+                string tmp = a.substr(j, i);
+                for (int k = 0; k &lt; tmp.size(); k++) &#123;
+                    if (isdigit(tmp[k]))
+                        flag = false;
+                &#125;
 
+                if (flag &amp;&amp; b.find(tmp) != b.npos) &#123;
+                    hit = true;
+                    res = tmp;
+                    break;
+                &#125;
+            &#125;
+            if (hit)
+                break;
+        &#125;
+        cout &lt;&lt; res &lt;&lt; endl;
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<h3 id="玛雅人的密码"><a href="#玛雅人的密码" class="headerlink" title="玛雅人的密码"></a>玛雅人的密码</h3><pre><code class="cpp">#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+#include &lt;queue&gt;
 
+using namespace std;
 
+int n;
 
-<h3 id="玛雅人的密码"><a href="#玛雅人的密码" class="headerlink" title="玛雅人的密码"></a>玛雅人的密码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">bfs</span><span class="params">(string s)</span></span>&#123;</span><br><span class="line">    queue&lt;string&gt; q;</span><br><span class="line">    map&lt;string,<span class="type">int</span>&gt; dist;</span><br><span class="line">    q.<span class="built_in">push</span>(s);</span><br><span class="line">    dist[s] = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(q.<span class="built_in">size</span>())&#123;</span><br><span class="line">        string str = q.<span class="built_in">front</span>();</span><br><span class="line">        q.<span class="built_in">pop</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;n;i ++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(str.<span class="built_in">substr</span>(i,<span class="number">4</span>) == <span class="string">&quot;2012&quot;</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> dist[str];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i ++)&#123;</span><br><span class="line">            string r = str;</span><br><span class="line">            <span class="built_in">swap</span>(r[i],r[i - <span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">if</span>(!dist.<span class="built_in">count</span>(r))&#123;</span><br><span class="line">                q.<span class="built_in">push</span>(r);</span><br><span class="line">                dist[r] = dist[str] + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt;n;</span><br><span class="line">    string s;</span><br><span class="line">    cin &gt;&gt; s;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">bfs</span>(s);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+int bfs(string s)&#123;
+    queue&lt;string&gt; q;
+    map&lt;string,int&gt; dist;
+    q.push(s);
+    dist[s] = 0;
+    
+    while(q.size())&#123;
+        string str = q.front();
+        q.pop();
+        
+        for(int i = 0; i &lt;n;i ++)&#123;
+            if(str.substr(i,4) == &quot;2012&quot;)&#123;
+                return dist[str];
+            &#125;
+        &#125;
+        
+        for(int i = 1; i &lt; n; i ++)&#123;
+            string r = str;
+            swap(r[i],r[i - 1]);
+            if(!dist.count(r))&#123;
+                q.push(r);
+                dist[r] = dist[str] + 1;
+            &#125;
+        &#125;
+     &#125;
+     return -1;
+&#125;
 
+int main()&#123;
+    cin &gt;&gt;n;
+    string s;
+    cin &gt;&gt; s;
+    cout &lt;&lt; bfs(s);
+    return 0;
+&#125;
+</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
