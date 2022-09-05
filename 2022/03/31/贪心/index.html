@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zhangchenqi123.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"zhangchenqi123.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="贪心算法（英语：greedy algorithm），是用计算机来模拟一个“贪心”的人做出决策的过程。这个人十分贪婪，每一步行动总是按某种指标选取最优的操作。而且他目光短浅，总是只看眼前，并不考虑以后可能造成的影响。 可想而知，并不是所有的时候贪心法都能获得最优解，所以一般使用贪心法的时候，都要确保自己能证明其正确性。">
@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220305102933.png">
 <meta property="article:published_time" content="2022-03-31T05:22:19.000Z">
-<meta property="article:modified_time" content="2022-03-31T12:08:02.491Z">
+<meta property="article:modified_time" content="2022-04-10T14:35:33.437Z">
 <meta property="article:author" content="zcq">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -107,6 +107,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -123,24 +124,51 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">5</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">2</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">21</span></a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -181,15 +209,22 @@
         </h1>
 
         <div class="post-meta">
+            
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-03-31 13:22:19 / 修改时间：20:08:02" itemprop="dateCreated datePublished" datetime="2022-03-31T13:22:19+08:00">2022-03-31</time>
+              <time title="创建时间：2022-03-31 13:22:19" itemprop="dateCreated datePublished" datetime="2022-03-31T13:22:19+08:00">2022-03-31</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-10 22:35:33" itemprop="dateModified" datetime="2022-04-10T22:35:33+08:00">2022-04-10</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -214,6 +249,31 @@
         <p>贪心算法（英语：greedy algorithm），是用计算机来模拟一个“贪心”的人做出决策的过程。这个人十分贪婪，每一步行动总是按某种指标选取最优的操作。而且他目光短浅，总是只看眼前，并不考虑以后可能造成的影响。</p>
 <p>可想而知，并不是所有的时候贪心法都能获得最优解，所以一般使用贪心法的时候，都要确保自己能证明其正确性。</p>
 <span id="more"></span>
+
+<h2 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h2><h3 id="1660-社交距离-II"><a href="#1660-社交距离-II" class="headerlink" title="1660. 社交距离 II "></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1662/">1660. 社交距离 II </a></h3><h4 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h4><p>在社交距离为R内的牛会被互相感染</p>
+<p>R未知</p>
+<p>要找到最少的母体数量</p>
+<p><strong>输入格式</strong></p>
+<p>输入的第一行包含 N。</p>
+<p>以下 N 行每行用两个整数 x 和 s 描述一头奶牛，其中 x 为位置，s 为 0 表示健康的奶牛，1 表示染病的奶牛，并且所有可能因传播而染病的奶牛均已染病。</p>
+<p><strong>输出格式</strong></p>
+<p>输出在疾病开始传播之前已经得病的奶牛的最小数量。</p>
+<p><strong>数据范围</strong></p>
+<p>1≤N≤1000,</p>
+<p>0≤x≤106</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">输入样例：</span><br><span class="line"></span><br><span class="line">6</span><br><span class="line"></span><br><span class="line">7 1</span><br><span class="line"></span><br><span class="line">1 1</span><br><span class="line"></span><br><span class="line">15 1</span><br><span class="line"></span><br><span class="line">3 1</span><br><span class="line"></span><br><span class="line">10 0</span><br><span class="line"></span><br><span class="line">6 1</span><br><span class="line"></span><br><span class="line">输出样例：</span><br><span class="line"></span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>先找到$R_{min}$,它一定 &lt; $min$({两只牛的距离 | 其中两头牛一头被感染一头未被感染 })</p>
+<p>要想让母体最少，那么就让R尽可能的大，最大取到$R_{min}$</p>
+<p>注：若$R_{min}$的求法是 $R &#x3D; min$(R,q[i].x - q[i - 1].x),那么$R_{min}$最后求出来的是等于最小的距离，而不是小于</p>
+<p>此时我们要将R - 1</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> x first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> y second</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; PII;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line">PII q[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++ ) cin &gt;&gt; q[i].x &gt;&gt; q[i].y;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">sort</span>(q, q + n);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> R = <span class="number">1e8</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i ++ )</span><br><span class="line">        <span class="keyword">if</span> (q[i].y != q[i - <span class="number">1</span>].y)</span><br><span class="line">            R = <span class="built_in">min</span>(R, q[i].x - q[i - <span class="number">1</span>].x);</span><br><span class="line"></span><br><span class="line">    R -- ;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++ )</span><br><span class="line">        <span class="keyword">if</span> (q[i].y)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> j = i + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (j &lt; n &amp;&amp; q[j].y &amp;&amp; q[j].x - q[j - <span class="number">1</span>].x &lt;= R)</span><br><span class="line">                j ++ ;</span><br><span class="line">            res ++ ;</span><br><span class="line">            i = j - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
 
 <h3 id="55-连续子数组的最大和"><a href="#55-连续子数组的最大和" class="headerlink" title="55. 连续子数组的最大和"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/50/">55. 连续子数组的最大和</a></h3><p>输入一个 <strong>非空</strong> 整型数组，数组里的数可能为正，也可能为负。</p>
 <p>数组中一个或连续的多个整数组成一个子数组。</p>
@@ -256,7 +316,7 @@
 <li>这样求出的组数就是最小值。</li>
 </ul>
 <p>双指针的i,j分别从头和尾走，只走一遍，所以复杂度为O(n)</p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码:"></a>代码:</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">30010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> w[N];</span><br><span class="line"><span class="type">bool</span> st[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; m &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++ ) cin &gt;&gt; w[i];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">sort</span>(w, w + n);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>, j = n - <span class="number">1</span>; i &lt; n; i ++ )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (st[i]) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">while</span> (j &gt;= i &amp;&amp; (st[j] || w[i] + w[j] &gt; m)) j -- ;</span><br><span class="line">        st[i] = st[j] = <span class="literal">true</span>;</span><br><span class="line">        res ++ ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码:"></a>代码:</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">30010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> w[N];</span><br><span class="line"><span class="type">bool</span> st[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; m &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++ ) cin &gt;&gt; w[i];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">sort</span>(w, w + n);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>, j = n - <span class="number">1</span>; i &lt; n; i ++ )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (st[i]) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">while</span> (j &gt;= i &amp;&amp; (st[j] || w[i] + w[j] &gt; m)) j -- ;</span><br><span class="line">        st[i] = st[j] = <span class="literal">true</span>;</span><br><span class="line">        res ++ ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -277,7 +337,7 @@
 
 
 
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
+<h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><ul>
 <li>当n&#x3D;2的时候，无疑是选在中间任意位置，所以可以排序后两两看成一对，所以要让仓库的左边的商店数量和右面的商店数量相等。</li>
 <li>所以，仓库应该选在中位数的位置。</li>
 </ul>
@@ -287,9 +347,25 @@
 
 
 
+<h3 id="1478-喝饮料"><a href="#1478-喝饮料" class="headerlink" title="1478 - 喝饮料"></a><a target="_blank" rel="noopener" href="https://www.noobdream.com/DreamJudge/Issue/page/1478/#">1478 - 喝饮料</a></h3><h4 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h4><p>商店里有n中饮料，第i种饮料有mi毫升，价格为wi。</p>
+<p>小明现在手里有x元，他想吃尽量多的饮料，于是向你寻求帮助，怎么样买才能吃的最多。</p>
+<p>请注意，每一种饮料都可以只买一部分。</p>
+<h4 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">233 6 </span><br><span class="line">6 1</span><br><span class="line">23 66</span><br><span class="line">32 23</span><br><span class="line">66 66</span><br><span class="line">1 5</span><br><span class="line">8 5</span><br><span class="line">-1 -1</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例:"></a>输出样例:</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">136.000</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="区间问题"><a href="#区间问题" class="headerlink" title="区间问题"></a>区间问题</h2><h3 id="问题1：区间选点"><a href="#问题1：区间选点" class="headerlink" title="问题1：区间选点"></a>问题1：区间选点</h3><p>给定 N 个闭区间 [ai,bi]，请你在数轴上选择尽量少的点，使得每个区间内至少包含一个选出的点。</p>
+
+<h4 id="思路-2"><a href="#思路-2" class="headerlink" title="思路:"></a>思路:</h4><p>先按照单价从小到大排序，然后从小到大买，如果大于价格，则全买，如果小于价格，则能买多少卖多少</p>
+<h4 id="代码：-1"><a href="#代码：-1" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span> &#123;</span><br><span class="line">    <span class="type">double</span> w, m;</span><br><span class="line">&#125; p[<span class="number">1005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(node a, node b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.w / a.m &lt; b.w / b.m;  <span class="comment">//按单价从小到大排序</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">10010</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, x;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;x, &amp;n) != EOF) &#123;</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="number">-1</span> &amp;&amp; n == <span class="number">-1</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%lf%lf&quot;</span>, &amp;p[i].m, &amp;p[i].w);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(p, p + n, cmp);</span><br><span class="line">        <span class="type">double</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (x &gt;= p[i].w) &#123;</span><br><span class="line">                ans += p[i].m;</span><br><span class="line">                x -= p[i].w;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                ans += p[i].m * x / p[i].w;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%.3lf\n&quot;</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="贪心-区间问题"><a href="#贪心-区间问题" class="headerlink" title="贪心-区间问题"></a>贪心-区间问题</h2><h3 id="905-区间选点"><a href="#905-区间选点" class="headerlink" title="905. 区间选点"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/907/">905. 区间选点</a></h3><p>给定 N 个闭区间 [ai,bi]，请你在数轴上选择尽量少的点，使得每个区间内至少包含一个选出的点。</p>
 <img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220305102933.png" alt="image-20220305102933715" style="zoom:50%;" />
 
 <p><strong>思路：</strong></p>
@@ -301,11 +377,11 @@
 
 
 
-<h3 id="问题2：-最大不相交区间数量、"><a href="#问题2：-最大不相交区间数量、" class="headerlink" title="问题2： 最大不相交区间数量、"></a>问题2： 最大不相交区间数量、</h3><p>给定 N 个闭区间 [ai,bi]，请你在数轴上选择若干区间，使得选中的区间之间互不相交（包括端点）。</p>
+<h3 id="908-最大不相交区间数量"><a href="#908-最大不相交区间数量" class="headerlink" title="908. 最大不相交区间数量"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/910/">908. 最大不相交区间数量</a></h3><p>给定 N 个闭区间 [ai,bi]，请你在数轴上选择若干区间，使得选中的区间之间互不相交（包括端点）。</p>
 <p>输出可选取区间的最大数量。</p>
 <p><strong>思路：</strong></p>
 <p>跟问题1完全一样</p>
-<h3 id="问题3：区间分组"><a href="#问题3：区间分组" class="headerlink" title="问题3：区间分组"></a>问题3：区间分组</h3><p>给定 N 个闭区间 [ai,bi]，请你将这些区间分成若干组，使得每组内部的区间两两之间（包括端点）没有交集，并使得组数尽可能小。</p>
+<h3 id="906-区间分组"><a href="#906-区间分组" class="headerlink" title="906. 区间分组"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/908/">906. 区间分组</a></h3><p>给定 N 个闭区间 [ai,bi]，请你将这些区间分成若干组，使得每组内部的区间两两之间（包括端点）没有交集，并使得组数尽可能小。</p>
 <p>输出最小组数。</p>
 <p><strong>思路：</strong></p>
 <ol>
@@ -321,7 +397,7 @@
 
 
 
-<h3 id="问题4：区间覆盖"><a href="#问题4：区间覆盖" class="headerlink" title="问题4：区间覆盖"></a>问题4：区间覆盖</h3><p>给定 N 个闭区间 [ai,bi] 以及一个线段区间 [s,t]，请你选择尽量少的区间，将指定线段区间完全覆盖。</p>
+<h3 id="907-区间覆盖"><a href="#907-区间覆盖" class="headerlink" title="907. 区间覆盖"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/909/">907. 区间覆盖</a></h3><p>给定 N 个闭区间 [ai,bi] 以及一个线段区间 [s,t]，请你选择尽量少的区间，将指定线段区间完全覆盖。</p>
 <p>输出最少区间数，如果无法完全覆盖则输出 −1。</p>
 <p><strong>思路：</strong></p>
 <ol>
@@ -335,6 +411,21 @@
 
 
 <h4 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a><strong>源代码</strong></h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> x first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> y second</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; PII;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line">PII p[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++ )cin &gt;&gt; p[i].x &gt;&gt; p[i].y;</span><br><span class="line">    <span class="built_in">sort</span>(p, p + n);</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//枚举删除的区间i</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++)&#123;</span><br><span class="line">        <span class="comment">//sum是去掉第i个区间后，剩余区间最大的覆盖范围</span></span><br><span class="line">        <span class="comment">//st是枚举到当合并区间的左端点，ed是枚举到当前合并区间的右端点</span></span><br><span class="line">        <span class="type">int</span> sum = <span class="number">0</span>, st = <span class="number">-1</span>, ed = <span class="number">-1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; n;j ++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(j != i)&#123;</span><br><span class="line">                <span class="comment">//当前j区间的左端点在当前融合区间的右端点的左边，则可以融合j区间，更新当前融合区间的右端点</span></span><br><span class="line">                <span class="keyword">if</span>(p[j].x &lt;= ed) ed = <span class="built_in">max</span>(ed, p[j].y);</span><br><span class="line">                <span class="comment">//否则开辟一个新的融合区间，并将上一个融合区间的覆盖范围加入到sum里</span></span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    sum += ed - st;</span><br><span class="line">                    st = p[j].x, ed = p[j].y;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//加上最后一个融合区间</span></span><br><span class="line">        sum += ed - st;</span><br><span class="line">        res = <span class="built_in">max</span>(res, sum);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="110-防晒"><a href="#110-防晒" class="headerlink" title="110. 防晒"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/112/">110. 防晒</a></h3><p>有 CC 头奶牛进行日光浴，第 ii 头奶牛需要 minSPF[i]minSPF[i] 到 maxSPF[i]maxSPF[i] 单位强度之间的阳光。</p>
+<p>每头奶牛在日光浴前必须涂防晒霜，防晒霜有 LL 种，涂上第 ii 种之后，身体接收到的阳光强度就会稳定为 SPF[i]SPF[i]，第 ii 种防晒霜有 cover[i]cover[i] 瓶。</p>
+<p>求最多可以满足多少头奶牛进行日光浴。</p>
+<h4 id="输入格式-2"><a href="#输入格式-2" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行输入整数 C 和 L。</p>
+<p>接下来的 C 行，按次序每行输入一头牛的 minSPF 和 maxSPF 值，即第 i 行输入 minSPF[i] 和 maxSPF[i]。</p>
+<p>再接下来的 L 行，按次序每行输入一种防晒霜的 SPF 和 cover 值，即第 i 行输入 SPF[i] 和 cover[i]。</p>
+<p>每行的数据之间用空格隔开。</p>
+<h4 id="输出格式-2"><a href="#输出格式-2" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出一个整数，代表最多可以满足奶牛日光浴的奶牛数目。</p>
+<h4 id="数据范围-3"><a href="#数据范围-3" class="headerlink" title="数据范围"></a>数据范围</h4><p>1≤C,L≤2500<br>1≤minSPF≤maxSPF≤1000<br>1≤SPF≤1000</p>
+<h4 id="输入样例：-2"><a href="#输入样例：-2" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">3 2</span><br><span class="line">3 10</span><br><span class="line">2 5</span><br><span class="line">1 5</span><br><span class="line">6 2</span><br><span class="line">4 1</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例：-2"><a href="#输出样例：-2" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
 
 
 
@@ -421,7 +512,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#55-%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C"><span class="nav-number">1.</span> <span class="nav-text">55. 连续子数组的最大和</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4"><span class="nav-number">1.1.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B"><span class="nav-number">1.2.</span> <span class="nav-text">样例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#430-%E7%BA%AA%E5%BF%B5%E5%93%81%E5%88%86%E7%BB%84"><span class="nav-number">2.</span> <span class="nav-text">430. 纪念品分组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-1"><span class="nav-number">2.3.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A"><span class="nav-number">2.4.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A"><span class="nav-number">2.5.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E6%9E%90%EF%BC%9A"><span class="nav-number">2.6.</span> <span class="nav-text">分析：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">2.7.</span> <span class="nav-text">代码:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#104-%E8%B4%A7%E4%BB%93%E9%80%89%E5%9D%80"><span class="nav-number">3.</span> <span class="nav-text">104. 货仓选址</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-1"><span class="nav-number">3.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-1"><span class="nav-number">3.2.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-2"><span class="nav-number">3.3.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A-1"><span class="nav-number">3.4.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A-1"><span class="nav-number">3.5.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">4.</span> <span class="nav-text">思路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="nav-number">4.1.</span> <span class="nav-text">代码：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E9%97%B4%E9%97%AE%E9%A2%98"><span class="nav-number"></span> <span class="nav-text">区间问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%981%EF%BC%9A%E5%8C%BA%E9%97%B4%E9%80%89%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">问题1：区间选点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%982%EF%BC%9A-%E6%9C%80%E5%A4%A7%E4%B8%8D%E7%9B%B8%E4%BA%A4%E5%8C%BA%E9%97%B4%E6%95%B0%E9%87%8F%E3%80%81"><span class="nav-number">2.</span> <span class="nav-text">问题2： 最大不相交区间数量、</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%983%EF%BC%9A%E5%8C%BA%E9%97%B4%E5%88%86%E7%BB%84"><span class="nav-number">3.</span> <span class="nav-text">问题3：区间分组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%984%EF%BC%9A%E5%8C%BA%E9%97%B4%E8%A6%86%E7%9B%96"><span class="nav-number">4.</span> <span class="nav-text">问题4：区间覆盖</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="nav-number">4.1.</span> <span class="nav-text">源代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%AA%E5%BF%83"><span class="nav-number">1.</span> <span class="nav-text">贪心</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1660-%E7%A4%BE%E4%BA%A4%E8%B7%9D%E7%A6%BB-II"><span class="nav-number">1.1.</span> <span class="nav-text">1660. 社交距离 II </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%A4%A7%E6%84%8F"><span class="nav-number">1.1.1.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">1.1.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.1.3.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#55-%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C"><span class="nav-number">1.2.</span> <span class="nav-text">55. 连续子数组的最大和</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4"><span class="nav-number">1.2.1.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B"><span class="nav-number">1.2.2.</span> <span class="nav-text">样例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#430-%E7%BA%AA%E5%BF%B5%E5%93%81%E5%88%86%E7%BB%84"><span class="nav-number">1.3.</span> <span class="nav-text">430. 纪念品分组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.3.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.3.2.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-1"><span class="nav-number">1.3.3.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A"><span class="nav-number">1.3.4.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A"><span class="nav-number">1.3.5.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E6%9E%90%EF%BC%9A"><span class="nav-number">1.3.6.</span> <span class="nav-text">分析：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="nav-number">1.3.7.</span> <span class="nav-text">代码:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#104-%E8%B4%A7%E4%BB%93%E9%80%89%E5%9D%80"><span class="nav-number">1.4.</span> <span class="nav-text">104. 货仓选址</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-1"><span class="nav-number">1.4.2.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-2"><span class="nav-number">1.4.3.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A-1"><span class="nav-number">1.4.4.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A-1"><span class="nav-number">1.4.5.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-1"><span class="nav-number">1.4.6.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="nav-number">1.4.7.</span> <span class="nav-text">代码：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1478-%E5%96%9D%E9%A5%AE%E6%96%99"><span class="nav-number">1.5.</span> <span class="nav-text">1478 - 喝饮料</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A"><span class="nav-number">1.5.1.</span> <span class="nav-text">题目：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B"><span class="nav-number">1.5.2.</span> <span class="nav-text">输入样例:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B"><span class="nav-number">1.5.3.</span> <span class="nav-text">输出样例:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-2"><span class="nav-number">1.5.4.</span> <span class="nav-text">思路:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A-1"><span class="nav-number">1.5.5.</span> <span class="nav-text">代码：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%AA%E5%BF%83-%E5%8C%BA%E9%97%B4%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">贪心-区间问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#905-%E5%8C%BA%E9%97%B4%E9%80%89%E7%82%B9"><span class="nav-number">2.1.</span> <span class="nav-text">905. 区间选点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#908-%E6%9C%80%E5%A4%A7%E4%B8%8D%E7%9B%B8%E4%BA%A4%E5%8C%BA%E9%97%B4%E6%95%B0%E9%87%8F"><span class="nav-number">2.2.</span> <span class="nav-text">908. 最大不相交区间数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#906-%E5%8C%BA%E9%97%B4%E5%88%86%E7%BB%84"><span class="nav-number">2.3.</span> <span class="nav-text">906. 区间分组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#907-%E5%8C%BA%E9%97%B4%E8%A6%86%E7%9B%96"><span class="nav-number">2.4.</span> <span class="nav-text">907. 区间覆盖</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="nav-number">2.4.1.</span> <span class="nav-text">源代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#110-%E9%98%B2%E6%99%92"><span class="nav-number">2.5.</span> <span class="nav-text">110. 防晒</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-2"><span class="nav-number">2.5.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-2"><span class="nav-number">2.5.2.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-3"><span class="nav-number">2.5.3.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A-2"><span class="nav-number">2.5.4.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A-2"><span class="nav-number">2.5.5.</span> <span class="nav-text">输出样例：</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -435,26 +526,44 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhangchenqi123" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhangchenqi123" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1149440709@qq.com" title="E-Mail → mailto:1149440709@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
 
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://zhangchenqi123.github.io/" title="http:&#x2F;&#x2F;zhangchenqi123.github.io">Title</a>
+        </li>
+    </ul>
+  </div>
 
       </div>
 
@@ -481,7 +590,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">zcq</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
         
@@ -507,7 +616,7 @@
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>
@@ -518,6 +627,10 @@
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 
