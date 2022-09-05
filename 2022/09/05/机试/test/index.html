@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>思维题 | 端点星</title>
-  <meta name="keywords" content=" 算法 ">
-  <meta name="description" content="思维题 | 端点星">
+  <title>test | 端点星</title>
+  <meta name="keywords" content=" 算法 , 模拟 ">
+  <meta name="description" content="test | 端点星">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="about">
@@ -466,9 +466,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-思维题" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-机试/test" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">思维题</h1>
+        <h1 class="article-title">test</h1>
     
     <div class="article-meta">
         
@@ -478,7 +478,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="算法">算法</a>
+            <a  data-rel="sjtu机试">sjtu机试</a>
             
         </span>
         
@@ -488,17 +488,19 @@
             
             <a class="color3">算法</a>
             
+            <a class="color3">模拟</a>
+            
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-04-10 22:46:13'>2022-03-31 13:22</time>
+            发布时间 : <time class="date" title='最后更新: 2022-09-05 20:10:31'>2022-09-05 20:08</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:177</span>
+        <span>字数:4</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -528,7 +530,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1696-%E5%9B%B0%E7%89%9B%E6%8E%92%E5%BA%8F"><span class="toc-text">1696. 困牛排序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E5%A4%A7%E6%84%8F%EF%BC%9A"><span class="toc-text">题目大意：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A"><span class="toc-text">思路：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="toc-text">代码：</span></a></li></ol></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -544,13 +546,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>所用算法较难想出来</p>
-<span id="more"></span>
-
-<h3 id="1696-困牛排序"><a href="#1696-困牛排序" class="headerlink" title="1696. 困牛排序"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1698/">1696. 困牛排序</a></h3><h4 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h4><p>一个无序数组，每次只能把第一个数字插入到后面某个位置，问最少几次能把数组变得有序</p>
-<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><p>要把整个数组变成升序，就要把最后一个降序也变成升序，所以从后往前找到第一个降序</p>
-<h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> q[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ ) cin &gt;&gt; q[i];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = n - <span class="number">1</span>; i; i -- )</span><br><span class="line">        <span class="keyword">if</span> (q[i] &gt; q[i + <span class="number">1</span>])</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; endl;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="number">0</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <p>12312</p>
+<p>3121231</p>
+<p>23123</p>
+<p>123</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1149440709@qq.com </span>
