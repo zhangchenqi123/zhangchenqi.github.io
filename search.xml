@@ -4,13 +4,27 @@
   
     
     <entry>
-      <title></title>
+      <title>00_如何通过文献掌握学术动态</title>
       <link href="/2022/09/08/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/Else/"/>
       <url>/2022/09/08/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/Else/</url>
       
-        <content type="html"><![CDATA[<p>Google Scholar还提供高级检索功能，我比较常见的功能包括：</p><ul><li>按作者搜索：author:”DM Blei”，可以搜索指定作者的相关论文；</li><li>按发表期刊&#x2F;会议搜索：source:”Nature”，可以搜索发表在指定期刊&#x2F;会议的相关论文；</li><li>按标题出现关键词搜索：allintitle:”latent dirichlet allocation”，可以搜索在标题出现某些关键词的论文；</li><li>搜索引擎常用的and、or和””均支持，其中””表示按引号中的字符串完整搜索。</li></ul><h1 id="01-如何读论文"><a href="#01-如何读论文" class="headerlink" title="01 如何读论文"></a>01 如何读论文</h1><p>阅读论文也不必需要每篇都从头到尾看完。一篇学术论文通常包括以下结构，我们用序号来标记建议的阅读顺序：</p><ul><li>题目（1）</li><li>摘要（2）</li><li>正文：导论（3）、相关工作（6）、本文工作（5）、实验结果（4）、结论（7）</li><li>参考文献（6）</li><li>附录</li></ul><p>按照这个顺序，基本在读完题目和摘要后，大致可以判断这篇论文与自己研究课题的相关性，然后就可以决定是否要精读导论和实验结果判断学术价值，是否阅读本文工作了解方法细节。此外，如果希望了解相关工作和未来工作，则可以有针对性地阅读“相关工作”和“结论”等部分。</p><h1 id="02-好的研究想法从哪里来"><a href="#02-好的研究想法从哪里来" class="headerlink" title="02 好的研究想法从哪里来"></a>02 好的研究想法从哪里来</h1><p>什么才是好的想法呢？我理解这个”好“字，至少有两个层面的意义。</p><h2 id="什么是好"><a href="#什么是好" class="headerlink" title="什么是好"></a>什么是好</h2><h3 id="学科发展角度的”好“"><a href="#学科发展角度的”好“" class="headerlink" title="学科发展角度的”好“"></a>学科发展角度的”好“</h3><p>学术研究本质是对未知领域的探索，是对开放问题的答案的追寻。所以从推动学科发展的角度，评判什么是好的研究想法的标准，首先就在一个“<strong>新</strong>”字。</p><p>过去有个说法，人工智能学科有个魔咒，凡是人工智能被解决（或者有解决方案）的部分，就不再被认为代表“人类智能”。计算机视觉、自然语言处理、机器学习、机器人之所以还被列为人工智能主要方向，也许正是因为它们尚未被解决，尚能代表“人类智能”的尊严。而我们要开展创新研究，就是要提出新的想法解决这些问题。这其中的”新“字，可以体现在提出新的问题和任务，探索新的解决思路，提出新的算法技术，实现新的工具系统等。</p><p>在保证”新“的基础上，研究想法好不好，那就看它<strong>对推动学科发展的助力有多大</strong>。深度学习之所以拥有如此显赫的影响力，就在于它对于人工智能自然语言处理、语音识别、计算机视觉等各重要方向都产生了革命性的影响，彻底改变了对无结构信号（语音、图像、文本）的语义表示的技术路线。</p><h3 id="研究实践角度的”好“"><a href="#研究实践角度的”好“" class="headerlink" title="研究实践角度的”好“"></a>研究实践角度的”好“</h3><p>那是不是想法只要够”新“就好呢？是不是越新越好呢？我认为应该还不是。因为，只有<strong>能做得出来的想法</strong>才有资格被分析好不好。所以，从研究实践角度，还需要考虑研究想法的<strong>可实现性</strong>和<strong>可验证性。</strong></p><p>可实现性，体现在该想法是否有足够的数学或机器学习工具支持实现。可验证性，体现在该想法是否有合适的数据集合和广泛接受的评价标准。很多民间科学家的想法之所以得不到学术界的认同，就是因为这些想法往往缺乏可实现性和可验证性，只停留在天马行空的纸面，只是些虚无缥缈的理念。</p><h2 id="好的研究想法从哪里来"><a href="#好的研究想法从哪里来" class="headerlink" title="好的研究想法从哪里来"></a>好的研究想法从哪里来</h2><p>想法好还是不好，并不是非黑即白的二分问题，而是像光谱一样呈连续分布，因时而异，因人而宜。计算机科技领域的发展既有积累的过程，也有跃迁的奇点，积累量变才会产生质变，吃第三个馒头饱了，也是因为前面两个馒头打底。</p><p>现在的学术研究已经成为高度专业化的职业，有庞大的研究者群体。”Publish or Perish“，是从事学术职业（如教授、研究员、研究生）的人必须做好平衡的事情，不能要求研究者的每份工作都是“诺贝尔奖”或“图灵奖”级的才值得发表。只要对研究领域的发展有所助力，就值得发表出来，帮助同行前进。鲁迅说：天才并不是自生自长在深林荒野里的怪物，是由可以使天才生长的民众产生，长育出来的，所以没有这种民众，就没有天才。这个庞大研究者群体正是天才成长的群众基础。同时，学术新人也是在开展创新研究训练中，不断磨砺寻找好想法能力，鲁迅也说：即使天才，在生下来的时候的第一声啼哭，也和平常的儿童的一样，决不会就是一首好诗。</p><p>那么，好的研究想法从哪里来呢？我总结，首先要有区分研究想法好与不好的能力，这需要<strong>深入全面了解所在研究方向的历史与现状</strong>，具体就是对学科文献的全面掌握。人是最善于学习的动物，完全可以将既有文献中不同时期研究工作的想法作为学习对象，通过了解它们提出后对学科发展的影响——具体体现在论文引用、学术评价情况等各方面——建立对研究想法好与不好的评价模型。我们很难条分缕析完美地列出区分好与不好想法的所有特征向量，但人脑强大的学习能力，只要给予足够的输入数据，就可以在神经网络中自动学习建立判别的模型，鉴古知今，见微知著，这也许就是常说的学术洞察力。</p><p>做过一些研究的同学会有感受，仅阅读自己研究方向的文献，新想法还是不会特别多。这是因为，读到的都是该研究问题已经完成时的想法，它们本身无法启发新的想法。如何产生新的想法呢？我总结有三种可行的基本途径：</p><p><strong>实践法</strong>。即在研究任务上实现已有最好的算法，通过分析实验结果，例如发现这些算法计算复杂度特别高、训练收敛特别慢，或者发现该算法的错误样例呈现明显的规律，都可以启发你改进已有算法的思路。现在很多自然语言处理任务的Leaderboard上的最新算法，就是通过分析错误样例来有针对性改进算法的 [1]。</p><p><strong>类比法</strong>。即将研究问题与其他任务建立类比联系，调研其他相似任务上最新的有效思想、算法或工具，通过合理的转换迁移，运用到当前的研究问题上来。例如，当初注意力机制在神经网络机器翻译中大获成功，当时主要是在词级别建立注意力，后来我们课题组的林衍凯和沈世奇提出建立句子级别的注意力解决关系抽取的远程监督训练数据的标注噪音问题 [2]，这就是一种类比的做法。</p><p><strong>组合法</strong>。即将新的研究问题分解为若干已被较好解决的子问题，通过有机地组合这些子问题上的最好做法，建立对新的研究问题的解决方案。例如，我们提出的融合知识图谱的预训练语言模型，就是将BERT和TransE等已有算法融合起来建立的新模型 [3]。</p><p>正如武侠中的最高境界是无招胜有招，好的研究想法并不拘泥于以上的路径，很多时候是在研究者对研究问题深刻认知的基础上，综合丰富的研究阅历和聪明才智产生”顿悟“的结果。这对初学者而言恐怕还很难一窥门径，需要从基本功做起，经过大量科研实践训练后，才能有登堂入室之感。</p><p>在科研实践过程中，除了通过大量文献阅读了解历史，通过深入思考总结产生洞察力外，还有一项必不可少的工作，那就是主动开放的学术交流和合作意识。不同研究领域思想和成果交流碰撞，既为创新思想提供了新的来源，也为”类比“和”顿悟“提供了机会。了解一下历史就可以知晓，人工智能的提出，就是数学、计算机科学、控制论、信息论、脑科学等学科交叉融合的产物。而当红的深度学习的起源，1980年代的Parallel Distributed Processing （PDP），也是计算机科学、脑认知科学、心理学、生物学等领域研究者通力合作的产物。</p>]]></content>
+        <content type="html"><![CDATA[<p>本文是对<a href="https://github.com/zibuyu/research_tao/blob/master/09_undergraduate_training.md%E7%9A%84%E6%91%98%E6%8A%84">https://github.com/zibuyu/research_tao/blob/master/09_undergraduate_training.md的摘抄</a></p><p>Google Scholar还提供高级检索功能，我比较常见的功能包括：</p><ul><li>按作者搜索：author:”DM Blei”，可以搜索指定作者的相关论文；</li><li>按发表期刊&#x2F;会议搜索：source:”Nature”，可以搜索发表在指定期刊&#x2F;会议的相关论文；</li><li>按标题出现关键词搜索：allintitle:”latent dirichlet allocation”，可以搜索在标题出现某些关键词的论文；</li><li>搜索引擎常用的and、or和””均支持，其中””表示按引号中的字符串完整搜索。</li></ul><h1 id="01-如何读论文"><a href="#01-如何读论文" class="headerlink" title="01 如何读论文"></a>01 如何读论文</h1><p>阅读论文也不必需要每篇都从头到尾看完。一篇学术论文通常包括以下结构，我们用序号来标记建议的阅读顺序：</p><ul><li>题目（1）</li><li>摘要（2）</li><li>正文：导论（3）、相关工作（6）、本文工作（5）、实验结果（4）、结论（7）</li><li>参考文献（6）</li><li>附录</li></ul><p>按照这个顺序，基本在读完题目和摘要后，大致可以判断这篇论文与自己研究课题的相关性，然后就可以决定是否要精读导论和实验结果判断学术价值，是否阅读本文工作了解方法细节。此外，如果希望了解相关工作和未来工作，则可以有针对性地阅读“相关工作”和“结论”等部分。</p><h1 id="02-好的研究想法从哪里来"><a href="#02-好的研究想法从哪里来" class="headerlink" title="02 好的研究想法从哪里来"></a>02 好的研究想法从哪里来</h1><p>什么才是好的想法呢？我理解这个”好“字，至少有两个层面的意义。</p><h2 id="什么是好"><a href="#什么是好" class="headerlink" title="什么是好"></a>什么是好</h2><h3 id="学科发展角度的”好“"><a href="#学科发展角度的”好“" class="headerlink" title="学科发展角度的”好“"></a>学科发展角度的”好“</h3><p>学术研究本质是对未知领域的探索，是对开放问题的答案的追寻。所以从推动学科发展的角度，评判什么是好的研究想法的标准，首先就在一个“<strong>新</strong>”字。</p><p>过去有个说法，人工智能学科有个魔咒，凡是人工智能被解决（或者有解决方案）的部分，就不再被认为代表“人类智能”。计算机视觉、自然语言处理、机器学习、机器人之所以还被列为人工智能主要方向，也许正是因为它们尚未被解决，尚能代表“人类智能”的尊严。而我们要开展创新研究，就是要提出新的想法解决这些问题。这其中的”新“字，可以体现在提出新的问题和任务，探索新的解决思路，提出新的算法技术，实现新的工具系统等。</p><p>在保证”新“的基础上，研究想法好不好，那就看它<strong>对推动学科发展的助力有多大</strong>。深度学习之所以拥有如此显赫的影响力，就在于它对于人工智能自然语言处理、语音识别、计算机视觉等各重要方向都产生了革命性的影响，彻底改变了对无结构信号（语音、图像、文本）的语义表示的技术路线。</p><h3 id="研究实践角度的”好“"><a href="#研究实践角度的”好“" class="headerlink" title="研究实践角度的”好“"></a>研究实践角度的”好“</h3><p>那是不是想法只要够”新“就好呢？是不是越新越好呢？我认为应该还不是。因为，只有<strong>能做得出来的想法</strong>才有资格被分析好不好。所以，从研究实践角度，还需要考虑研究想法的<strong>可实现性</strong>和<strong>可验证性。</strong></p><p>可实现性，体现在该想法是否有足够的数学或机器学习工具支持实现。可验证性，体现在该想法是否有合适的数据集合和广泛接受的评价标准。很多民间科学家的想法之所以得不到学术界的认同，就是因为这些想法往往缺乏可实现性和可验证性，只停留在天马行空的纸面，只是些虚无缥缈的理念。</p><h2 id="好的研究想法从哪里来"><a href="#好的研究想法从哪里来" class="headerlink" title="好的研究想法从哪里来"></a>好的研究想法从哪里来</h2><p>想法好还是不好，并不是非黑即白的二分问题，而是像光谱一样呈连续分布，因时而异，因人而宜。计算机科技领域的发展既有积累的过程，也有跃迁的奇点，积累量变才会产生质变，吃第三个馒头饱了，也是因为前面两个馒头打底。</p><p>现在的学术研究已经成为高度专业化的职业，有庞大的研究者群体。”Publish or Perish“，是从事学术职业（如教授、研究员、研究生）的人必须做好平衡的事情，不能要求研究者的每份工作都是“诺贝尔奖”或“图灵奖”级的才值得发表。只要对研究领域的发展有所助力，就值得发表出来，帮助同行前进。鲁迅说：天才并不是自生自长在深林荒野里的怪物，是由可以使天才生长的民众产生，长育出来的，所以没有这种民众，就没有天才。这个庞大研究者群体正是天才成长的群众基础。同时，学术新人也是在开展创新研究训练中，不断磨砺寻找好想法能力，鲁迅也说：即使天才，在生下来的时候的第一声啼哭，也和平常的儿童的一样，决不会就是一首好诗。</p><p>那么，好的研究想法从哪里来呢？我总结，首先要有区分研究想法好与不好的能力，这需要<strong>深入全面了解所在研究方向的历史与现状</strong>，具体就是对学科文献的全面掌握。人是最善于学习的动物，完全可以将既有文献中不同时期研究工作的想法作为学习对象，通过了解它们提出后对学科发展的影响——具体体现在论文引用、学术评价情况等各方面——建立对研究想法好与不好的评价模型。我们很难条分缕析完美地列出区分好与不好想法的所有特征向量，但人脑强大的学习能力，只要给予足够的输入数据，就可以在神经网络中自动学习建立判别的模型，鉴古知今，见微知著，这也许就是常说的学术洞察力。</p><p>做过一些研究的同学会有感受，仅阅读自己研究方向的文献，新想法还是不会特别多。这是因为，读到的都是该研究问题已经完成时的想法，它们本身无法启发新的想法。如何产生新的想法呢？我总结有三种可行的基本途径：</p><p><strong>实践法</strong>。即在研究任务上实现已有最好的算法，通过分析实验结果，例如发现这些算法计算复杂度特别高、训练收敛特别慢，或者发现该算法的错误样例呈现明显的规律，都可以启发你改进已有算法的思路。现在很多自然语言处理任务的Leaderboard上的最新算法，就是通过分析错误样例来有针对性改进算法的 [1]。</p><p><strong>类比法</strong>。即将研究问题与其他任务建立类比联系，调研其他相似任务上最新的有效思想、算法或工具，通过合理的转换迁移，运用到当前的研究问题上来。例如，当初注意力机制在神经网络机器翻译中大获成功，当时主要是在词级别建立注意力，后来我们课题组的林衍凯和沈世奇提出建立句子级别的注意力解决关系抽取的远程监督训练数据的标注噪音问题 [2]，这就是一种类比的做法。</p><p><strong>组合法</strong>。即将新的研究问题分解为若干已被较好解决的子问题，通过有机地组合这些子问题上的最好做法，建立对新的研究问题的解决方案。例如，我们提出的融合知识图谱的预训练语言模型，就是将BERT和TransE等已有算法融合起来建立的新模型 [3]。</p><p>正如武侠中的最高境界是无招胜有招，好的研究想法并不拘泥于以上的路径，很多时候是在研究者对研究问题深刻认知的基础上，综合丰富的研究阅历和聪明才智产生”顿悟“的结果。这对初学者而言恐怕还很难一窥门径，需要从基本功做起，经过大量科研实践训练后，才能有登堂入室之感。</p><p>在科研实践过程中，除了通过大量文献阅读了解历史，通过深入思考总结产生洞察力外，还有一项必不可少的工作，那就是主动开放的学术交流和合作意识。不同研究领域思想和成果交流碰撞，既为创新思想提供了新的来源，也为”类比“和”顿悟“提供了机会。了解一下历史就可以知晓，人工智能的提出，就是数学、计算机科学、控制论、信息论、脑科学等学科交叉融合的产物。而当红的深度学习的起源，1980年代的Parallel Distributed Processing （PDP），也是计算机科学、脑认知科学、心理学、生物学等领域研究者通力合作的产物。</p>]]></content>
       
       
+      <categories>
+          
+          <category> 论文 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 论文 </tag>
+            
+            <tag> 论文笔记 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -26,7 +40,7 @@
       
       <categories>
           
-          <category> 论文笔记 </category>
+          <category> 论文 </category>
           
       </categories>
       
@@ -61,14 +75,12 @@
       <link href="/2022/09/08/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/01_ScaleHLS/"/>
       <url>/2022/09/08/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/01_ScaleHLS/</url>
       
-        <content type="html"><![CDATA[<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><h2 id="问题提出"><a href="#问题提出" class="headerlink" title="问题提出"></a>问题提出</h2><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><h2 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h2><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h2 id="性能评估"><a href="#性能评估" class="headerlink" title="性能评估"></a>性能评估</h2><h2 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2>]]></content>
+        <content type="html"><![CDATA[<p>会议信息：</p><h2 id="论文信息"><a href="#论文信息" class="headerlink" title="论文信息"></a>论文信息</h2><p><em>[Submitted on 24 Jul 2021 (*<a href="https://arxiv.org/abs/2107.11673v1">v1</a></em>), last revised 22 Dec 2021 (this version, v4)]*</p><p>HPCA（High Performance Computer Architecture），既高性能计算架构会议是体系结构&#x2F;高性能计算领域最重要的学术会议之一，基本上都是最顶尖的研究小组在上面发文章。HPCA为CCF A类，Core Conference Ranking A*类会议，H-5指数53，Impace Score 6.93，录取率常年在20%左右。该会议历史悠久，几十年的举办历史中，国内只13年在深圳举办一次，绝大多数举办地在美国。</p><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="HLS-High-level-synthesis-高级综合"><a href="#HLS-High-level-synthesis-高级综合" class="headerlink" title="HLS: High-level synthesis 高级综合"></a>HLS: High-level synthesis 高级综合</h3><p>在传统的FPGA开发过程中，一般的流程是：编写verilog代码，功能仿真，生成可执行文件，上板调试，采集数据，进行分析，释放版本。但是这个流程中，功能仿真会占用大部分的时间，尤其是现在的算法越来越复杂，如果按照上述流程操作，开发周期会越来越长，需要经过更长时间的仿真和调试，那么是否有一种方法来解决这个问题？</p><p>于是提出了HLS，借助他，我们可以使用高级编程语言，实现对FPGA的功能模块的开发，这帮助解决算法的实现，利用算法工程师实现硬件难以描述的算法，从而节约了开发时间。它聚焦算法的快速迭代和功能的实现，在软件环境中直接进行功能仿真，并与硬件仿真无缝集成。</p><p><a href="https://blog.csdn.net/weixin_49617016/article/details/108005982">高级综合（high-level-synthesis，HLS）：软件算法在FPGA上实现硬件加速的综合工具</a></p><p><a href="https://www.elecfans.com/d/1474291.html">高层次综合技术（High-level synthesis）的概念</a></p><p><a href="https://www.bilibili.com/video/BV1TU4y1u7oW?spm_id_from=333.337.search-card.all.click&vd_source=3945e3962fa714687a283b476b79aa64">基于Intel FPGA的HLS开发流程</a></p><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><h2 id="问题提出"><a href="#问题提出" class="headerlink" title="问题提出"></a>问题提出</h2><p>现有的研究工作和解决方案在处理包含大量的子模块和复杂的相互依赖关系的大规模HLS设计方面面临重大困难，主要体现在3个方面：</p><ol><li>Representation: 现有的用来表示和分析HLS设计的方法值包含一个操作级别的抽象，但是HLS优化可以在不同的抽象级别或跨抽象级别上执行，直接组合来自不同框架的不同级别的表示可能会导致碎片化和不一致的跨级别优化。我们认为，我们应该有一个系统的方法来在多个抽象层次上表示HLS设计。</li><li>Optinization: 现有的工作把很多重要的HLS优化留给了人工设计员来进行代码重写，这种方法不够高效和可扩展，不足以处理大型HLS设计，并可能阻碍综合DSE。我们认为HLS优化应该完全自动化而不是依赖人工重写代码，这个优化应该在多个不同的抽象级别上自动执行。</li><li>Exploration: 传统的编译器领域，每项优化技术的参数通常由一个成本模型决定，表名参数组合的收益。但是HLS设计中，由于不同的HLS优化的效果相互关联（或冲突），我们不能把一个优化之间的收益隔离来看。为了解决这个问题，一个全局的DSE引擎需要考虑跨不同抽象层次的所有HLS优化。</li></ol><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><h2 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h2><p>现有的HLS工具通常提供用户指定的指令来控制或指导HLS过程以生成不同的微架构，这意味着工具将依赖设计人员编写“好”代码和设置“好”指令，以实现良好设计质量的</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h2 id="性能评估"><a href="#性能评估" class="headerlink" title="性能评估"></a>性能评估</h2><h2 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2>]]></content>
       
       
       <categories>
           
-          <category> 论文笔记 </category>
-          
-          <category> MLIR </category>
+          <category> 论文 </category>
           
       </categories>
       
@@ -79,6 +91,8 @@
             
             <tag> 论文笔记 </tag>
             
+            <tag> MLIR </tag>
+            
         </tags>
       
     </entry>
@@ -86,26 +100,25 @@
     
     
     <entry>
-      <title></title>
-      <link href="/2022/09/08/MLIR/MLIR%E5%85%A5%E9%97%A8/"/>
-      <url>/2022/09/08/MLIR/MLIR%E5%85%A5%E9%97%A8/</url>
+      <title>00_MLIR简介</title>
+      <link href="/2022/09/08/MLIR/MLIR%E7%AE%80%E4%BB%8B/"/>
+      <url>/2022/09/08/MLIR/MLIR%E7%AE%80%E4%BB%8B/</url>
       
-        <content type="html"><![CDATA[<h2 id="一、MLIR简介"><a href="#一、MLIR简介" class="headerlink" title="一、MLIR简介"></a>一、MLIR简介</h2><p>下面这张图分为高级编程语言和机器学习框架两个部分。</p><p>以C语言为例，在编译阶段，会由前端Clang编译生成抽象语法树（AST），AST之后会被转换成LLVM IR,再转换成机器码，在指定的机器上运行。值得注意的是，C语言在转换成LLVM IR之前，不会进行特定语言的优化，程序的优化，主要集中在LLVM IR阶段，它会丢失很多信息，也会带来优化不充分的问题。</p><p>Java语言不会生成AST，而是创建属于自己语言的IR，也有自己的优化空间。</p><p>Swift语言转换成AST之后，也会创建自己语言的IR，这种方式也被Rust等语言采用。</p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220908085612.png" alt="常见的IR表示系统" style="zoom:80%;" /><p>随着IR种类的增多，会存在一些问题：</p><ol><li>针对不同种类的IR开发的Pass优化可能重复，也就是不同的IR的同类Pass不兼容，针对新的IR编写同类的Pass需要重新学习IR语法，门槛过高</li><li>不同类型的IR所做的Pass优化在下一层中不可见，各种IR都想在当前层中优化做的更好，这就会导致优化的重复，导致效率偏低。</li><li>不同类型IR间转换开销大，从图IR到LLVM IR直接转换存在较大的开销，比如从图IR转换到LLVM IR 。</li></ol><p>TensorFlow团队提出了MLIR，它希望作为一种编译器的基础设施，将编译流程中的各个层次的IR进行统一的表示，降低新加入的前端语言或是后端硬件构建编译器的成本，帮助现在已有的编译器连接在一起，进行复用。</p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220908093613.png" alt="TensorFlow团队提出了MLIR" style="zoom:67%;" /><p>MLIR中最重要的概念是它的Dialect方言系统。</p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220908093955.png" alt="image-20220908093954990" style="zoom: 33%;" /><p>Dialect其实是表示一种层次的IR</p><h2 id="02-Toy接入MLIR"><a href="#02-Toy接入MLIR" class="headerlink" title="02 Toy接入MLIR"></a>02 Toy接入MLIR</h2><p>Toy语言是为了验证LLVM，MLIR系统的可行性而开发的，就像它 的名字，玩具语言。它具有tensor,数组,这种基本类型，以及常见的函数功能，和少量的内置函数，如转置函数。</p><h2 id="03-Dialect及Operation详解"><a href="#03-Dialect及Operation详解" class="headerlink" title="03 Dialect及Operation详解"></a>03 Dialect及Operation详解</h2><h2 id="04-表达式变形"><a href="#04-表达式变形" class="headerlink" title="04 表达式变形"></a>04 表达式变形</h2><h2 id="05-Lowering的过程"><a href="#05-Lowering的过程" class="headerlink" title="05 Lowering的过程"></a>05 Lowering的过程</h2>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/2022/09/06/LLVM/Learn_LLVM_01/01_LLVM%E4%BB%8B%E7%BB%8D/"/>
-      <url>/2022/09/06/LLVM/Learn_LLVM_01/01_LLVM%E4%BB%8B%E7%BB%8D/</url>
-      
-        <content type="html"><![CDATA[<p>LLVM是一个伞形项目，它托管并开发了一组紧密相连的低级工具链组件，它旨在设计得与Unix系统上现有的通常使用的工具兼容，LLVM曾经是Low Level Virtual Machine的首字母简称，但现在仅是这个项目的名称。LLVM提供了很多著名的工具（例如Clang compiler，一个 C&#x2F;C++&#x2F;Objective-C 编译器，它和GCC相比有很多好处），但是LLVM和其他编译器最大的差别它内部的架构。</p><p>从 2000 年 12 月开始，LLVM 被设计为一组具有良好定义接口的可重用库</p><p>cmake ..\llvm -G “Visual Studio 17 2022” -Tv142 -A win32  -DLLVM_ENABLE_PROJECTS&#x3D;mlir -DLLVM_BUILD_EXAMPLES&#x3D;ON -DLLVM_TARGETS_TO_BUILD&#x3D;”host” -DCMAKE_BUILD_TYPE&#x3D;Release -Thost&#x3D;x64 -DCMAKE_BUILD_TYPE&#x3D;Release -DLLVM_ENABLE_ASSERTIONS&#x3D;ON</p><pre><code class="bat">cmake ..\llvm -G &quot;Visual Studio 17 2022 Win64&quot; -DLLVM_ENABLE_PROJECTS=mlir -DLLVM_BUILD_EXAMPLES=ON -DLLVM_TARGETS_TO_BUILD=&quot;host&quot; -DCMAKE_BUILD_TYPE=Release -Thost=x64 -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_ASSERTIONS=ON</code></pre><pre><code class="bash">cmake -G &quot;Visual Studio 17 2022&quot; -A x64 ../llvm</code></pre><p>换源</p><p><a href="https://blog.csdn.net/wangyijieonline/article/details/105360138">https://blog.csdn.net/wangyijieonline/article/details/105360138</a></p><p>安装cmake</p><p>sudo apt install cmake</p><p>安装gcc</p><p>sudo apt install gcc</p><p>检查python3的版本</p><p>python3 –version</p><p>安装zlib</p><p>sudo apt-get install zlib1g-dev</p><p>安装gnu-make</p><p>apt-get install make</p><p>No CMAKE_CXX_COMPILER could be found.</p><p>Tell CMake where to find the compiler by setting either the environment<br>variable “CXX” or the CMake cache entry CMAKE_CXX_COMPILER to the full path<br>to the compiler, or to the compiler name if it is in the PATH.</p><p>解决方法：</p><p>sudo apt-get update<br>sudo apt-get install -y build-essential</p><p>检查版本：</p><p>llvm-objdump –version tr</p><p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220908161203.png" alt="image-20220908161201996"></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="一、MLIR简介"><a href="#一、MLIR简介" class="headerlink" title="一、MLIR简介"></a>一、MLIR简介</h2><p>下面这张图分为高级编程语言和机器学习框架两个部分。</p><p>以C语言为例，在编译阶段，会由前端Clang编译生成抽象语法树（AST），AST之后会被转换成LLVM IR,再转换成机器码，在指定的机器上运行。值得注意的是，C语言在转换成LLVM IR之前，不会进行特定语言的优化，程序的优化，主要集中在LLVM IR阶段，它会丢失很多信息，也会带来优化不充分的问题。</p><p>Java语言不会生成AST，而是创建属于自己语言的IR，也有自己的优化空间。</p><p>Swift语言转换成AST之后，也会创建自己语言的IR，这种方式也被Rust等语言采用。</p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220908085612.png" alt="常见的IR表示系统" style="zoom:80%;" /><p>随着IR种类的增多，会存在一些问题：</p><ol><li>针对不同种类的IR开发的Pass优化可能重复，也就是不同的IR的同类Pass不兼容，针对新的IR编写同类的Pass需要重新学习IR语法，门槛过高</li><li>不同类型的IR所做的Pass优化在下一层中不可见，各种IR都想在当前层中优化做的更好，这就会导致优化的重复，导致效率偏低。</li><li>不同类型IR间转换开销大，从图IR到LLVM IR直接转换存在较大的开销，比如从图IR转换到LLVM IR 。</li></ol><p>TensorFlow团队提出了MLIR，它希望作为一种编译器的基础设施，将编译流程中的各个层次的IR进行统一的表示，降低新加入的前端语言或是后端硬件构建编译器的成本，帮助现在已有的编译器连接在一起，进行复用。</p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220908093613.png" alt="TensorFlow团队提出了MLIR" style="zoom:67%;" /><p>MLIR中最重要的概念是它的Dialect方言系统。</p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220908093955.png" alt="image-20220908093954990" style="zoom: 33%;" /><p>Dialect其实是表示一种层次的IR</p><h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>待续…</p>]]></content>
       
       
+      <categories>
+          
+          <category> MLIR </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MLIR </tag>
+            
+        </tags>
       
     </entry>
     
