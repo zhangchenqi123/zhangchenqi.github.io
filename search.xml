@@ -216,60 +216,6 @@
     
     
     <entry>
-      <title>00_如何通过文献掌握学术动态</title>
-      <link href="/2022/09/08/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/Else/"/>
-      <url>/2022/09/08/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/Else/</url>
-      
-        <content type="html"><![CDATA[<p>本文是对<a href="https://github.com/zibuyu/research_tao/blob/master/09_undergraduate_training.md">刘知远老师的文章</a> 的摘抄</p><p>Google Scholar还提供高级检索功能，我比较常见的功能包括：</p><ul><li>按作者搜索：author:”DM Blei”，可以搜索指定作者的相关论文；</li><li>按发表期刊&#x2F;会议搜索：source:”Nature”，可以搜索发表在指定期刊&#x2F;会议的相关论文；</li><li>按标题出现关键词搜索：allintitle:”latent dirichlet allocation”，可以搜索在标题出现某些关键词的论文；</li><li>搜索引擎常用的and、or和””均支持，其中””表示按引号中的字符串完整搜索。</li></ul><h1 id="01-如何读论文"><a href="#01-如何读论文" class="headerlink" title="01 如何读论文"></a>01 如何读论文</h1><p>阅读论文也不必需要每篇都从头到尾看完。一篇学术论文通常包括以下结构，我们用序号来标记建议的阅读顺序：</p><ul><li>题目（1）</li><li>摘要（2）</li><li>正文：导论（3）、相关工作（6）、本文工作（5）、实验结果（4）、结论（7）</li><li>参考文献（6）</li><li>附录</li></ul><p>按照这个顺序，基本在读完题目和摘要后，大致可以判断这篇论文与自己研究课题的相关性，然后就可以决定是否要精读导论和实验结果判断学术价值，是否阅读本文工作了解方法细节。此外，如果希望了解相关工作和未来工作，则可以有针对性地阅读“相关工作”和“结论”等部分。</p><h1 id="02-好的研究想法从哪里来"><a href="#02-好的研究想法从哪里来" class="headerlink" title="02 好的研究想法从哪里来"></a>02 好的研究想法从哪里来</h1><p>什么才是好的想法呢？我理解这个”好“字，至少有两个层面的意义。</p><h2 id="什么是好"><a href="#什么是好" class="headerlink" title="什么是好"></a>什么是好</h2><h3 id="学科发展角度的”好“"><a href="#学科发展角度的”好“" class="headerlink" title="学科发展角度的”好“"></a>学科发展角度的”好“</h3><p>学术研究本质是对未知领域的探索，是对开放问题的答案的追寻。所以从推动学科发展的角度，评判什么是好的研究想法的标准，首先就在一个“<strong>新</strong>”字。</p><p>过去有个说法，人工智能学科有个魔咒，凡是人工智能被解决（或者有解决方案）的部分，就不再被认为代表“人类智能”。计算机视觉、自然语言处理、机器学习、机器人之所以还被列为人工智能主要方向，也许正是因为它们尚未被解决，尚能代表“人类智能”的尊严。而我们要开展创新研究，就是要提出新的想法解决这些问题。这其中的”新“字，可以体现在提出新的问题和任务，探索新的解决思路，提出新的算法技术，实现新的工具系统等。</p><p>在保证”新“的基础上，研究想法好不好，那就看它<strong>对推动学科发展的助力有多大</strong>。深度学习之所以拥有如此显赫的影响力，就在于它对于人工智能自然语言处理、语音识别、计算机视觉等各重要方向都产生了革命性的影响，彻底改变了对无结构信号（语音、图像、文本）的语义表示的技术路线。</p><h3 id="研究实践角度的”好“"><a href="#研究实践角度的”好“" class="headerlink" title="研究实践角度的”好“"></a>研究实践角度的”好“</h3><p>那是不是想法只要够”新“就好呢？是不是越新越好呢？我认为应该还不是。因为，只有<strong>能做得出来的想法</strong>才有资格被分析好不好。所以，从研究实践角度，还需要考虑研究想法的<strong>可实现性</strong>和<strong>可验证性。</strong></p><p>可实现性，体现在该想法是否有足够的数学或机器学习工具支持实现。可验证性，体现在该想法是否有合适的数据集合和广泛接受的评价标准。很多民间科学家的想法之所以得不到学术界的认同，就是因为这些想法往往缺乏可实现性和可验证性，只停留在天马行空的纸面，只是些虚无缥缈的理念。</p><h2 id="好的研究想法从哪里来"><a href="#好的研究想法从哪里来" class="headerlink" title="好的研究想法从哪里来"></a>好的研究想法从哪里来</h2><p>想法好还是不好，并不是非黑即白的二分问题，而是像光谱一样呈连续分布，因时而异，因人而宜。计算机科技领域的发展既有积累的过程，也有跃迁的奇点，积累量变才会产生质变，吃第三个馒头饱了，也是因为前面两个馒头打底。</p><p>现在的学术研究已经成为高度专业化的职业，有庞大的研究者群体。”Publish or Perish“，是从事学术职业（如教授、研究员、研究生）的人必须做好平衡的事情，不能要求研究者的每份工作都是“诺贝尔奖”或“图灵奖”级的才值得发表。只要对研究领域的发展有所助力，就值得发表出来，帮助同行前进。鲁迅说：天才并不是自生自长在深林荒野里的怪物，是由可以使天才生长的民众产生，长育出来的，所以没有这种民众，就没有天才。这个庞大研究者群体正是天才成长的群众基础。同时，学术新人也是在开展创新研究训练中，不断磨砺寻找好想法能力，鲁迅也说：即使天才，在生下来的时候的第一声啼哭，也和平常的儿童的一样，决不会就是一首好诗。</p><p>那么，好的研究想法从哪里来呢？我总结，首先要有区分研究想法好与不好的能力，这需要<strong>深入全面了解所在研究方向的历史与现状</strong>，具体就是对学科文献的全面掌握。人是最善于学习的动物，完全可以将既有文献中不同时期研究工作的想法作为学习对象，通过了解它们提出后对学科发展的影响——具体体现在论文引用、学术评价情况等各方面——建立对研究想法好与不好的评价模型。我们很难条分缕析完美地列出区分好与不好想法的所有特征向量，但人脑强大的学习能力，只要给予足够的输入数据，就可以在神经网络中自动学习建立判别的模型，鉴古知今，见微知著，这也许就是常说的学术洞察力。</p><p>做过一些研究的同学会有感受，仅阅读自己研究方向的文献，新想法还是不会特别多。这是因为，读到的都是该研究问题已经完成时的想法，它们本身无法启发新的想法。如何产生新的想法呢？我总结有三种可行的基本途径：</p><p><strong>实践法</strong>。即在研究任务上实现已有最好的算法，通过分析实验结果，例如发现这些算法计算复杂度特别高、训练收敛特别慢，或者发现该算法的错误样例呈现明显的规律，都可以启发你改进已有算法的思路。现在很多自然语言处理任务的Leaderboard上的最新算法，就是通过分析错误样例来有针对性改进算法的 [1]。</p><p><strong>类比法</strong>。即将研究问题与其他任务建立类比联系，调研其他相似任务上最新的有效思想、算法或工具，通过合理的转换迁移，运用到当前的研究问题上来。例如，当初注意力机制在神经网络机器翻译中大获成功，当时主要是在词级别建立注意力，后来我们课题组的林衍凯和沈世奇提出建立句子级别的注意力解决关系抽取的远程监督训练数据的标注噪音问题 [2]，这就是一种类比的做法。</p><p><strong>组合法</strong>。即将新的研究问题分解为若干已被较好解决的子问题，通过有机地组合这些子问题上的最好做法，建立对新的研究问题的解决方案。例如，我们提出的融合知识图谱的预训练语言模型，就是将BERT和TransE等已有算法融合起来建立的新模型 [3]。</p><p>正如武侠中的最高境界是无招胜有招，好的研究想法并不拘泥于以上的路径，很多时候是在研究者对研究问题深刻认知的基础上，综合丰富的研究阅历和聪明才智产生”顿悟“的结果。这对初学者而言恐怕还很难一窥门径，需要从基本功做起，经过大量科研实践训练后，才能有登堂入室之感。</p><p>在科研实践过程中，除了通过大量文献阅读了解历史，通过深入思考总结产生洞察力外，还有一项必不可少的工作，那就是主动开放的学术交流和合作意识。不同研究领域思想和成果交流碰撞，既为创新思想提供了新的来源，也为”类比“和”顿悟“提供了机会。了解一下历史就可以知晓，人工智能的提出，就是数学、计算机科学、控制论、信息论、脑科学等学科交叉融合的产物。而当红的深度学习的起源，1980年代的Parallel Distributed Processing （PDP），也是计算机科学、脑认知科学、心理学、生物学等领域研究者通力合作的产物。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 论文 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 论文 </tag>
-            
-            <tag> 论文笔记 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>00_How to read a paper</title>
-      <link href="/2022/09/08/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/00_How%20to%20Read%20a%20Paper/"/>
-      <url>/2022/09/08/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/00_How%20to%20Read%20a%20Paper/</url>
-      
-        <content type="html"><![CDATA[<p>从头到尾的读一篇论文是十分低效的，正确做法应该是一篇论文读3遍：第一遍有了这篇论文的总体的思路，第二遍抓住这篇论文的主要内容（不包括细节），第三遍深入的理解论文的内容。</p><h2 id="The-first-pass"><a href="#The-first-pass" class="headerlink" title="The first pass"></a>The first pass</h2><p>第一遍纵观全局，快速扫描这篇论文，大致花费5-10分钟，同时注意以下问题：</p><ol><li>仔细读title, abstract, introduction.</li><li>读section, sub-section的标题，忽略其下的具体内容。</li><li>浏览数学公式（如果有），确定理论基础</li><li>读conclusions</li><li>扫一眼reference, 看有没有你读过的</li></ol><p>第一遍之后，你应该能回答以下问题：</p><ol><li>Categroy:这篇论文是什么类型的？评估类型的？对已有系统的分析？描述一种研究的雏形？</li><li>Context: 这篇论文和什么相关的？用到了哪些理论基础？</li><li>Correctness: 它的假设是有效的吗？</li><li>Contributions: 这篇论文的主要贡献是什么？</li><li>Clarity: 写作水平如何？</li></ol><p>第一遍之后，你能决定要不要继续读，这篇论文是否让你感兴趣？它的假设是否是无效的？</p><p>当你写论文的时候，也应该想到，大部分读者只会读这么第一遍，所以尽量把每个节、子节的标题起的清楚易懂，把摘要写得简洁而全面，如果reviewer不能在第一遍读之后就明白你的文章，你很可能会被拒掉。所以，一个总结一篇论文的“图解摘要”是一个很好的想法，也越来越多地在期刊上见到。</p><h2 id="The-second-pass"><a href="#The-second-pass" class="headerlink" title="The second pass"></a>The second pass</h2><p>第二遍读的时候要更仔细，但是要忽略细节。记下你不懂的词汇，记下你想问的问题，你的评价。如果你是个审稿人，这会帮助你写review。第二遍要注意以下几点：</p><ol><li>重点关注图表、插图。图的坐标轴是否标记正确？结果是否用error bar表示，从而具有统计学意义？像这样的常见错误会把仓促、低劣的论文和真正优质的论文区分开。</li><li>标记相关的未阅读参考文献，以便进一步阅读。</li></ol><p>对于一个有经验的读者来说，第二遍要花一个小时。这遍读完之后，你应该能把握文章的要点，以及有支持性的证据。</p><p>有时第二遍之后你也不理解这篇论文，可能是因为这个主题你以前没接触过，术语、首字母缩写你没见过，你不理解证明或是实验技术，所以论文的大部分内容你是不理解的，可能这篇论文写得就不咋地，等等。你可以选择：</p><ol><li>丢下这篇论文不管，并祈祷不读它对你也没影响。</li><li>读一些背景资料之后再返回来读。</li><li>坚持下去，读第三遍！</li></ol><h2 id="The-third-pass"><a href="#The-third-pass" class="headerlink" title="The third pass"></a>The third pass</h2><p>当你想完全理解这篇论文，或者你是个审稿人，那么读第三遍是很重要的。读第三遍的关键是：你要尝试<strong>虚拟复现这篇论文</strong>，也就是假设你和作者提了一样的假设，重新做作者的工作。通过这种虚拟复现，你可以轻易的发现这篇论文的创新点，发现隐藏的缺陷和假设。</p><p>这遍需要你仔细关注细节部分，你要质疑每一个假设，此外，你要思考你要如何表达一个特定的想法。比较你的虚拟复现和作者实际的工作让你可以对论文的证明有深刻的见解。读这遍的时候，你应该为未来的工作记下想法。</p><p>这遍对新手来说要花很多个小时，对有经验的读者也要花费一两个小时，这遍读了之后，你应该能在脑海里重建这个工作的整个结构，以及识别出它的优点和缺点，此外，你应该能精确的指出隐含的假设，实验或分析技术中的潜在问题。</p><h2 id="如何做文献调查"><a href="#如何做文献调查" class="headerlink" title="如何做文献调查"></a>如何做文献调查</h2><p>你应该读什么样的论文？</p><ol><li>用Google Scholar或其他的学术引擎来搜索最近3-5年这个领域的高引用的论文。先读一遍，然后读related work，你会发现最近工作的简要总结，或者能找到最近的一份调查报告。</li><li>在参考书目中找到一样的引用和重复的作者姓名，这些是这个领域的关键论文和研究者。下载这些论文，然后去这些研究者的网站上看他们最近的工作，这将会帮你识别这个领域的顶会。</li><li>去这些顶会的网站，快速扫描他们最近的论文，识别高质量的论文，结合之前你在第二步下载的论文，构成了你首先要读的论文集，这些论文读2个pass，如果他们都引用了一篇你之前没有找到的关键论文，读它，有必要时迭代。</li></ol><h2 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h2><p><a href="https://people.inf.ethz.ch/troscoe/pubs/review-writing.pdf">Writing reviews for systems conferences</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 论文 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 论文 </tag>
-            
-            <tag> 论文笔记 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title></title>
       <link href="/2022/09/08/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/%E6%A8%A1%E6%9D%BF/"/>
       <url>/2022/09/08/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/%E6%A8%A1%E6%9D%BF/</url>
@@ -503,6 +449,33 @@
             <tag> 机试 </tag>
             
             <tag> 模拟 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>TwinVisor论文报告</title>
+      <link href="/2022/06/28/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/TwinVisor%E8%AE%BA%E6%96%87%E6%8A%A5%E5%91%8A/"/>
+      <url>/2022/06/28/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/TwinVisor%E8%AE%BA%E6%96%87%E6%8A%A5%E5%91%8A/</url>
+      
+        <content type="html"><![CDATA[<h1 id="TwinVisor-Hardware-isolated-Confifidential-VirtualMachines-for-ARM"><a href="#TwinVisor-Hardware-isolated-Confifidential-VirtualMachines-for-ARM" class="headerlink" title="TwinVisor: Hardware-isolated Confifidential VirtualMachines for ARM"></a>TwinVisor: Hardware-isolated Confifidential VirtualMachines for ARM</h1><blockquote><p>Dingji Li, Zeyu Mi, Yubin Xia, Binyu Zang, Haibo Chen, Haibing Guan</p><p><em>SOSP ’21, October 26–29, 2021, Virtual Event, Germany</em></p><p>© 2021 Association for Computing Machinery.</p><p>ACM ISBN 978-1-4503-8709-5&#x2F;21&#x2F;10. . . $15.00</p><p><a href="https://doi.org/10.1145/3477132.3483554">https://doi.org/10.1145/3477132.3483554</a></p><p><strong>Keywords</strong>: Cloud Computing, Virtualization, Confifidential Computing, ARM TrustZone</p></blockquote><p>论文报告作者：<strong>张辰琦</strong></p><p>本篇报告在开头提炼和明确了论文中的几个<strong>核心概念</strong>，下面首先介绍了问题的**研究背景(research background)<strong>，借此提出了本文研究的</strong>主要问题(research problem)<strong>。随后，介绍了作者</strong>实现目标(research gap)<strong>与遇到的</strong>困难挑战(research challenges)<strong>，针对这些挑战，讲解了作者一系列的</strong>解决方案(methods)<strong>。之后介绍了作者的</strong>实现(implement)<strong>和对实现原型的</strong>性能评估(evaluation)<strong>，最后，我对这篇文章做出一些</strong>评价(comment)**。</p><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>&#x3D;&#x3D;Confidential computing：机密计算&#x3D;&#x3D;</p><blockquote><p>它利用硬件来提供可验证的隔离执行环境</p></blockquote><p>&#x3D;&#x3D;Confidential VM：机密虚拟机 &#x3D; secure VM &#x3D; S-VM&#x3D;&#x3D;</p><blockquote><p>它为对云提供商的云租户提供了一个孤立的执行环境</p></blockquote><p>&#x3D;&#x3D;TEE（Trusted Execution Environment）可信执行环境&#x3D;&#x3D;</p><blockquote><p>它是一种环境，其中执行的<strong>代码</strong>和访问的<strong>数据</strong>在机密性（没有人可以访问数据）和完整性（没有人可以更改代码及其行为）方面被隔离和保护</p></blockquote><p>&#x3D;&#x3D;TrustZone&#x3D;&#x3D;</p><blockquote><p>ARM公司在2003年提出来的一种成熟的硬件扩展，用来在移动平台上提供TEE。</p><p>他能够将服务器划分为两个世界，normal  world （常规世界）  a  secure world（安全世界）</p></blockquote><p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220628104851.png" alt="image-20220628104851087"></p><center style="font-size:14px;color:#000;text-decoration:underline">Fig1. TrustZone架构，其将处理器分划为安全世界和常规世界，包含3层：EL0 是应用层，EL1是内核层，EL2（如果有）是虚拟机管理程序层。</center> <p>&#x3D;&#x3D;N-visor&#x3D;&#x3D;</p><blockquote><p>TwinVisor重用常规世界内的已经存在的系统管理程序</p></blockquote><p>&#x3D;&#x3D;S-visor&#x3D;&#x3D;</p><blockquote><p>TwinVisor在安全世界创建的新的小型的系统管理程序</p></blockquote><p>&#x3D;&#x3D;Trusted computing base&#x3D;&#x3D;</p><blockquote><p>计算机系统的可信计算基础(TCB)是对其安全性至关重要的所有硬件、固件和&#x2F;或软件组件的集合，在这种意义上，发生在TCB内部的bug或漏洞可能会危及整个系统的安全属性。相比之下，TCB之外的计算机系统的某些部分必须不能有不正常的行为，泄露超出根据安全策略授予它们的任何特权。</p><p>精心设计和实现系统的可信计算基础对系统的整体安全性至关重要。现代操作系统努力减少TCB(未在主体中验证)的大小，以便对其代码库进行彻底的检查(通过手动或计算机辅助的软件审计或程序验证)变得可行。</p></blockquote><h2 id="问题的背景"><a href="#问题的背景" class="headerlink" title="问题的背景"></a>问题的背景</h2><p>随着云计算的兴起，用户对数据安全性的要求也越来越高，所以<strong>机密计算</strong>也随之受关注，因为它能利用硬件提供隔离执行环境从而保护敏感的数据。机密计算有三个级别：应用级、容器级、<strong>虚拟机级</strong>，其中<strong>虚拟机级的机密计算</strong>由于与Iaas云的兼容性等众多优点被关注更多。</p><p>目前，各大云供应商都提供了<strong>机密虚拟机服务</strong>，比如谷歌云、IBM云等，ARM的用户也很关注ARM服务器什么时候才会提供机密虚拟机服务。虽然ARM最近宣布了一个ARMv9的扩展CCA能支持机密虚拟机，但是根据他们的路线图，<strong>ARM硬件在一两年内还不能用机密虚拟机</strong>，此外，目前还不清楚如何设计和实现建立在CCA上的系统。</p><p>但是，ARM有一个成熟的的硬件扩展<strong>TrustZone</strong>，它能够把服务器划分为两个独立的世界：<strong>常规世界和安全世界</strong>（a  normal world  and a secure world），因此TrustZone在移动平台上被广泛用来提供可信执行环境TEE。此外，<strong>TrustZone最近引入了具有安全EL2扩展的硬件虚拟化，能够支持在安全世界内高效运行虚拟机</strong>。</p><h2 id="问题的提出"><a href="#问题的提出" class="headerlink" title="问题的提出"></a>问题的提出</h2><p>我们的一个关键问题是：<strong>是否有可能通过新的软件设计，来改造成熟的硬件特性，从而让ARM服务器能够支持机密虚拟机服务？</strong></p><p>本文中，作者提出的<strong>TwinVisor</strong>，这是第一个<strong>能为ARM服务器提供硬件隔离的机密虚拟机的系统</strong>，它包括<strong>N-visor和S-Visor</strong>。</p><p><strong>N-visor</strong>是TwinVisor重用的常规世界内的已有的管理程序，作用是管理硬件资源并为安全虚拟机和常规虚拟机（S-VM和N-VM）提供服务；<strong>S-visor</strong>是TwinVisor在安全世界中创建的很多小的管理程序，它被专门用来保护安全虚拟机（S-VMs)。</p><h2 id="设计目标"><a href="#设计目标" class="headerlink" title="设计目标"></a>设计目标</h2><p>TwinVisor在不扩大TCB的情况下，能让安全世界对常规世界的软件开放。</p><p><strong>具体的目标有三个：</strong></p><p><strong>G1 安全性</strong>：安全虚拟机不能被不可信软件非法访问，TCB要小</p><p><strong>G2 高效性</strong>：有没有TwinVisor对安全虚拟机的执行效率来说应该差不多</p><p><strong>G3 最小改变</strong>：TwinVisor应该引入最小的改变</p><p><strong>核心架构：</strong></p><p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220627085412.png" alt="image-20220627085412098"></p><center style="font-size:14px;color:#000;text-decoration:underline">Fig2. TwinVisor 核心架构</center> <ol><li>N-visor可以管理S-VM和N-VM的硬件资源，S-visor只管理S-VM。</li><li>N-Visor掌管硬件资源，为S-visor提供服务，S-visor负责保护他们。</li><li>当创建S-VM的时候，N-visor给它分配硬件资源，当N-visor想要运行虚拟机的时候，它把控制流交给S-visor。</li></ol><h2 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h2><p>现存的TurstZone设计方式给TwinVisor的实现带来了3个挑战。</p><p><strong>Challenge1 独立的权限模型：TrustZone的安全世界不比常规世界有更多的权限，这样安全世界就不能透明的拦截常规世界的一些指令，比如trap-and-emulate</strong></p><p><strong>Challenge2 静态资源分配：TrustZone采用了一种静态资源分区的策略。这导致安全虚拟机的资源利用率很低</strong></p><p><strong>Challenge3 不频繁的两个世界的转换：TrustZone的世界转换太慢了，而TwinVisor要频繁转换</strong></p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>针对这3个问题，我们分别提出了3种解决方案：</p><p><strong>S olution1:逻辑上剥夺N-Visor的权力的模型</strong></p><blockquote><p><strong>可能的方案：</strong>用PV模型。</p><p><strong>缺点</strong>：会导致大量的世界转换，会引入大量的修改</p></blockquote><p>提出了H-trap，一种类似trap的机制，使S-visor能够检查N-visor的操作</p><p>提出原因：在S-visor运行虚拟机之前，任何管理程序或者虚拟机配置都不能影响S-VM的执行</p><p>内容：</p><ol><li>所有的对配置的检查都在S-visor进入S-VM的时候再开始批量进行</li><li>H-Trap不为两个visor的交流提供任何共享的PV数据结构，而是重用已经存在的硬件接口</li><li>S-visor检查CPU寄存器和内存之间的映射，并在进入S-VM之前阻止非法状态</li><li>S-visor尽量不会让N-visor读写寄存器，当N-visor必须读到寄存器的值的时候，S-visor会选择性的开放几个寄存器。</li></ol><p><strong>Solution2:内存资源的协同管理</strong></p><p>设计了一种分割连续内存分配器（split CMA)，常规世界和安全世界都能用它协作来<strong>给常规世界动态分配内存</strong></p><p><strong>重用操作系统中已有的CMA</strong>（Contiguous Memory Allocator）</p><ol><li>split CMA尽量保持<strong>安全内存是连续的</strong>,解决TZASC无法支持页面粒度动态地更改物理内存的安全状态的问题</li><li>split CMA可以再常规世界和常规世界分成两个模块：<strong>常规端和安全端</strong>,他们能够相互协作来转换内存的安全属性。如果S-visor不占用内存，常规端就把他们给了内存分配器，给常规内存分配，当S-visor需要更多内存，常规端就会收集内存，把内存给了安全端。反之同理。解决N-visor不能感知内存安全性的动态变化的问题</li><li><strong>内存管理</strong>：split CMA设计了<strong>层次结构</strong>来管理内存:</li></ol><ul><li><strong>上层</strong>：把所有的空余内存都组织到一个内存池中，并且增大了内存的分配粒度（防止锁竞争导致性能下降）<ul><li><strong>中层</strong>：内存池被分割成可变大小的内存块，每个块包含很多页并且只属于一个S-VM，块内存的地址跟块的大小对齐。</li></ul></li><li><strong>底层</strong>：内存块被当做内存页的缓存，维持了一个bitmap来记录那个页是闲置的。</li></ul><ol start="4"><li><strong>内存压缩</strong>：解决常规端向安全端借内存，而安全端的内存不连续的问题。做法就是把不连续的内存放到连续的最前面。</li></ol><p><strong>Solution3:高效的世界转换</strong></p><p>我们发现原来的世界转换包含着很多冗余操作</p><blockquote><p><strong>从前的做法</strong>：结合使用侧核轮询和共享内存。</p><p><strong>缺点</strong>：浪费CPU资源，很难决定用多少核</p></blockquote><ol><li>使用<strong>共享页面</strong>在两个hypervisor之间传输vCPU的通用寄存器的值</li><li>TwinVisor利用<strong>寄存器继承</strong>来进一步避免冗余操作。</li></ol><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p><strong>1.I&#x2F;O虚拟化</strong></p><p>TwinVisor用 shadow I&#x2F;O rings 和 shadow DMA buffers 实现<strong>对S-VM透明、重用已有的代码</strong></p><p><strong>问题：</strong></p><ul><li><p>在Linux中，二者都是从S-VM的安全区内分配的，这对N-visor不可见</p></li><li><p>Shadow I&#x2F;O ring给应用程序带来很大的开销</p></li></ul><p><strong>解决：</strong></p><ul><li><p>S-visor在N-visor的常规内存中复制shadow I&#x2F;O rings和shadow DMA buffers，在两个世界中同步I&#x2F;O请求和DMA数据</p></li><li><p>利用由WFx指令和物理IRQs引起的常规虚拟机退出来支持TX shadow I&#x2F;O ring的更新。</p></li></ul><p><strong>2.评估的原型</strong></p><p><strong>功能评估</strong>：在ARM FVP平台上实现一个全功能的S-EL2.</p><p><strong>性能评估</strong>：用了麒麟990开发板，支持VHE，其工作原理与启用了S-EL2的硬件类似。</p><p><strong>安全属性：</strong></p><ul><li><p><strong>固件和s面板在系统的生命周期内是受信任的</strong></p></li><li><p><strong>S-VM的内核镜像的完整性是由S-visor强制保证的</strong></p></li><li><p><strong>每个S-VM的CUP寄存器状态是被S-visor保护的</strong></p></li><li><p><strong>S-VM之间的内存、S-VM与常规世界的内存是彼此隔离的</strong></p></li><li><p><strong>每个S-VM的I&#x2F;O数据都受到S-visor保护。</strong></p></li><li><p><strong>所有的数据和每个SVM的控制流都受到S-visor保护。</strong></p></li></ul><h2 id="性能评估"><a href="#性能评估" class="headerlink" title="性能评估"></a>性能评估</h2><ol><li><strong>微型测试</strong></li></ol><p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220628114050.png" alt="image-20220628114050209"></p><center style="font-size:14px;color:#000;text-decoration:underline">Fig3. 比较TwinVisor和原型在超级调用和二阶页错误上的错误处理</center> <ul><li><p>与原始版本相比，TwinVisor引入73%的开销</p></li><li><p>快速转换机制加快了世界间的转换速度</p></li><li><p>没有shadow S2PT的TwinVisor会节省很多开销</p></li></ul><ol start="2"><li><strong>实际世界中的应用程序的性能</strong></li></ol><p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220628114827.png" alt="image-20220628114827254"></p><center style="font-size:14px;color:#000;text-decoration:underline">Fig4. S-VM和N-VM在TwinVisor上的性能差异</center> <ul><li>在所有的基准测试中，TwinVisor和原始版本的性能差异在5%以内，因为快速世界转换机制只占据应用程序有效执行时间的很小一部分</li><li>TwinVisor中的N-VM和原始版本相比只占据少于1.5%的花销</li></ul><ol start="3"><li>稳定性测试</li></ol><p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220628163717.png" alt="image-20220628163717399"></p><center style="font-size:14px;color:#000;text-decoration:underline">Fig5. TwinVisor和原始版本在稳定性上的比较</center> <ul><li>不管给了多少虚拟CPU，TwinVisor的花销少于5%</li><li>在混合工作负载中，所有基准测试的最大开销都小于6%。</li><li>随着S-VM的增长，TwinVisor是可扩展的。</li></ul><ol start="4"><li>split-CMA的开销</li></ol><p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220628164118.png" alt="image-20220628164117969"></p><center style="font-size:14px;color:#000;text-decoration:underline">Fig6. 迁移缓存的数量对使用Memaslap基准测试的内存缓存的影响。</center> <ul><li>在最坏的情况下，测试的Memcashed的吞吐量分别下降了6.84%和1.30%，开销减小的原因是多个S-VM平摊。 </li><li></li></ul><h2 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h2><p>本文主要目的是通过软件的设计，扩展了TrustZone的特性，来达到在ARM平台上实现硬件隔离级别的机密虚拟机的效果，为此作者提出了TwinVisor。TwinVisor的一个核心设计理念是：将管理与保护解耦，他让N-visor负责管理硬件资源、提供服务，S-visor负责保护。</p><p>在设计时，我们可以看到作者始终有着明确的设计原则和目标：首先，为了保持安全性，作者禁止N-visor访问任何CPU寄存器的值；其次，为了保持高效性，作者对冗余操作进行了精简；最后，为了只引入最少的更改、保持简洁性，作者在设计的时候选择尽量利用已有的结构，在其上做小量修改，如hypervisor、CMA、I&#x2F;O机制等，而不是重新设计新的结构。</p><p>在设计之前，作者对比了现有的TrustZone与TwinVisor的设计思想的差异，明确的指出了要实现TwinVisor所面临的3个问题，即独立的权限模型、静态资源分配、不频繁的世界转换，并对这些问题逐一提出了针对性措施，条理清晰。之后，作者通过实验，测试TwinVisor与原始版本的性能差异，结果显示TwinVisor在安全虚拟机上仅造成了不到5%的性能开销，这样的结果是令人满意的。</p><p>文章最后，作者提出了对未来ARM的硬件设计建议，包括有选择性的透明指令捕获、细粒度的安全内存配置、直接世界交换。</p><h2 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h2><p><a href="https://blog.csdn.net/xy010902100449/article/details/115273999">[1]ARM系列之ARM Trustzone 技术浅析（一）—— TEE概述&amp;ARM Trustzone硬件架构基础介绍</a></p><p><a href="https://blog.csdn.net/guyongqiangx/article/details/78020257">[2]一篇了解TrustZone</a></p><p><a href="http://www.voycn.com/article/hypervisorjieshaoyi">[3]Hypervisor介绍(一)</a></p><p><a href="https://zhuanlan.zhihu.com/p/460081164">[4]从Intel新酷睿处理器放弃SGX看机密计算技术的发展</a></p><p><a href="https://zhuanlan.zhihu.com/p/950286">[5]一文看懂arm架构和x86架构有什么区别</a></p><p><a href="**https://zhuanlan.zhihu.com/p/382937263**">[6]关于trap and emulated的解释</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 论文 </tag>
+            
+            <tag> 论文笔记 </tag>
             
         </tags>
       
@@ -965,6 +938,60 @@
             <tag> 算法 </tag>
             
             <tag> DFS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>00_How to read a paper</title>
+      <link href="/2022/03/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/00_How%20to%20Read%20a%20Paper/"/>
+      <url>/2022/03/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/00_How%20to%20Read%20a%20Paper/</url>
+      
+        <content type="html"><![CDATA[<p>从头到尾的读一篇论文是十分低效的，正确做法应该是一篇论文读3遍：第一遍有了这篇论文的总体的思路，第二遍抓住这篇论文的主要内容（不包括细节），第三遍深入的理解论文的内容。</p><h2 id="The-first-pass"><a href="#The-first-pass" class="headerlink" title="The first pass"></a>The first pass</h2><p>第一遍纵观全局，快速扫描这篇论文，大致花费5-10分钟，同时注意以下问题：</p><ol><li>仔细读title, abstract, introduction.</li><li>读section, sub-section的标题，忽略其下的具体内容。</li><li>浏览数学公式（如果有），确定理论基础</li><li>读conclusions</li><li>扫一眼reference, 看有没有你读过的</li></ol><p>第一遍之后，你应该能回答以下问题：</p><ol><li>Categroy:这篇论文是什么类型的？评估类型的？对已有系统的分析？描述一种研究的雏形？</li><li>Context: 这篇论文和什么相关的？用到了哪些理论基础？</li><li>Correctness: 它的假设是有效的吗？</li><li>Contributions: 这篇论文的主要贡献是什么？</li><li>Clarity: 写作水平如何？</li></ol><p>第一遍之后，你能决定要不要继续读，这篇论文是否让你感兴趣？它的假设是否是无效的？</p><p>当你写论文的时候，也应该想到，大部分读者只会读这么第一遍，所以尽量把每个节、子节的标题起的清楚易懂，把摘要写得简洁而全面，如果reviewer不能在第一遍读之后就明白你的文章，你很可能会被拒掉。所以，一个总结一篇论文的“图解摘要”是一个很好的想法，也越来越多地在期刊上见到。</p><h2 id="The-second-pass"><a href="#The-second-pass" class="headerlink" title="The second pass"></a>The second pass</h2><p>第二遍读的时候要更仔细，但是要忽略细节。记下你不懂的词汇，记下你想问的问题，你的评价。如果你是个审稿人，这会帮助你写review。第二遍要注意以下几点：</p><ol><li>重点关注图表、插图。图的坐标轴是否标记正确？结果是否用error bar表示，从而具有统计学意义？像这样的常见错误会把仓促、低劣的论文和真正优质的论文区分开。</li><li>标记相关的未阅读参考文献，以便进一步阅读。</li></ol><p>对于一个有经验的读者来说，第二遍要花一个小时。这遍读完之后，你应该能把握文章的要点，以及有支持性的证据。</p><p>有时第二遍之后你也不理解这篇论文，可能是因为这个主题你以前没接触过，术语、首字母缩写你没见过，你不理解证明或是实验技术，所以论文的大部分内容你是不理解的，可能这篇论文写得就不咋地，等等。你可以选择：</p><ol><li>丢下这篇论文不管，并祈祷不读它对你也没影响。</li><li>读一些背景资料之后再返回来读。</li><li>坚持下去，读第三遍！</li></ol><h2 id="The-third-pass"><a href="#The-third-pass" class="headerlink" title="The third pass"></a>The third pass</h2><p>当你想完全理解这篇论文，或者你是个审稿人，那么读第三遍是很重要的。读第三遍的关键是：你要尝试<strong>虚拟复现这篇论文</strong>，也就是假设你和作者提了一样的假设，重新做作者的工作。通过这种虚拟复现，你可以轻易的发现这篇论文的创新点，发现隐藏的缺陷和假设。</p><p>这遍需要你仔细关注细节部分，你要质疑每一个假设，此外，你要思考你要如何表达一个特定的想法。比较你的虚拟复现和作者实际的工作让你可以对论文的证明有深刻的见解。读这遍的时候，你应该为未来的工作记下想法。</p><p>这遍对新手来说要花很多个小时，对有经验的读者也要花费一两个小时，这遍读了之后，你应该能在脑海里重建这个工作的整个结构，以及识别出它的优点和缺点，此外，你应该能精确的指出隐含的假设，实验或分析技术中的潜在问题。</p><h2 id="如何做文献调查"><a href="#如何做文献调查" class="headerlink" title="如何做文献调查"></a>如何做文献调查</h2><p>你应该读什么样的论文？</p><ol><li>用Google Scholar或其他的学术引擎来搜索最近3-5年这个领域的高引用的论文。先读一遍，然后读related work，你会发现最近工作的简要总结，或者能找到最近的一份调查报告。</li><li>在参考书目中找到一样的引用和重复的作者姓名，这些是这个领域的关键论文和研究者。下载这些论文，然后去这些研究者的网站上看他们最近的工作，这将会帮你识别这个领域的顶会。</li><li>去这些顶会的网站，快速扫描他们最近的论文，识别高质量的论文，结合之前你在第二步下载的论文，构成了你首先要读的论文集，这些论文读2个pass，如果他们都引用了一篇你之前没有找到的关键论文，读它，有必要时迭代。</li></ol><h2 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h2><p><a href="https://people.inf.ethz.ch/troscoe/pubs/review-writing.pdf">Writing reviews for systems conferences</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 论文 </tag>
+            
+            <tag> 论文笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>00_如何通过文献掌握学术动态</title>
+      <link href="/2022/03/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/Else/"/>
+      <url>/2022/03/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/Else/</url>
+      
+        <content type="html"><![CDATA[<p>本文是对<a href="https://github.com/zibuyu/research_tao/blob/master/09_undergraduate_training.md">刘知远老师的文章</a> 的摘抄</p><p>Google Scholar还提供高级检索功能，我比较常见的功能包括：</p><ul><li>按作者搜索：author:”DM Blei”，可以搜索指定作者的相关论文；</li><li>按发表期刊&#x2F;会议搜索：source:”Nature”，可以搜索发表在指定期刊&#x2F;会议的相关论文；</li><li>按标题出现关键词搜索：allintitle:”latent dirichlet allocation”，可以搜索在标题出现某些关键词的论文；</li><li>搜索引擎常用的and、or和””均支持，其中””表示按引号中的字符串完整搜索。</li></ul><h1 id="01-如何读论文"><a href="#01-如何读论文" class="headerlink" title="01 如何读论文"></a>01 如何读论文</h1><p>阅读论文也不必需要每篇都从头到尾看完。一篇学术论文通常包括以下结构，我们用序号来标记建议的阅读顺序：</p><ul><li>题目（1）</li><li>摘要（2）</li><li>正文：导论（3）、相关工作（6）、本文工作（5）、实验结果（4）、结论（7）</li><li>参考文献（6）</li><li>附录</li></ul><p>按照这个顺序，基本在读完题目和摘要后，大致可以判断这篇论文与自己研究课题的相关性，然后就可以决定是否要精读导论和实验结果判断学术价值，是否阅读本文工作了解方法细节。此外，如果希望了解相关工作和未来工作，则可以有针对性地阅读“相关工作”和“结论”等部分。</p><h1 id="02-好的研究想法从哪里来"><a href="#02-好的研究想法从哪里来" class="headerlink" title="02 好的研究想法从哪里来"></a>02 好的研究想法从哪里来</h1><p>什么才是好的想法呢？我理解这个”好“字，至少有两个层面的意义。</p><h2 id="什么是好"><a href="#什么是好" class="headerlink" title="什么是好"></a>什么是好</h2><h3 id="学科发展角度的”好“"><a href="#学科发展角度的”好“" class="headerlink" title="学科发展角度的”好“"></a>学科发展角度的”好“</h3><p>学术研究本质是对未知领域的探索，是对开放问题的答案的追寻。所以从推动学科发展的角度，评判什么是好的研究想法的标准，首先就在一个“<strong>新</strong>”字。</p><p>过去有个说法，人工智能学科有个魔咒，凡是人工智能被解决（或者有解决方案）的部分，就不再被认为代表“人类智能”。计算机视觉、自然语言处理、机器学习、机器人之所以还被列为人工智能主要方向，也许正是因为它们尚未被解决，尚能代表“人类智能”的尊严。而我们要开展创新研究，就是要提出新的想法解决这些问题。这其中的”新“字，可以体现在提出新的问题和任务，探索新的解决思路，提出新的算法技术，实现新的工具系统等。</p><p>在保证”新“的基础上，研究想法好不好，那就看它<strong>对推动学科发展的助力有多大</strong>。深度学习之所以拥有如此显赫的影响力，就在于它对于人工智能自然语言处理、语音识别、计算机视觉等各重要方向都产生了革命性的影响，彻底改变了对无结构信号（语音、图像、文本）的语义表示的技术路线。</p><h3 id="研究实践角度的”好“"><a href="#研究实践角度的”好“" class="headerlink" title="研究实践角度的”好“"></a>研究实践角度的”好“</h3><p>那是不是想法只要够”新“就好呢？是不是越新越好呢？我认为应该还不是。因为，只有<strong>能做得出来的想法</strong>才有资格被分析好不好。所以，从研究实践角度，还需要考虑研究想法的<strong>可实现性</strong>和<strong>可验证性。</strong></p><p>可实现性，体现在该想法是否有足够的数学或机器学习工具支持实现。可验证性，体现在该想法是否有合适的数据集合和广泛接受的评价标准。很多民间科学家的想法之所以得不到学术界的认同，就是因为这些想法往往缺乏可实现性和可验证性，只停留在天马行空的纸面，只是些虚无缥缈的理念。</p><h2 id="好的研究想法从哪里来"><a href="#好的研究想法从哪里来" class="headerlink" title="好的研究想法从哪里来"></a>好的研究想法从哪里来</h2><p>想法好还是不好，并不是非黑即白的二分问题，而是像光谱一样呈连续分布，因时而异，因人而宜。计算机科技领域的发展既有积累的过程，也有跃迁的奇点，积累量变才会产生质变，吃第三个馒头饱了，也是因为前面两个馒头打底。</p><p>现在的学术研究已经成为高度专业化的职业，有庞大的研究者群体。”Publish or Perish“，是从事学术职业（如教授、研究员、研究生）的人必须做好平衡的事情，不能要求研究者的每份工作都是“诺贝尔奖”或“图灵奖”级的才值得发表。只要对研究领域的发展有所助力，就值得发表出来，帮助同行前进。鲁迅说：天才并不是自生自长在深林荒野里的怪物，是由可以使天才生长的民众产生，长育出来的，所以没有这种民众，就没有天才。这个庞大研究者群体正是天才成长的群众基础。同时，学术新人也是在开展创新研究训练中，不断磨砺寻找好想法能力，鲁迅也说：即使天才，在生下来的时候的第一声啼哭，也和平常的儿童的一样，决不会就是一首好诗。</p><p>那么，好的研究想法从哪里来呢？我总结，首先要有区分研究想法好与不好的能力，这需要<strong>深入全面了解所在研究方向的历史与现状</strong>，具体就是对学科文献的全面掌握。人是最善于学习的动物，完全可以将既有文献中不同时期研究工作的想法作为学习对象，通过了解它们提出后对学科发展的影响——具体体现在论文引用、学术评价情况等各方面——建立对研究想法好与不好的评价模型。我们很难条分缕析完美地列出区分好与不好想法的所有特征向量，但人脑强大的学习能力，只要给予足够的输入数据，就可以在神经网络中自动学习建立判别的模型，鉴古知今，见微知著，这也许就是常说的学术洞察力。</p><p>做过一些研究的同学会有感受，仅阅读自己研究方向的文献，新想法还是不会特别多。这是因为，读到的都是该研究问题已经完成时的想法，它们本身无法启发新的想法。如何产生新的想法呢？我总结有三种可行的基本途径：</p><p><strong>实践法</strong>。即在研究任务上实现已有最好的算法，通过分析实验结果，例如发现这些算法计算复杂度特别高、训练收敛特别慢，或者发现该算法的错误样例呈现明显的规律，都可以启发你改进已有算法的思路。现在很多自然语言处理任务的Leaderboard上的最新算法，就是通过分析错误样例来有针对性改进算法的 [1]。</p><p><strong>类比法</strong>。即将研究问题与其他任务建立类比联系，调研其他相似任务上最新的有效思想、算法或工具，通过合理的转换迁移，运用到当前的研究问题上来。例如，当初注意力机制在神经网络机器翻译中大获成功，当时主要是在词级别建立注意力，后来我们课题组的林衍凯和沈世奇提出建立句子级别的注意力解决关系抽取的远程监督训练数据的标注噪音问题 [2]，这就是一种类比的做法。</p><p><strong>组合法</strong>。即将新的研究问题分解为若干已被较好解决的子问题，通过有机地组合这些子问题上的最好做法，建立对新的研究问题的解决方案。例如，我们提出的融合知识图谱的预训练语言模型，就是将BERT和TransE等已有算法融合起来建立的新模型 [3]。</p><p>正如武侠中的最高境界是无招胜有招，好的研究想法并不拘泥于以上的路径，很多时候是在研究者对研究问题深刻认知的基础上，综合丰富的研究阅历和聪明才智产生”顿悟“的结果。这对初学者而言恐怕还很难一窥门径，需要从基本功做起，经过大量科研实践训练后，才能有登堂入室之感。</p><p>在科研实践过程中，除了通过大量文献阅读了解历史，通过深入思考总结产生洞察力外，还有一项必不可少的工作，那就是主动开放的学术交流和合作意识。不同研究领域思想和成果交流碰撞，既为创新思想提供了新的来源，也为”类比“和”顿悟“提供了机会。了解一下历史就可以知晓，人工智能的提出，就是数学、计算机科学、控制论、信息论、脑科学等学科交叉融合的产物。而当红的深度学习的起源，1980年代的Parallel Distributed Processing （PDP），也是计算机科学、脑认知科学、心理学、生物学等领域研究者通力合作的产物。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 论文 </tag>
+            
+            <tag> 论文笔记 </tag>
             
         </tags>
       
