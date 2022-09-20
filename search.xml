@@ -8,7 +8,7 @@
       <link href="/2022/09/17/MLIR/MLIR%E7%AE%80%E4%BB%8B/"/>
       <url>/2022/09/17/MLIR/MLIR%E7%AE%80%E4%BB%8B/</url>
       
-        <content type="html"><![CDATA[<h2 id="一、MLIR简介"><a href="#一、MLIR简介" class="headerlink" title="一、MLIR简介"></a>一、MLIR简介</h2><p>下面这张图分为高级编程语言和机器学习框架两个部分。</p><p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920162058.png" alt="常见的IR表示系统"></p><p>以C语言为例，在编译阶段，会由前端Clang编译生成抽象语法树（AST），AST之后会被转换成LLVM IR,再转换成机器码，在指定的机器上运行。值得注意的是，C语言在转换成LLVM IR之前，不会进行特定语言的优化，程序的优化，主要集中在LLVM IR阶段，它会丢失很多信息，也会带来优化不充分的问题。</p><p>Java语言不会生成AST，而是将Java代码转换成Java字节码，这是一种内部IR，他可以进行自己语言的优化，在此之后Java字节码会转换成LLVM IR，进一步的优化，根据LLVM后端进一步的转换成字节码。</p><p>Swift语言转换成AST之后，也会创建自己语言的IR，这种方式也被Rust等语言采用。</p><p>不仅在高级语言中，在深度学习框架中也有类似的情况，如TensorFlow框架，会先转化成图IR，进一步转换成针对某个硬件的IR表示，如针对TPU，手机设备等，面对这种情况，开发人员需要进行不同的IR设计以及针对这种IR的优化。</p><p>但是随着IR种类的增多，会出现一些问题：</p><ol><li>针对不同种类的IR开发的Pass优化可能重复，也就是不同的IR的同类Pass不兼容，针对新的IR编写同类的Pass需要重新学习IR语法，门槛过高</li><li>不同类型的IR所做的Pass优化在下一层中不可见，各种IR都想在当前层中优化做的更好，这就会导致优化的重复，导致效率偏低。</li><li>不同类型IR间转换开销大，从图IR到LLVM IR直接转换存在较大的开销，比如从图IR转换到LLVM IR 。</li></ol><p>因此，   TensorFlow团队提出了MLIR，它希望作为一种编译器的基础设施，将编译流程中的各个层次的IR进行统一的表示，降低新加入的前端语言或是后端硬件构建编译器的成本，帮助现在已有的编译器连接在一起，进行复用。</p><p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920160838.png" alt="常见的IR种类"></p><hr><center>以下的内容还待完善</center><hr><p>MLIR中最重要的概念是它的Dialect方言系统。</p><p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920160754.png" alt="使用Dialect构建IR表示系统"></p><p>Dialect其实是表示一种层次的IR，将各种IR转换成对应的MLIR Dialect。  </p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920152804.png" alt="MLIR表达式" style="zoom: 67%;" /><p>MLIR Dialect</p><p>一个 MLIR dialect 包括 :</p><ul><li>命名空间</li><li>一组自定义类型</li><li><strong>一组 operations，这是核心元素</strong></li><li>解析器、打印器</li><li><strong>优化（pass): analysis, transformations,  dialect conversions.</strong></li></ul><p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920153435.png" alt="translation,conversion,transformation之间的区别"></p><p>conversion : Dialect之间的转换</p><p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920153650.png" alt="image-20220920153649890"></p><p>可以利用mlirGen模块来遍历AST，生成对应的Toy Dialect的MLIR表达式，那么builder创建的operation是从哪来的？以及Toy Dialect是从哪来的？针对这两个问题，我们需要了解MLIR系统是如何引用自定义的Dialect和其中的一些Operation</p><p>后面ODS框架有点没听懂：）</p><p><a href="https://www.bilibili.com/video/BV1Hd4y1U7mb?spm_id_from=333.999.0.0&amp;vd_source=3945e3962fa714687a283b476b79aa64">https://www.bilibili.com/video/BV1Hd4y1U7mb?spm_id_from=333.999.0.0&amp;vd_source=3945e3962fa714687a283b476b79aa64</a></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="一、MLIR简介"><a href="#一、MLIR简介" class="headerlink" title="一、MLIR简介"></a>一、MLIR简介</h2><p>下面这张图分为高级编程语言和机器学习框架两个部分。</p><p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920162058.png" alt="常见的IR表示系统"></p><p>以C语言为例，在编译阶段，会由前端Clang编译生成抽象语法树（AST），AST之后会被转换成LLVM IR,再转换成机器码，在指定的机器上运行。值得注意的是，C语言在转换成LLVM IR之前，不会进行特定语言的优化，程序的优化，主要集中在LLVM IR阶段，它会丢失很多信息，也会带来优化不充分的问题。</p><p>Java语言不会生成AST，而是将Java代码转换成Java字节码，这是一种内部IR，他可以进行自己语言的优化，在此之后Java字节码会转换成LLVM IR，进一步的优化，根据LLVM后端进一步的转换成字节码。</p><p>Swift语言转换成AST之后，也会创建自己语言的IR，这种方式也被Rust等语言采用。</p><p>不仅在高级语言中，在深度学习框架中也有类似的情况，如TensorFlow框架，会先转化成图IR，进一步转换成针对某个硬件的IR表示，如针对TPU，手机设备等，面对这种情况，开发人员需要进行不同的IR设计以及针对这种IR的优化。</p><p>但是随着IR种类的增多，会出现一些问题：</p><ol><li>针对不同种类的IR开发的Pass优化可能重复，也就是不同的IR的同类Pass不兼容，针对新的IR编写同类的Pass需要重新学习IR语法，门槛过高</li><li>不同类型的IR所做的Pass优化在下一层中不可见，各种IR都想在当前层中优化做的更好，这就会导致优化的重复，导致效率偏低。</li><li>不同类型IR间转换开销大，从图IR到LLVM IR直接转换存在较大的开销，比如从图IR转换到LLVM IR 。</li></ol><p>因此，   TensorFlow团队提出了MLIR，它希望作为一种编译器的基础设施，将编译流程中的各个层次的IR进行统一的表示，降低新加入的前端语言或是后端硬件构建编译器的成本，帮助现在已有的编译器连接在一起，进行复用。</p><p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920160838.png" alt="常见的IR种类"></p><hr><center>以下的内容还待完善</center><hr><p>MLIR中最重要的概念是它的Dialect方言系统。</p><p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920160754.png" alt="使用Dialect构建IR表示系统"></p><p>Dialect其实是表示一种层次的IR，将各种IR转换成对应的MLIR Dialect。  </p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920152804.png" alt="MLIR表达式" style="zoom: 67%;" /><p>MLIR Dialect</p><p>一个 MLIR dialect 包括 :</p><ul><li>命名空间</li><li>一组自定义类型</li><li><strong>一组 operations，这是核心元素</strong></li><li>解析器、打印器</li><li><strong>优化（pass): analysis, transformations,  dialect conversions.</strong></li></ul><p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920153435.png" alt="translation,conversion,transformation之间的区别"></p><p>conversion : Dialect之间的转换</p><p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920153650.png" alt="conversion : Dialect之间的转换"></p><p>可以利用mlirGen模块来遍历AST，生成对应的Toy Dialect的MLIR表达式，那么builder创建的operation是从哪来的？以及Toy Dialect是从哪来的？针对这两个问题，我们需要了解MLIR系统是如何引用自定义的Dialect和其中的一些Operation</p><p>后面ODS框架有点没听懂：）</p><p><a href="https://www.bilibili.com/video/BV1Hd4y1U7mb?spm_id_from=333.999.0.0&amp;vd_source=3945e3962fa714687a283b476b79aa64">https://www.bilibili.com/video/BV1Hd4y1U7mb?spm_id_from=333.999.0.0&amp;vd_source=3945e3962fa714687a283b476b79aa64</a></p>]]></content>
       
       
       <categories>
@@ -29,63 +29,11 @@
     
     
     <entry>
-      <title>HeteroCL简介</title>
-      <link href="/2022/09/17/%E5%85%B6%E4%BB%96/HeteroCL%E7%AE%80%E4%BB%8B/"/>
-      <url>/2022/09/17/%E5%85%B6%E4%BB%96/HeteroCL%E7%AE%80%E4%BB%8B/</url>
+      <title>01_ScaleHLS</title>
+      <link href="/2022/09/16/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/01_ScaleHLS/"/>
+      <url>/2022/09/16/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/01_ScaleHLS/</url>
       
-        <content type="html"><![CDATA[<h2 id="1-安装HeteroCL"><a href="#1-安装HeteroCL" class="headerlink" title="1.安装HeteroCL"></a>1.安装HeteroCL</h2><p>创建虚拟环境并进入虚拟环境:</p><pre><code class="bash">conda create --name hcl-env python==3.8conda activate hcl-env</code></pre><p>安装库</p><p>HeteroCL Tutorials 里那个命令安装不了，要去 <a href="anaconda.org">anaconda 的网站</a> 里搜索heteroCL，根据给的命令安装：</p><pre><code class="bash">conda install -c cornell-zhang heterocl-libs</code></pre><p>然而这个也安不了。。。报一堆错</p><p>也找不到solution，看一篇文章说还要安装tvm啥的。。以后再说吧：）</p><h2 id="2-HeteroCL库简介"><a href="#2-HeteroCL库简介" class="headerlink" title="2.HeteroCL库简介"></a>2.HeteroCL库简介</h2><h2 id="3-HeteroCL计算API、"><a href="#3-HeteroCL计算API、" class="headerlink" title="3.HeteroCL计算API、"></a>3.HeteroCL计算API、</h2><h3 id="hcl-compute-shape-fcompute-name-dtype"><a href="#hcl-compute-shape-fcompute-name-dtype" class="headerlink" title="hcl.compute(shape, fcompute, name, dtype)"></a>hcl.compute(shape, fcompute, name, dtype)</h3><ul><li>shape 定义了输出张量的形状。 </li><li>fcompute 是一个描述元素定义的 lambda 函数。 </li><li>name 和 dtype 是可选的。</li></ul><pre><code class="python">hcl.init()A = hcl.placeholder((10,), &quot;A&quot;)B = hcl.placeholder((10,), &quot;B&quot;)def compute_example(A, B):    return hcl.compute(A.shape, lambda x: A[x]+B[x], &quot;C&quot;)s = hcl.create_schedule([A, B], compute_example)print(hcl.lower(s))Out:// attr [_top] storage_scope = &quot;global&quot;allocate _top[int32 * 1]produce _top &#123;  // attr [0] extern_scope = 0  produce C &#123;    // attr [0] extern_scope = 0    for (x, 0, 10) &#123;      C[x] = int32((int33(A[x]) + int33(B[x])))    &#125;  &#125;&#125;</code></pre><h3 id="hcl-update-tensor-fupdate-name"><a href="#hcl-update-tensor-fupdate-name" class="headerlink" title="hcl.update(tensor, fupdate, name)"></a><strong>hcl.update(tensor, fupdate, name)</strong></h3><ul><li>tensor：待更新的tensor</li><li>fupdate: lambda函数，描述更新动作</li><li>name:可选</li></ul><pre><code class="python">hcl.init()A = hcl.placeholder((10,), &quot;A&quot;)B = hcl.placeholder((10,), &quot;B&quot;)C = hcl.placeholder((10,), &quot;C&quot;)def update_example(A, B, C):    hcl.update(C, lambda x: A[x]+B[x], &quot;U&quot;)    s = hcl.create_schedule([A, B, C], update_example)print(hcl.lower(s))Out:// attr [_top] storage_scope = &quot;global&quot;allocate _top[int32 * 1]produce _top &#123;  // attr [0] extern_scope = 0  // attr [U] storage_scope = &quot;global&quot;  allocate U[int32 * 1]  produce U &#123;    // attr [0] extern_scope = 0    for (x, 0, 10) &#123;      C[x] = int32((int33(A[x]) + int33(B[x])))    &#125;  &#125;&#125;</code></pre><h3 id="hcl-mutate-domain-fbody-name"><a href="#hcl-mutate-domain-fbody-name" class="headerlink" title="hcl.mutate(domain, fbody, name)"></a><strong>hcl.mutate(domain, fbody, name)</strong></h3><ul><li>该 API 允许用户使用矢量代码描述任何循环，即使循环体没有任何通用模式或包含命令式 DSL。当我们想要执行优化时，这个 API 很有用。</li><li>domain：描述了我们原始 for 循环的迭代域</li><li>fbody：for循环的主题</li><li>name：可选参数</li></ul><pre><code class="python">hcl.init()A = hcl.placeholder((10,), &quot;A&quot;)B = hcl.placeholder((10,), &quot;B&quot;)C = hcl.placeholder((10,), &quot;C&quot;)def mut_example(A, B, C):    def loop_body(x):        C[x] = A[x] + B[x]    hcl.mutate((10,), lambda x: loop_body(x), &quot;M&quot;)s = hcl.create_schedule([A, B, C], mut_example)print(hcl.lower(s))Out:// attr [_top] storage_scope = &quot;global&quot;allocate _top[int32 * 1]produce _top &#123;  // attr [0] extern_scope = 0  // attr [M] storage_scope = &quot;global&quot;  allocate M[int32 * 1]  produce M &#123;    // attr [0] extern_scope = 0    for (x, 0, 10) &#123;      C[x] = int32((int33(A[x]) + int33(B[x])))    &#125;  &#125;&#125;</code></pre><h2 id="hcl-mutate-domain-fbody-name-1"><a href="#hcl-mutate-domain-fbody-name-1" class="headerlink" title="hcl.mutate(domain, fbody, name)"></a>hcl.mutate(domain, fbody, name)</h2><h3 id="将命令式-DSL-与计算-API-相结合"><a href="#将命令式-DSL-与计算-API-相结合" class="headerlink" title="将命令式 DSL 与计算 API 相结合"></a>将命令式 DSL 与计算 API 相结合</h3><p>高级综合</p><p><a href="https://www.cnblogs.com/sea-wind/p/4024665.html">https://www.cnblogs.com/sea-wind/p/4024665.html</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 其他 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 补充知识 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>03_HeteroCL</title>
-      <link href="/2022/09/17/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/03_HeteroCL/"/>
-      <url>/2022/09/17/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/03_HeteroCL/</url>
-      
-        <content type="html"><![CDATA[<h1 id="HeteroCL-A-Multi-Paradigm-Programming-Infrastructure-for-Software-Defined-Reconfigurable-Computing"><a href="#HeteroCL-A-Multi-Paradigm-Programming-Infrastructure-for-Software-Defined-Reconfigurable-Computing" class="headerlink" title="HeteroCL: A Multi-Paradigm Programming Infrastructure for Software-Defined Reconfigurable Computing"></a>HeteroCL: A Multi-Paradigm Programming Infrastructure for Software-Defined Reconfigurable Computing</h1><h2 id="HeteroCL库的介绍"><a href="#HeteroCL库的介绍" class="headerlink" title="HeteroCL库的介绍"></a>HeteroCL库的介绍</h2><p><a href="..%5C%E5%85%B6%E4%BB%96%5CHeteroCL%E7%AE%80%E4%BB%8B.md">HeteroCL简介</a></p><p>F:\新桌面\博客\source_posts\MLIR\MLIR简介.md</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 论文 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 论文 </tag>
-            
-            <tag> 论文笔记 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>02_MLIR A Compiler Infrastructure for the End of Moore’s Law</title>
-      <link href="/2022/09/16/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/02_MLIR%20A%20Compiler%20Infrastructure%20for%20the%20End%20of%20Moore%E2%80%99s%20Law/"/>
-      <url>/2022/09/16/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/02_MLIR%20A%20Compiler%20Infrastructure%20for%20the%20End%20of%20Moore%E2%80%99s%20Law/</url>
-      
-        <content type="html"><![CDATA[<h2 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h2><p>MLIR 工作的开始是由于认识到现代机器学习框架由许多不同的编译器、图处理技术和运行时系统组成（如图一），但是他们不共享一个共同的基础设施，也没有都遵循编译器设计的最佳方式。这表现在很多用户可见的方面上。</p><p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220916164009.png" alt="image-20220916164002451"></p><p>人们认识到编译器行业有一个相似的问题：现有的系统，像LLVM很成功的把不同语言统一和集成起来，但是高级语言总是发明自己的IR，并为更高层次的抽象重新发明了很多相同的技术，与此同时，LLVM社区经常纠结于如何最好地表示并行结构，如何共享公共前端，但没有令人满意的答案。</p><p>我们负担不起改进N个编译器，所以想要构建一个更加通用的解决方案，</p><p>待续</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="论文信息"><a href="#论文信息" class="headerlink" title="论文信息"></a>论文信息</h2><p><strong>ScaleHLS: A New Scalable High-Level Synthesis Framework on Multi-Level Intermediate Representation</strong></p><p><em>[Submitted on 24 Jul 2021 (*<a href="https://arxiv.org/abs/2107.11673v1">v1</a></em>), last revised 22 Dec 2021 (this version, v4)]*</p><p>HPCA（High Performance Computer Architecture），既高性能计算架构会议是体系结构&#x2F;高性能计算领域最重要的学术会议之一，基本上都是最顶尖的研究小组在上面发文章。HPCA为CCF A类，Core Conference Ranking A*类会议，H-5指数53，Impace Score 6.93，录取率常年在20%左右。该会议历史悠久，几十年的举办历史中，国内只13年在深圳举办一次，绝大多数举办地在美国。</p><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="HLS-High-level-synthesis-高级综合"><a href="#HLS-High-level-synthesis-高级综合" class="headerlink" title="HLS: High-level synthesis 高级综合"></a>HLS: High-level synthesis 高级综合</h3><p>在传统的FPGA开发过程中，一般的流程是：编写verilog代码，功能仿真，生成可执行文件，上板调试，采集数据，进行分析，释放版本。但是这个流程中，功能仿真会占用大部分的时间，尤其是现在的算法越来越复杂，如果按照上述流程操作，开发周期会越来越长，需要经过更长时间的仿真和调试，那么是否有一种方法来解决这个问题？</p><p>于是提出了HLS，借助他，我们可以使用高级编程语言，实现对FPGA的功能模块的开发，这帮助解决算法的实现，利用算法工程师实现硬件难以描述的算法，从而节约了开发时间。它聚焦算法的快速迭代和功能的实现，在软件环境中直接进行功能仿真，并与硬件仿真无缝集成。</p><p><a href="https://blog.csdn.net/weixin_49617016/article/details/108005982">高级综合（high-level-synthesis，HLS）：软件算法在FPGA上实现硬件加速的综合工具</a></p><p><a href="https://www.elecfans.com/d/1474291.html">高层次综合技术（High-level synthesis）的概念</a></p><p><a href="https://www.bilibili.com/video/BV1TU4y1u7oW?spm_id_from=333.337.search-card.all.click&vd_source=3945e3962fa714687a283b476b79aa64">基于Intel FPGA的HLS开发流程</a></p><p><a href="https://www.cnblogs.com/sea-wind/p/4024665.html">高级综合HLS简介</a></p><h3 id="Design-space-exploration"><a href="#Design-space-exploration" class="headerlink" title="Design space exploration"></a>Design space exploration</h3><p><strong>Design Space Exploration</strong> (DSE) refers to systematic analysis and pruning of unwanted design points based on parameters of interest. While the term DSE can apply to any kind of system, we refer to electronic and embedded system design in this article.</p><p><a href="https://en.wikipedia.org/wiki/Design_space_exploration">Design space exploration</a></p><h2 id="问题提出"><a href="#问题提出" class="headerlink" title="问题提出"></a>问题提出</h2><p>HLS自动把高级语言转换成指定硬件语言的加速器，从而消除了对使用专用硬件描述语言的繁琐和可能容易出错的硬件设计实践的依赖。</p><p>现有的研究工作和解决方案在处理包含大量的子模块和复杂的相互依赖关系的大规模HLS设计方面面临重大困难，主要体现在3个方面：</p><ol><li>Representation: 现有的用来表示和分析HLS的工作设计之初考虑的都是单层抽象的软件编译。但是HLS包含多层次的抽象，直接把多层次的representation合起来容易导致严重的碎片化和繁琐和不一致的跨级别优化。我们认为应该有一个系统的方法来在多个抽象层次上表示HLS设计，以尊重HLS设计的内在层次结构。</li><li>Optinization: 现有的工作把很多重要的HLS优化留给了人工设计员来进行代码重写，这种方法不够高效和可扩展，不足以处理大型HLS设计，并可能阻碍综合DSE。我们认为HLS优化应该完全自动化而不是依赖人工重写代码，这个优化应该在多个不同的抽象级别上自动执行。</li><li>Exploration: 传统的编译器领域，每项优化技术的参数通常由一个成本模型决定，表名参数组合的收益。但是HLS设计中，由于不同的HLS优化的效果相互关联（或冲突），我们不能把一个优化之间的收益隔离来看。为了解决这个问题，一个全局的DSE引擎需要考虑跨不同抽象层次的所有HLS优化。</li></ol><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h2 id="性能评估"><a href="#性能评估" class="headerlink" title="性能评估"></a>性能评估</h2><h2 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h2>]]></content>
       
       
       <categories>
@@ -160,35 +108,6 @@
             <tag> LLVM </tag>
             
             <tag> tutorial </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>01_ScaleHLS</title>
-      <link href="/2022/09/13/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/01_ScaleHLS/"/>
-      <url>/2022/09/13/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/01_ScaleHLS/</url>
-      
-        <content type="html"><![CDATA[<p>会议信息：</p><h2 id="论文信息"><a href="#论文信息" class="headerlink" title="论文信息"></a>论文信息</h2><p><em>[Submitted on 24 Jul 2021 (*<a href="https://arxiv.org/abs/2107.11673v1">v1</a></em>), last revised 22 Dec 2021 (this version, v4)]*</p><p>HPCA（High Performance Computer Architecture），既高性能计算架构会议是体系结构&#x2F;高性能计算领域最重要的学术会议之一，基本上都是最顶尖的研究小组在上面发文章。HPCA为CCF A类，Core Conference Ranking A*类会议，H-5指数53，Impace Score 6.93，录取率常年在20%左右。该会议历史悠久，几十年的举办历史中，国内只13年在深圳举办一次，绝大多数举办地在美国。</p><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="HLS-High-level-synthesis-高级综合"><a href="#HLS-High-level-synthesis-高级综合" class="headerlink" title="HLS: High-level synthesis 高级综合"></a>HLS: High-level synthesis 高级综合</h3><p>在传统的FPGA开发过程中，一般的流程是：编写verilog代码，功能仿真，生成可执行文件，上板调试，采集数据，进行分析，释放版本。但是这个流程中，功能仿真会占用大部分的时间，尤其是现在的算法越来越复杂，如果按照上述流程操作，开发周期会越来越长，需要经过更长时间的仿真和调试，那么是否有一种方法来解决这个问题？</p><p>于是提出了HLS，借助他，我们可以使用高级编程语言，实现对FPGA的功能模块的开发，这帮助解决算法的实现，利用算法工程师实现硬件难以描述的算法，从而节约了开发时间。它聚焦算法的快速迭代和功能的实现，在软件环境中直接进行功能仿真，并与硬件仿真无缝集成。</p><p><a href="https://blog.csdn.net/weixin_49617016/article/details/108005982">高级综合（high-level-synthesis，HLS）：软件算法在FPGA上实现硬件加速的综合工具</a></p><p><a href="https://www.elecfans.com/d/1474291.html">高层次综合技术（High-level synthesis）的概念</a></p><p><a href="https://www.bilibili.com/video/BV1TU4y1u7oW?spm_id_from=333.337.search-card.all.click&vd_source=3945e3962fa714687a283b476b79aa64">基于Intel FPGA的HLS开发流程</a></p><h2 id="Design-space-exploration"><a href="#Design-space-exploration" class="headerlink" title="Design space exploration"></a>Design space exploration</h2><p><strong>Design Space Exploration</strong> (DSE) refers to systematic analysis and pruning of unwanted design points based on parameters of interest. While the term DSE can apply to any kind of system, we refer to electronic and embedded system design in this article.</p><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>HLS自动把高级语言转换成指定硬件语言的加速器，</p><h2 id="问题提出"><a href="#问题提出" class="headerlink" title="问题提出"></a>问题提出</h2><p>现有的研究工作和解决方案在处理包含大量的子模块和复杂的相互依赖关系的大规模HLS设计方面面临重大困难，主要体现在3个方面：</p><p>1. </p><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><h2 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h2><p>现有的HLS工具通常提供用户指定的指令来控制或指导HLS过程以生成不同的微架构，这意味着工具将依赖设计人员编写“好”代码和设置“好”指令，以实现良好设计质量的</p><ol><li>Representation: 现有的用来表示和分析HLS的工作设计之初考虑的都是单层抽象的软件编译。但是HLS包含多层次的抽象，直接把多层次的representation合起来容易导致严重的碎片化和繁琐和不一致的跨级别优化。我们认为应该有一个系统的方法来在多个抽象层次上表示HLS设计，以尊重HLS设计的内在层次结构。</li><li>Optinization: 现有的工作把很多重要的HLS优化留给了人工设计员来进行代码重写，这种方法不够高效和可扩展，不足以处理大型HLS设计，并可能阻碍综合DSE。我们认为HLS优化应该完全自动化而不是依赖人工重写代码，这个优化应该在多个不同的抽象级别上自动执行。</li><li>Exploration: 传统的编译器领域，每项优化技术的参数通常由一个成本模型决定，表名参数组合的收益。但是HLS设计中，由于不同的HLS优化的效果相互关联（或冲突），我们不能把一个优化之间的收益隔离来看。为了解决这个问题，一个全局的DSE引擎需要考虑跨不同抽象层次的所有HLS优化。</li></ol><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h2 id="性能评估"><a href="#性能评估" class="headerlink" title="性能评估"></a>性能评估</h2><h2 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2>]]></content>
-      
-      
-      <categories>
-          
-          <category> 论文 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 论文 </tag>
-            
-            <tag> 论文笔记 </tag>
-            
-            <tag> MLIR </tag>
             
         </tags>
       
