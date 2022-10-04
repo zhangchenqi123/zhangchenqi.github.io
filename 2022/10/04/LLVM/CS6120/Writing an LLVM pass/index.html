@@ -2,17 +2,17 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>03 LLVM IR 代码生成 | 牛衣古柳卖黄瓜</title>
-  <meta name="keywords" content=" LLVM , tutorial ">
-  <meta name="description" content="03 LLVM IR 代码生成 | 牛衣古柳卖黄瓜">
+  <title>Writing an LLVM pass | 牛衣古柳卖黄瓜</title>
+  <meta name="keywords" content=" LLVM , Pass ">
+  <meta name="description" content="Writing an LLVM pass | 牛衣古柳卖黄瓜">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://zhangchenqi123.github.io/about/index.html">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="https://zhangchenqi123.github.io/categories/index.html">
 <meta property="og:site_name" content="牛衣古柳卖黄瓜">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-03-31T02:21:49.000Z">
-<meta property="article:modified_time" content="2022-03-31T02:22:05.830Z">
+<meta property="article:published_time" content="2022-03-31T02:03:35.000Z">
+<meta property="article:modified_time" content="2022-03-31T02:04:02.527Z">
 <meta property="article:author" content="zcq">
 <meta name="twitter:card" content="summary">
 
@@ -112,7 +112,7 @@
     <li>
         <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(32)</small>
+                <small>(29)</small>
             
         </div>
     </li>
@@ -123,7 +123,7 @@
                     <div data-rel="论文">
                         
                         论文
-                        <small>(4)</small>
+                        <small>(5)</small>
                         
                     </div>
                     
@@ -182,28 +182,11 @@
             
                 <li>
                     <div data-rel="LLVM">
-                        <i class="fold iconfont icon-right"></i>
                         
                         LLVM
-                        <small>(5)</small>
+                        <small>(1)</small>
                         
                     </div>
-                    
-                        <ul class="sub hide">
-                            
-                                <li>
-                                    <div data-rel="LLVM<--->Tutorial">
-                                        
-                                        Tutorial
-                                        
-                                            <small>(5
-                                                )</small>
-                                        
-                                    </div>
-                                    
-                                </li>
-                            
-                        </ul>
                     
                 </li>
             
@@ -220,10 +203,6 @@
                     </div>
                     
                 </li>
-            
-        
-    
-        
             
         
     
@@ -251,8 +230,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="32">
-<input type="hidden" id="yelog_site_word_count" value="71.4k">
+<input type="hidden" id="yelog_site_posts_number" value="29">
+<input type="hidden" id="yelog_site_word_count" value="61.6k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -376,11 +355,11 @@
             </li>
         
             <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>trick</a>
+                <i class="iconfont icon-tag"></i><a>Pass</a>
             </li>
         
             <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>tutorial</a>
+                <i class="iconfont icon-tag"></i><a>trick</a>
             </li>
         
     </div>
@@ -389,6 +368,22 @@
 
     
     <nav id="title-list-nav">
+        
+        <a  class="全部文章 LLVM "
+           href="/2022/10/04/LLVM/CS6120/Writing%20an%20LLVM%20pass/"
+           data-tag="LLVM,Pass"
+           data-author="" >
+            <span class="post-title" title="Writing an LLVM pass">Writing an LLVM pass</span>
+            <span class="post-date" title="2022-10-04 21:28:18">2022/10/04</span>
+        </a>
+        
+        <a  class="全部文章 论文 "
+           href="/2022/09/18/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/02_MLIR%20A%20Compiler%20Infrastructure%20for%20the%20End%20of%20Moore%E2%80%99s%20Law/"
+           data-tag="论文,论文笔记,MLIR"
+           data-author="" >
+            <span class="post-title" title="02_MLIR A Compiler Infrastructure for the End of Moore’s Law">02_MLIR A Compiler Infrastructure for the End of Moore’s Law</span>
+            <span class="post-date" title="2022-09-18 17:53:00">2022/09/18</span>
+        </a>
         
         <a  class="全部文章 MLIR "
            href="/2022/09/17/MLIR/MLIR%E7%AE%80%E4%BB%8B/"
@@ -399,51 +394,11 @@
         </a>
         
         <a  class="全部文章 论文 "
-           href="/2022/09/16/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/01_ScaleHLS/"
+           href="/2022/09/15/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/01_ScaleHLS/"
            data-tag="论文,论文笔记,MLIR"
            data-author="" >
             <span class="post-title" title="01_ScaleHLS">01_ScaleHLS</span>
-            <span class="post-date" title="2022-09-16 10:20:00">2022/09/16</span>
-        </a>
-        
-        <a  class="全部文章 LLVM Tutorial "
-           href="/2022/09/14/LLVM/Tutorial/04%20%E6%B7%BB%E5%8A%A0JIT%E5%92%8C%E4%BC%98%E5%8C%96%E6%94%AF%E6%8C%81/"
-           data-tag="LLVM,tutorial"
-           data-author="" >
-            <span class="post-title" title="04 添加JIT和优化支持">04 添加JIT和优化支持</span>
-            <span class="post-date" title="2022-09-14 15:55:04">2022/09/14</span>
-        </a>
-        
-        <a  class="全部文章 LLVM Tutorial "
-           href="/2022/09/13/LLVM/Tutorial/03%20LLVM%20IR%20%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/"
-           data-tag="LLVM,tutorial"
-           data-author="" >
-            <span class="post-title" title="03 LLVM IR 代码生成">03 LLVM IR 代码生成</span>
-            <span class="post-date" title="2022-09-13 20:36:50">2022/09/13</span>
-        </a>
-        
-        <a  class="全部文章 LLVM Tutorial "
-           href="/2022/09/11/LLVM/Tutorial/02%20%E5%AE%9E%E7%8E%B0%E8%A7%A3%E6%9E%90%E5%99%A8%E5%92%8CAST/"
-           data-tag="LLVM,tutorial"
-           data-author="" >
-            <span class="post-title" title="02 实现解析器和AST">02 实现解析器和AST</span>
-            <span class="post-date" title="2022-09-11 20:49:39">2022/09/11</span>
-        </a>
-        
-        <a  class="全部文章 LLVM Tutorial "
-           href="/2022/09/11/LLVM/Tutorial/01%20Kaleidoscope%20%E8%AF%AD%E8%A8%80%E5%92%8C%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/"
-           data-tag="LLVM,tutorial"
-           data-author="" >
-            <span class="post-title" title="01 Kaleidoscope 语言和词法分析器">01 Kaleidoscope 语言和词法分析器</span>
-            <span class="post-date" title="2022-09-11 10:51:31">2022/09/11</span>
-        </a>
-        
-        <a  class="全部文章 LLVM Tutorial "
-           href="/2022/09/11/LLVM/Tutorial/00_%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%20LLVM%20%E8%AF%AD%E8%A8%80%E5%89%8D%E7%AB%AF/"
-           data-tag="LLVM,tutorial"
-           data-author="" >
-            <span class="post-title" title="00 我的第一个 LLVM 语言前端">00 我的第一个 LLVM 语言前端</span>
-            <span class="post-date" title="2022-09-11 10:00:15">2022/09/11</span>
+            <span class="post-date" title="2022-09-15 10:21:00">2022/09/15</span>
         </a>
         
         <a  class="全部文章 算法 sjtu机试 "
@@ -664,9 +619,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-LLVM/Tutorial/03 LLVM IR 代码生成" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-LLVM/CS6120/Writing an LLVM pass" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">03 LLVM IR 代码生成</h1>
+        <h1 class="article-title">Writing an LLVM pass</h1>
     
     <div class="article-meta">
         
@@ -676,9 +631,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="LLVM">LLVM</a> > 
-            
-            <a  data-rel="LLVM&lt;---&gt;Tutorial">Tutorial</a>
+            <a  data-rel="LLVM">LLVM</a>
             
         </span>
         
@@ -688,19 +641,19 @@
             
             <a class="color5">LLVM</a>
             
-            <a class="color4">tutorial</a>
+            <a class="color5">Pass</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-09-20 10:56:53'>2022-09-13 20:36</time>
+            发布时间 : <time class="date" title='最后更新: 2022-10-05 00:40:23'>2022-10-04 21:28</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:3.9k</span>
+        <span>字数:2.3k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -730,7 +683,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90"><span class="toc-text">3.3 表达式代码生成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E5%87%BD%E6%95%B0%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90"><span class="toc-text">3.4 函数代码生成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%94%B9%E5%8F%98"><span class="toc-text">3.5 驱动程序的改变</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Pass%E7%AE%80%E4%BB%8B"><span class="toc-text">Pass简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E4%BB%A3%E7%A0%81%E8%AE%B2%E8%A7%A3"><span class="toc-text">模板代码讲解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E3%80%81%E8%BF%90%E8%A1%8C"><span class="toc-text">编译、运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8BIR%E7%9A%84%E7%BB%84%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-text">查看IR的组件结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%8A%9F%E8%83%BD"><span class="toc-text">修改功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -746,247 +699,291 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Albdon/article/details/125086713">LLVM IR基本指令</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/66793637">A tour to LLVM IR(上)</a></p>
-<p>为了生成 LLVM IR，我们需要一些简单的设置来开始。首先我们在每个 AST 类中定义虚拟代码生成（codegen）方法：</p>
-<pre><code class="cpp">/// ExprAST - Base class for all expression nodes.
-class ExprAST &#123;
-    public:
-    virtual ~ExprAST() = default;
-    virtual Value *codegen() = 0;
-&#125;;
-
-/// NumberExprAST - Expression class for numeric literals like &quot;1.0&quot;.
-class NumberExprAST : public ExprAST &#123;
-    double Val;
-
-    public:
-    NumberExprAST(double Val) : Val(Val) &#123;&#125;
-    Value *codegen() override;
-&#125;;
-...
+        <p>本篇文章介绍如何实现一个简单的Pass， 并在此基础上进行改动。</p>
+<h2 id="Pass简介"><a href="#Pass简介" class="headerlink" title="Pass简介"></a>Pass简介</h2><p>LLVM Pass 框架是LLVM系统的重要组成部分，它的主要作用是对IR进行分析、转换、优化。编译器开发者将IR分解为不同的处理对象，并将其处理过程实现为单独的Pass类型。在编译器初始化的时候，pass被实例化，并被添加到pass管理器中，pass管理器以流水线的方式将各个独立的pass衔接起来，然后以预定义的顺序遍历每个pass，根据pass实例返回值启动、停止、重复运行不同的pass。因此LLVM Pass的模块主要包括：pass、pass管理器、pass注册以及相关模块。</p>
+<p>所有的LLVM Pass都是Pass类的子类，它里面含有很多虚函数供子类继承和重写。我们在编写pass的时候，要根据需求来继承Module Pass、CallGraphSCCPass、FunctionPass、LoopPass、RegionPass、BasicBlockPass等。LLVM Pass框架的一个主要特性就是它根据传递遇到的约束来调度传递以高效的方式运行。</p>
+<h2 id="模板代码讲解"><a href="#模板代码讲解" class="headerlink" title="模板代码讲解"></a>模板代码讲解</h2><p>我们写的Pass的模板来自 <a target="_blank" rel="noopener" href="https://github.com/sampsyo/llvm-pass-skeleton/blob/master/skeleton/Skeleton.cpp">llvm-pass-skeleton</a> ，可以直接使用以下命令clone到合适的位置</p>
+<pre><code>$ git clone https://github.com/sampsyo/llvm-pass-skeleton.git
 </code></pre>
-<p>codegen() 方法表示为那个 AST 节点以及它所依赖的所有东西发出 IR，它们都返回一个 LLVM 值对象。 “值”是用于表示 LLVM 中的“静态单一分配 (SSA) 寄存器”或“SSA 值”的类。 SSA 值最独特的方面是它们的值是在相关指令执行时计算的，并且在指令重新执行之前（并且如果）它不会获得新值。换句话说，没有办法“改变”一个 SSA 值。有关更多信息，请阅读静态单一分配 - 一旦您了解它们，这些概念真的很自然。 请注意，除了将虚拟方法添加到 ExprAST 类层次结构中，还可以使用访问者模式或其他方式对其进行建模。同样，本教程不会详述良好的软件工程实践：就我们的目的而言，添加虚拟方法是最简单的。 我们想要的第二件事是我们用于解析器的“LogError”方法，它将用于 报告代码生成期间发现的错误（例如，使用未声明的参数）：</p>
-<pre><code class="cpp">static LLVMContext TheContext;
-static IRBuilder&lt;&gt; Builder(TheContext);
-static std::unique_ptr&lt;Module&gt; TheModule;
-static std::map&lt;std::string, Value *&gt; NamedValues;
-
-Value *LogErrorV(const char *Str) &#123;
-    LogError(Str);
-    return nullptr;
-&#125;
+<p>这个模板十分简单，仅仅实现了一些打印的功能，并没有对IR代码进行修改，下面对模板中的代码进行详细讲解：</p>
+<p>首先引入头文件，并使用llvm的命名空间</p>
+<pre><code class="cpp">#include &quot;llvm/Pass.h&quot;
+#include &quot;llvm/IR/Function.h&quot;
+#include &quot;llvm/Support/raw_ostream.h&quot;
+#include &quot;llvm/IR/LegacyPassManager.h&quot;
+#include &quot;llvm/Transforms/IPO/PassManagerBuilder.h&quot;
 </code></pre>
-<p>静态变量将在代码生成期间使用。 TheContext 是一个不透明的对象，它拥有许多核心 LLVM 数据结构，例如类型和常量值表。我们不需要详细了解它，我们只需要一个实例来传递给需要它的 API。</p>
+<p>在头文件中的函数存在于llvm的命名空间中，所以我们必须使用 llvm 的命名空间</p>
+<pre><code class="cpp">using namespace llvm;
+</code></pre>
+<p>接下来开始一个新的匿名命名空间，为了引入静态全局作用域，就像C语言的“static”关键字，它使在匿名命名空间中声明的内容仅对当前文件可见：</p>
+<pre><code class="cpp">namespace&#123;
+</code></pre>
+<p>声明我们的Pass，继承自FunctionPass，这是一个对函数进行操作的类，它对初学者来说比较友好：</p>
+<pre><code class="cpp">    struct SkeletonPass : public FunctionPass &#123;
+</code></pre>
+<p>我们需要一个标识符，这允许LLVM避免使用C++运行时信息：</p>
+<pre><code class="cpp">        static char ID;
+        SkeletonPass() : FunctionPass(ID) &#123;&#125;
+</code></pre>
+<p>声明一个<code>runOnFunction</code>方法，覆盖了从FunctionPass继承的抽象虚方法，在这个方法中，我们仅仅打印出一些基本信息：</p>
+<pre><code class="cpp">        virtual bool runOnFunction(Function &amp;F) &#123;
+            errs() &lt;&lt; &quot;I saw a function called &quot; &lt;&lt; F.getName() &lt;&lt; &quot;!\n&quot;;
+            return false;
+        &#125;
+</code></pre>
 <ul>
-<li>Builder 是一个辅助产生LLVM指令的对象，IRBuilder类的实例保存当前插入的位置，具有创建新指令的方法。</li>
-<li>TheModule 是一个包含函数和全局变量的 LLVM 结构。在许多方面，它是 LLVM IR 用来保存代码的顶级结构。它将拥有我们生成的所有 IR 的信息，这就是为什么 codegen() 方法返回原始 Value* 而不是 unique_ptr。 </li>
-<li>NamedValues 映射跟踪在当前范围内定义了哪些值以及它们的 LLVM 表示形式是什么。 （换句话说，它是代码的符号表）。在 这种形式的Kaleidoscope，唯一可以引用的就是函数参数。 因此，在为其函数体生成代码时，函数参数将在此映射中。</li>
+<li><p><code>errs()</code>是 LLVM 提供的 C++ 输出流，我们可以使用它来打印到控制台。</p>
+</li>
+<li><p>函数返回<code>false</code>表明它没有修改函数<code>F</code>. 稍后，当我们真正转换程序时，我们需要 return <code>true</code>。</p>
+</li>
 </ul>
-<p> 有了这些基础知识，我们就可以开始讨论如何为每个表达式生成代码了。 请注意，这假设 Builder 已设置为生成代码。 现在，我们假设这已经完成，我们将使用它来发出代码。</p>
-<h2 id="3-3-表达式代码生成"><a href="#3-3-表达式代码生成" class="headerlink" title="3.3 表达式代码生成"></a>3.3 表达式代码生成</h2><p>为表达式节点生成LLVM代码是很简单的：不到45行代码就为所有4种表达式生成代码。</p>
-<p>首先，我们看数字类型的：</p>
-<pre><code class="cpp">Value *NumberExprAST::codegen() &#123;
-    return ConstantFP::get(TheContext, APFloat(Val));
-&#125;
+<p>初始化PassID，LLVM使用ID的地址来标识ID，因此ID的初始化值并不重要</p>
+<pre><code class="cpp">char SkeletonPass::ID = 0;
 </code></pre>
-<p>在 LLVM IR 中，数字常量用 ConstantFP 类表示，该类在内部将数值保存在 APFloat 中(APFloat 具有保存任意精度浮点常量的能力),这段代码基本上只是创建并返回一个 ConstantFP。请注意，在 LLVM IR 中，常量都是唯一的，并且是共享的。出于这个原因，API 使用“foo::get(…)” 习惯用法而不是“new foo(..)” 或“foo::Create(..)”。</p>
-<pre><code class="cpp">Value *VariableExprAST::codegen() &#123;
-    // 在函数中找这个变量
-    Value *V = NamedValues[Name];
-    if (!V)
-        LogErrorV(&quot;Unknown variable name&quot;);
-    return V;
+<p>注册我们的pass</p>
+<pre><code class="cpp">static void registerSkeletonPass(const PassManagerBuilder &amp;,
+                                 legacy::PassManagerBase &amp;PM) &#123;
+    PM.add(new SkeletonPass());
 &#125;
+static RegisterStandardPasses
+    RegisterMyPass(PassManagerBuilder::EP_EarlyAsPossible,
+                   registerSkeletonPass);
 </code></pre>
-<p>使用 LLVM 对变量的引用也非常简单。在 Kaleidoscope 的简单版本中，我们假设变量已经在某个地方发出并且它的值是可用的。实际上，可以在 NamedValues 映射中的唯一值是函数参数。此代码仅检查指定名称是否在映射中（如果没有，则引用未知变量）并返回它的值。在以后的章节中，我们将添加对符号表中循环归纳变量和局部变量的支持。</p>
-<pre><code class="cpp">Value *BinaryExprAST::codegen() &#123;
-    Value *L = LHS-&gt;codegen();
-    Value *R = RHS-&gt;codegen();
-    if (!L || !R)
-        return nullptr;
+<p>总的代码如下：</p>
+<pre><code class="cpp">#include &quot;llvm/Pass.h&quot;
+#include &quot;llvm/IR/Function.h&quot;
+#include &quot;llvm/Support/raw_ostream.h&quot;
+#include &quot;llvm/IR/LegacyPassManager.h&quot;
+#include &quot;llvm/Transforms/IPO/PassManagerBuilder.h&quot;
+using namespace llvm;
 
-    switch (Op) &#123;
-        case &#39;+&#39;:
-            return Builder.CreateFAdd(L, R, &quot;addtmp&quot;);
-        case &#39;-&#39;:
-            return Builder.CreateFSub(L, R, &quot;subtmp&quot;);
-        case &#39;*&#39;:
-            return Builder.CreateFMul(L, R, &quot;multmp&quot;);
-        case &#39;&lt;&#39;:
-            L = Builder.CreateFCmpULT(L, R, &quot;cmptmp&quot;);
-            // 把 bool 0/1 转换成 double 0.0 或者 1.0
-            return Builder.CreateUIToFP(L, Type::getDoubleTy(TheContext),
-                                        &quot;booltmp&quot;);
-        default:
-            return LogErrorV(&quot;invalid binary operator&quot;);
+namespace &#123;
+    struct SkeletonPass : public FunctionPass &#123;
+        static char ID;
+        SkeletonPass() : FunctionPass(ID) &#123;&#125;
+
+        virtual bool runOnFunction(Function &amp;F) &#123;
+            errs() &lt;&lt; &quot;I saw a function called &quot; &lt;&lt; F.getName() &lt;&lt; &quot;!\n&quot;;
+            return false;
+        &#125;
+    &#125;;
+&#125;
+
+char SkeletonPass::ID = 0;
+
+// Automatically enable the pass.
+// http://adriansampson.net/blog/clangpass.html
+static void registerSkeletonPass(const PassManagerBuilder &amp;,
+                                 legacy::PassManagerBase &amp;PM) &#123;
+    PM.add(new SkeletonPass());
+&#125;
+static RegisterStandardPasses
+    RegisterMyPass(PassManagerBuilder::EP_EarlyAsPossible,
+                   registerSkeletonPass);
+</code></pre>
+<h2 id="编译、运行"><a href="#编译、运行" class="headerlink" title="编译、运行"></a>编译、运行</h2><p>构建我们的Pass</p>
+<pre><code>$ git clone https://github.com/sampsyo/llvm-pass-skeleton.git
+
+$ cd llvm-pass-skeleton
+
+$ mkdir build
+
+$ cd build
+
+$ cmake ..
+
+$ make
+</code></pre>
+<p>告诉Cmake你的LLVM安装到哪了：</p>
+<pre><code>LLVM_DIR = ~/桌面/tools/llvm-12.0.1/llvm/llvm-build/lib/cmake/llvm cmake ..
+</code></pre>
+<p>这会生成一个共享库，位置在<code>build/skeleton/libSkeletonPass.so</code></p>
+<p>创建一个C语言文件</p>
+<pre><code>$ vim a.c
+
+int main()&#123;
+    return 42;
+&#125;
+</code></pre>
+<p>调用<code>clang</code>编译执行 C 程序并使用一些flag来指向刚刚编译的共享库：</p>
+<pre><code>bupt@ubuntu-virtual-machine:~/桌面/tools/test_pass/llvm-pass-skeleton$ clang -Xclang -load -Xclang build/skeleton/libSkeletonPass.so a.c
+</code></pre>
+<p>输出：</p>
+<pre><code>I saw a function called main!
+</code></pre>
+<p>正常运行！</p>
+<p>最终文件树如下：</p>
+<pre><code>bupt@ubuntu-virtual-machine:~/桌面/tools/test_pass/llvm-pass-skeleton$ tree -L 2
+.
+├── a.c
+├── a.out
+├── build
+│   ├── CMakeCache.txt
+│   ├── CMakeFiles
+│   ├── cmake_install.cmake
+│   ├── Makefile
+│   └── skeleton
+├── CMakeLists.txt
+├── LICENSE
+├── README.md
+└── skeleton
+    ├── CMakeLists.txt
+    └── Skeleton.cpp
+</code></pre>
+<h2 id="查看IR的组件结构"><a href="#查看IR的组件结构" class="headerlink" title="查看IR的组件结构"></a>查看IR的组件结构</h2><p>IR中的组件结构：</p>
+<p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20221004235336.png" alt="image-20221004235336356"></p>
+<ul>
+<li><p>一个<a href="https://link.zhihu.com/?target=http://llvm.org/docs/doxygen/html/classllvm_1_1Module.html">模块</a>（<a href="https://link.zhihu.com/?target=http://llvm.org/docs/doxygen/html/classllvm_1_1Module.html">Module</a>）代表一个源文件（粗略地）或一个<em>翻译单元</em>。Module是其他LLVM IR的对象的顶级容器，每个Module都直接包含了一系列全局变量、函数、该Module依赖的库（或其他Module）以及有关目标特性的各种数据。</p>
+</li>
+<li><p>Modules包含<a href="https://link.zhihu.com/?target=http://llvm.org/docs/doxygen/html/classllvm_1_1Function.html">Function</a>命名的可执行代码块。（在 C++ 中，函数和方法都对应于 LLVM 函数。）</p>
+</li>
+<li><p>除了声明其名称和参数外，Function 主要是<a href="https://link.zhihu.com/?target=http://llvm.org/docs/doxygen/html/classllvm_1_1BasicBlock.html">BasicBlock</a>（BB）的容器。<a href="https://link.zhihu.com/?target=https://en.wikipedia.org/wiki/Basic_block">基本块</a>（BB）可以理解为一段连续的指令。</p>
+</li>
+<li><p>指令是单个代码操作。例如，指令可能是整数加法、浮点除法或存储到内存。</p>
+</li>
+<li><p>LLVM 中的大多数东西（包括 Function、BasicBlock 和 Instruction）都是从名为Value的基类继承而来。<a target="_blank" rel="noopener" href="https://www.llvm.org/doxygen/classllvm_1_1Value.html#details:~:text=Detailed%20Description">Value</a>是可以在计算中使用的任何数据——例如，数字或某些代码的地址。全局变量和常量（又名literals或immediates）也是Value。</p>
+</li>
+</ul>
+<p>可以在刚才的Skeleton.cpp文件里修改代码，从而查看每一条IR指令</p>
+<pre><code>$ vim skeleton/Skeleton.cpp
+</code></pre>
+<p>输出整个函数的IR，遍历函数中的所有basic block，同时遍历basic block中的instruction，将其输出：</p>
+<pre><code class="cpp">errs() &lt;&lt; &quot;Function body:\n&quot; &lt;&lt; F &lt;&lt; &quot;\n&quot;;
+for (auto&amp; B : F) &#123;
+    errs() &lt;&lt; &quot;Basic block:\n&quot; &lt;&lt; B &lt;&lt; &quot;\n&quot;;
+    for (auto&amp; I : B) &#123;
+        errs() &lt;&lt; &quot;Instruction: &quot; &lt;&lt; I &lt;&lt; &quot;\n&quot;;
     &#125;
 &#125;
 </code></pre>
-<p>二元运算符开始变得更有趣。这里的基本思想是我们递归地为表达式的LHS生成代码，然后是RHS，然后我们计算二元表达式的结果。在这段代码中，我们对操作码进行了简单的转换，以创建正确的 LLVM 指令。</p>
-<p> 在上面的示例中，LLVM 构建器类开始显示其价值。 IRBuilder 知道在哪里插入新创建的指令，您所要做的就是指定要创建的指令（例如使用 CreateFAdd）、要使用的操作数（此处为 L 和 R）并可选地为生成的指令提供名称。 </p>
-<p>LLVM 的一个好处是名称只是一个提示。例如，如果上面的代码发出多个“addtmp”变量，LLVM 将自动为每个变量提供一个递增的、唯一的数字后缀。指令的本地值名称完全是可选的，但它使读取 IR 转储变得更加容易。</p>
-<p>LLVM 指令受到严格规则的约束：例如，加法指令的左右操作数必须具有相同的类型，加法的结果类型必须与操作数类型匹配。因为 Kaleidoscope 中的所有值都是双精度值，所以这使得 add、sub 和 mul 的代码非常简单。</p>
-<p>另一方面，LLVM 指定 fcmp 指令总是返回一个“i1”值（一个一位整数）。问题在于 Kaleidoscope 希望该值是 0.0 或 1.0 值。为了获得这些语义，我们将 fcmp 指令与 uitofp 指令结合起来。该指令通过将输入视为无符号值将其输入整数转换为浮点值。相反，如果我们使用 sitofp 指令，Kaleidoscope ‘&lt;’ 运算符将根据输入值返回 0.0 和 -1.0。</p>
-<pre><code class="cpp">Value *CallExprAST::codegen() &#123;
-    // Look up the name in the global module table.
-    Function *CalleeF = TheModule-&gt;getFunction(Callee);
-    if (!CalleeF)
-        return LogErrorV(&quot;Unknown function referenced&quot;);
+<p>编译运行：</p>
+<pre><code>$ cd ~/桌面/tools/test_pass/llvm-pass-skeleton/build
 
-    // If argument mismatch error.
-    if (CalleeF-&gt;arg_size() != Args.size())
-        return LogErrorV(&quot;Incorrect # arguments passed&quot;);
+$ make
 
-    std::vector&lt;Value *&gt; ArgsV;
-    for (unsigned i = 0, e = Args.size(); i != e; ++i) &#123;
-        ArgsV.push_back(Args[i]-&gt;codegen());
-        if (!ArgsV.back())
-            return nullptr;
+$ cd ..
+
+$ clang -Xclang -load -Xclang build/skeleton/libSkeletonPass.so a.c
+</code></pre>
+<p>输出结果如下：</p>
+<p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20221004093323.png" alt="image-20221004093323543"></p>
+<p>可以看到，其中有1个basic block，3个Instruction</p>
+<h2 id="修改功能"><a href="#修改功能" class="headerlink" title="修改功能"></a>修改功能</h2><p>a.c 代码如下：</p>
+<pre><code class="c">int main(int argc, char **argv)&#123;
+        return argc + 5;
+&#125;
+
+// argc是参数个数，argv是参数列表。
+// 注意，程序本身会有一个参数
+</code></pre>
+<p>我们想保持代码中的<code>+</code>不变，但实际实现的是<code>x</code>（乘法）的功能</p>
+<p>需要用到IR builder，这是LLVM的一个库</p>
+<pre><code class="cpp">#include &quot;llvm/IR/IRBuilder.h&quot;
+</code></pre>
+<p>先把原函数的输出删去，然后在循环里如下改动：</p>
+<pre><code class="cpp">for (auto&amp; I : B) &#123;
+    // 获取二元操作符+，检查是否获取到了
+    if(auto* op = dyn_cast&lt;BinaryOperator&gt;(&amp;I))&#123;
+        // 指定 op 出现的位置进行代码改写
+        IRBuilder&lt;&gt; builder(op);
+        // 从操作数中获取lhs和rhs
+        Value *lhs = op-&gt;getOperand(0);
+        Value *rhs = op-&gt;getOperand(1);
+        // 用乘法来运算lhs和rhs，保存运算结果
+        Value *mul = builder.CreateMul(lhs,rhs);
+
+        //因为我们要用新的操作符来替换旧的操作符
+        //所以我们要找到所有使用旧的操作符的地方，并换成新的操作符
+        for(auto&amp; U :op-&gt;uses())&#123;
+            User* user = U.getUser();
+            user-&gt;setOperand(U.getOperandNo(),mul);
+        &#125;
+        // return true来告诉剩余的pipline我们已经改过这个函数了
+        return true;
     &#125;
-
-    return Builder.CreateCall(CalleeF, ArgsV, &quot;calltmp&quot;);
 &#125;
 </code></pre>
-<p>使用 LLVM 为函数调用生成代码非常简单。上面的代码最初在 LLVM 模块的符号表中查找函数名。回想一下，LLVM 模块是保存我们正在 JIT 处理的函数的容器。通过为每个函数指定与用户指定的名称相同的名称，我们可以使用 LLVM 符号表为我们解析函数名称。</p>
-<p>一旦我们有了要调用的函数，我们就递归地对每个要传入的参数进行代码生成，并创建一个 LLVM 调用指令。请注意，LLVM 默认使用本机 C 调用约定，允许这些调用也调用标准库函数，如“sin”和“cos”，而无需额外的努力。</p>
-<p>这总结了我们对 Kaleidoscope 中四个基本表达式的处理。随意进入并添加更多内容。例如，通过浏览 LLVM 语言参考，您会发现一些其他有趣的指令，这些指令非常容易插入我们的基本框架。</p>
-<h2 id="3-4-函数代码生成"><a href="#3-4-函数代码生成" class="headerlink" title="3.4 函数代码生成"></a>3.4 函数代码生成</h2><p>为函数或原型进行代码生成需要考虑很多细节，所以它的代码比表达式代码生成更复杂，但我们能看到很多重要的点。首先，让我们谈谈原型的代码生成：它们既用于函数体，也用于外部函数声明。代码如下：</p>
-<pre><code class="cpp">Function *PrototypeAST::codegen() &#123;
-    // Make the function type:  double(double,double) etc.
-    std::vector&lt;Type*&gt; Doubles(Args.size(),
-                               Type::getDoubleTy(TheContext));
-    FunctionType *FT =
-        FunctionType::get(Type::getDoubleTy(TheContext), Doubles, false);
+<p>说明：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://llvm.org/docs/ProgrammersManual.html#isa:~:text=the%20dyn_cast%3C%3E%20operator.-,dyn_cast%3C%3E%3A,-The%20dyn_cast%3C%3E">dyn_cast<BinaryOperator>(&amp;I)</a>是检查强制转换的操作，它检查操作数是否属于指定的类型，如果是则返回指向他的指针，否则返回空。</li>
+<li><a target="_blank" rel="noopener" href="https://llvm.org/doxygen/classllvm_1_1IRBuilder.html">IRBuilder</a>帮助我们创建可能想要的任何类型的指令。</li>
+<li>将新指令拼接到代码中，我们必须找到它原来的所有位置并将新指令作为参数进行交换。</li>
+</ul>
+<p><strong>完整的代码如下：</strong></p>
+<p>Skeleton.cpp:</p>
+<pre><code class="cpp">#include &quot;llvm/Pass.h&quot;
+#include &quot;llvm/IR/Function.h&quot;
+#include &quot;llvm/Support/raw_ostream.h&quot;
+#include &quot;llvm/IR/LegacyPassManager.h&quot;
+#include &quot;llvm/Transforms/IPO/PassManagerBuilder.h&quot;
+#include &quot;llvm/IR/InstrTypes.h&quot;
+#include &quot;llvm/IR/IRBuilder.h&quot;
+using namespace llvm;
 
-    Function *F =
-        Function::Create(FT, Function::ExternalLinkage, Name, TheModule.get());
-</code></pre>
-<p>这段代码在几行代码中包含了很多功能。首先请注意，此函数返回“Function<em>”而不是“Value</em>”。因为“原型”实际上是在讨论函数的外部接口（而不是表达式计算的值），所以它返回它在代码生成时对应的 LLVM 函数是有意义的。</p>
-<p>对 FunctionType::get 的调用创建了应该用于给定原型的 FunctionType。由于 Kaleidoscope 中的所有函数参数都是双精度类型，因此第一行创建了一个“N”个 LLVM 双精度类型的vector。然后它使用 Functiontype::get 方法创建一个函数类型，该函数类型接受“N”个 double 作为参数，返回一个 double 作为结果，并且不是 vararg（false 参数表示这一点）。请注意，LLVM 中的类型与常量一样是唯一的，因此您无需new 一个类型，而是直接get它。</p>
-<pre><code class="cpp">unsigned Idx = 0;
-for (auto &amp;Arg : F-&gt;args())
-  Arg.setName(Args[Idx++]);
+namespace &#123;
+    struct SkeletonPass : public FunctionPass &#123;
+        static char ID;
+        SkeletonPass() : FunctionPass(ID) &#123;&#125;
 
-return F;
-</code></pre>
-<p>最后，我们根据原型中给出的名称设置每个函数参数的名称。此步骤并非绝对必要，但保持名称一致会使 IR 更具可读性，并允许后续代码直接引用其名称的参数，而不必在 Prototype AST 中查找它们。</p>
-<p>至此，我们有了一个没有主体的函数原型。这就是 LLVM IR 表示函数声明的方式。对于 Kaleidoscope 中的 extern 语句，这就是我们需要做的。然而，对于函数定义，我们需要代码生成并附加一个函数体。</p>
-<pre><code class="cpp">Function *FunctionAST::codegen() &#123;
-    // First, check for an existing function from a previous &#39;extern&#39; declaration.
-    Function *TheFunction = TheModule-&gt;getFunction(Proto-&gt;getName());
+        virtual bool runOnFunction(Function &amp;F) &#123;
+            errs() &lt;&lt; &quot;I saw a function called &quot; &lt;&lt; F.getName() &lt;&lt; &quot;!\n&quot;;
+            for (auto&amp; B : F) &#123;
+                for (auto&amp; I : B) &#123;
+                    if(auto* op = dyn_cast&lt;BinaryOperator&gt;(&amp;I))&#123;
+                        IRBuilder&lt;&gt; builder(op);
+                        Value *lhs = op-&gt;getOperand(0);
+                        Value *rhs = op-&gt;getOperand(1);
+                        Value *mul = builder.CreateMul(lhs,rhs);
 
-    if (!TheFunction)
-        TheFunction = Proto-&gt;codegen();
-
-    if (!TheFunction)
-        return nullptr;
-
-    if (!TheFunction-&gt;empty())
-        return (Function*)LogErrorV(&quot;Function cannot be redefined.&quot;);
-</code></pre>
-<p>对于函数定义，我们首先在 TheModule 的符号表中搜索该函数的现有版本，以防已经使用“extern”语句创建了一个。如果 Module::getFunction 返回 null 则不存在以前的版本，因此我们将从 Prototype 代码生成一个。无论哪种情况，我们都希望在开始之前确保该函数是空的（即还没有主体）。</p>
-<pre><code class="cpp">// Create a new basic block to start insertion into.
-BasicBlock *BB = BasicBlock::Create(TheContext, &quot;entry&quot;, TheFunction);
-Builder.SetInsertPoint(BB);
-
-// Record the function arguments in the NamedValues map.
-NamedValues.clear();
-for (auto &amp;Arg : TheFunction-&gt;args())
-    NamedValues[Arg.getName()] = &amp;Arg;
-</code></pre>
-<p>现在我们到了设置 Builder 的地方。第一行创建了一个新的基本块（名为“entry”），它被插入到 TheFunction 中。然后第二行告诉构建器新指令应该插入到新基本块的末尾。 LLVM 中的基本块是定义控制流图的函数的重要组成部分。由于我们没有任何控制流，我们的函数此时将只包含一个块。我们将在第 5 章解决这个问题：）。 接下来，我们将函数参数添加到 NamedValues 映射（在首先清除它之后），以便 VariableExprAST 节点可以访问它们。</p>
-<pre><code class="cpp">if (Value *RetVal = Body-&gt;codegen()) &#123;
-    // Finish off the function.
-    Builder.CreateRet(RetVal);
-
-    // Validate the generated code, checking for consistency.
-    verifyFunction(*TheFunction);
-
-    return TheFunction;
-&#125;
-</code></pre>
-<p>一旦设置了插入点并填充了 NamedValues 映射，我们就为函数的根表达式调用 codegen() 方法。如果没有发生错误，这会发出代码来计算入口块中的表达式并返回计算的值。假设没有错误，然后我们创建一个 LLVM ret 指令，它完成了该功能。构建函数后，我们调用 LLVM 提供的 verifyFunction。该函数对生成的代码进行各种一致性检查，以确定我们的编译器是否一切正常。使用它很重要：它可以捕获很多错误。一旦函数完成并验证，我们将其返回。</p>
-<pre><code class="cpp">    // Error reading body, remove function.
-    TheFunction-&gt;eraseFromParent();
-    return nullptr;
-&#125;
-</code></pre>
-<p>这里剩下的唯一部分是处理错误情况。为简单起见，我们仅通过删除使用 eraseFromParent 方法生成的函数来处理此问题。这允许用户重新定义他们之前错误输入的函数：如果我们不删除它，它将存在于符号表中，并带有正文，防止将来重新定义。</p>
-<p>不过，此代码确实有一个错误：如果 FunctionAST::codegen() 方法找到现有的 IR 函数，它不会根据定义自己的原型验证其签名。这意味着较早的“extern”声明将优先于函数定义的签名，这可能导致 codegen 失败，例如，如果函数参数的名称不同。有很多方法可以修复这个错误，看看你能想出什么！这是一个测试用例：</p>
-<pre><code class="cpp">extern foo(a);     # ok, defines foo.
-def foo(b) b;      # Error: Unknown variable name. (decl using &#39;a&#39; takes precedence).
-</code></pre>
-<h2 id="3-5-驱动程序的改变"><a href="#3-5-驱动程序的改变" class="headerlink" title="3.5 驱动程序的改变"></a>3.5 驱动程序的改变</h2><p>目前，LLVM 的代码生成并没有真正让我们受益，除了我们可以查看漂亮的 IR 调用。示例代码将对 codegen 的调用插入到“HandleDefinition”、“HandleExtern”等函数中，然后转储出 LLVM IR。这为查看 LLVM IR 的简单功能提供了一种很好的方法。例如：</p>
-<pre><code class="bash">ready&gt; 4+5;
-Read top-level expression:
-define double @0() &#123;
-entry:
-  ret double 9.000000e+00
-&#125;
-</code></pre>
-<p>请注意解析器如何为我们将顶级表达式转换为匿名函数。当我们在下一章添加 JIT 支持时，这将很方便。另请注意，代码是按字面意思转录的，除了 IRBuilder 完成的简单常量折叠外，没有执行任何优化。我们将在下一章明确添加优化。</p>
-<pre><code class="bash">ready&gt; def bar(a) foo(a, 4.0) + bar(31337);
-Read function definition:
-define double @bar(double %a) &#123;
-entry:
-  %calltmp = call double @foo(double %a, double 4.000000e+00)
-  %calltmp1 = call double @bar(double 3.133700e+04)
-  %addtmp = fadd double %calltmp, %calltmp1
-  ret double %addtmp
-&#125;
-</code></pre>
-<p>这显示了一些函数调用。请注意，如果调用此函数，将需要很长时间才能执行。将来我们将添加条件控制流来真正使递归变得有用:)。</p>
-<pre><code class="bash">ready&gt; extern cos(x);
-Read extern:
-declare double @cos(double)
-
-ready&gt; cos(1.234);
-Read top-level expression:
-define double @1() &#123;
-entry:
-  %calltmp = call double @cos(double 1.234000e+00)
-  ret double %calltmp
-&#125;
-</code></pre>
-<p>这显示了 libm “cos” 函数的 extern，以及对它的调用。</p>
-<pre><code class="bash">ready&gt; ^D
-; ModuleID = &#39;my cool jit&#39;
-
-define double @0() &#123;
-entry:
-  %addtmp = fadd double 4.000000e+00, 5.000000e+00
-  ret double %addtmp
+                        for(auto&amp; U :op-&gt;uses())&#123;
+                            User* user = U.getUser();
+                            user-&gt;setOperand(U.getOperandNo(),mul);
+                        &#125;
+                        return true;
+                    &#125;
+                &#125;
+            &#125;
+            return false;
+        &#125;
+    &#125;;
 &#125;
 
-define double @foo(double %a, double %b) &#123;
-entry:
-  %multmp = fmul double %a, %a
-  %multmp1 = fmul double 2.000000e+00, %a
-  %multmp2 = fmul double %multmp1, %b
-  %addtmp = fadd double %multmp, %multmp2
-  %multmp3 = fmul double %b, %b
-  %addtmp4 = fadd double %addtmp, %multmp3
-  ret double %addtmp4
-&#125;
+char SkeletonPass::ID = 0;
 
-define double @bar(double %a) &#123;
-entry:
-  %calltmp = call double @foo(double %a, double 4.000000e+00)
-  %calltmp1 = call double @bar(double 3.133700e+04)
-  %addtmp = fadd double %calltmp, %calltmp1
-  ret double %addtmp
-&#125;
-
-declare double @cos(double)
-
-define double @1() &#123;
-entry:
-  %calltmp = call double @cos(double 1.234000e+00)
-  ret double %calltmp
-&#125;
+// Automatically enable the pass.
+// http://adriansampson.net/blog/clangpass.html
+static void registerSkeletonPass(const PassManagerBuilder &amp;,
 </code></pre>
-<p>当您退出当前演示时（通过在 Linux 上通过 CTRL+D 或在 Windows 上通过 CTRL+Z 和 ENTER 发送 EOF），它会转储生成的整个模块的 IR。在这里，您可以看到所有功能相互引用的大图。 Kaleidoscope 教程的第三章到此结束。接下来，我们将描述如何为此添加 JIT 代码生成和优化器支持，以便我们可以真正开始运行代码！</p>
+<p>编译运行：</p>
+<pre><code>$ cd ..
+
+$ cd build
+
+$ make
+
+$ cd ..
+
+$ clang -Xclang -load -Xclang build/skeleton/libSkeletonPass.so a.c
+</code></pre>
+<p>看不到什么输出</p>
+<p>可以这样检验效果</p>
+<p>首先编译</p>
+<pre><code>$ clang -Xclang -load -Xclang build/skeleton/libSkeletonPass.so a.c
+
+$ clang a.c
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20221004110653.png" alt="image-20221004110653818"></p>
+<p><strong>结果说明：</strong></p>
+<p>echo $?是询问返回码，即return的值，源文件没有变，输出：argc+5</p>
+<p>可以看到当不给a.out传入参数的时候，默认参数个数是1，输出5,即1*5</p>
+<p>当给a.out传入3个参数的时候，参数个数是4，输出20，即4*5</p>
+<p>说明<code>+</code>实现的确实是<code>x</code>的功能</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://vod.video.cornell.edu/media/1_4nrtmvc9">CS 6120</a></p>
+<p><a target="_blank" rel="noopener" href="https://llvm.org/docs/WritingAnLLVMPass.html#writing-an-llvm-pass-registration">LLVM 官网</a></p>
+<p><a target="_blank" rel="noopener" href="https://llvm.liuxfe.com/tutorial/writepass/quickstart">LLVM 中文网</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cs.cornell.edu/~asampson/blog/llvm.html">LLVM for Grad Students</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/290946850">LLVM中的pass及其管理机制</a></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1149440709@qq.com </span>
