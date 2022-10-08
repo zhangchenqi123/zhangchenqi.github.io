@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>STL | 牛衣古柳卖黄瓜</title>
-  <meta name="keywords" content=" 算法 , 模拟 ">
-  <meta name="description" content="STL | 牛衣古柳卖黄瓜">
+  <title>00_MLIR简介 | 牛衣古柳卖黄瓜</title>
+  <meta name="keywords" content=" MLIR ">
+  <meta name="description" content="00_MLIR简介 | 牛衣古柳卖黄瓜">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
@@ -627,9 +627,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-算法/sjtu机试/STL" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-MLIR/MLIR简介" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">STL</h1>
+        <h1 class="article-title">00_MLIR简介</h1>
     
     <div class="article-meta">
         
@@ -639,9 +639,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="算法">算法</a> > 
-            
-            <a  data-rel="算法&lt;---&gt;sjtu机试">sjtu机试</a>
+            <a  data-rel="MLIR">MLIR</a>
             
         </span>
         
@@ -649,21 +647,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color3">算法</a>
-            
-            <a class="color3">模拟</a>
+            <a class="color5">MLIR</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-09-06 12:32:13'>2022-07-02 02:41</time>
+            发布时间 : <time class="date" title='最后更新: 2022-10-05 09:27:46'>2022-09-08 08:53</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:2.5k</span>
+        <span>字数:762</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -693,7 +689,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81MLIR%E7%AE%80%E4%BB%8B"><span class="toc-text">一、MLIR简介</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -709,333 +705,46 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><div class='inner-toc'></div></p>
-<p> STL set</p>
-<pre><code>3.1.2 使⽤用set
-定义⼀一个set对象：
-set&lt;int&gt; s;
-set&lt;double&gt; ss;
-</code></pre>
-<p>set的基本操作：</p>
-<pre><code class="cpp">s.begin() // 返回指向第⼀一个元素的迭代器器
-s.clear() // 清除所有元素
-s.count() // 返回某个值元素的个数
-s.empty() // 如果集合为空，返回true(真）
-s.end() // 返回指向最后⼀一个元素之后的迭代器器，不不是最后⼀一个元素
-s.equal_range() // 返回集合中与给定值相等的上下限的两个迭代器器
-s.erase() // 删除集合中的元素
-s.find() // 返回⼀一个指向被查找到元素的迭代器器
-s.get_allocator() // 返回集合的分配器器
-s.insert() // 在集合中插⼊入元素
-s.lower_bound() // 返回指向⼤大于（或等于）某值的第⼀一个元素的迭代器器
-s.key_comp() // 返回⼀一个⽤用于元素间值⽐比较的函数
-s.max_size() // 返回集合能容纳的元素的最⼤大限值
-s.rbegin() // 返回指向集合中最后⼀一个元素的反向迭代器器
-s.rend() // 返回指向集合中第⼀一个元素的反向迭代器器
-s.size() // 集合中元素的数⽬目
-s.swap() // 交换两个集合变量量
-s.upper_bound() // 返回⼤大于某个值元素的迭代器器
-s.value_comp() // 返回⼀一个⽤用于⽐比较元素间的值的函数
-</code></pre>
-<p>STL vector</p>
-<pre><code class="cpp">定义vector向量量对象：
-vector&lt;int&gt; s;
-// 定义⼀一个空的vector对象，存储的是int类型的元素
-vector&lt;int&gt; s(n);
-// 定义⼀一个含有n个int元素的vector对象
-vector&lt;int&gt; s(first, last);
-// 定义⼀一个vector对象，并从由迭代器器first和last定义的序列列[first, last)中复制初值
-</code></pre>
-<p>vector的基本操作：</p>
-<pre><code class="cpp">s[i] // 直接以下标⽅方式访问容器器中的元素
-    s.front() // 返回⾸首元素
-    s.back() // 返回尾元素
-    s.push_back(x) // 向表尾插⼊入元素x
-    s.size() // 返回表⻓长
-    s.empty() // 表为空时，返回真，否则返回假
-    s.pop_back() // 删除表尾元素
-    s.begin() // 返回指向⾸首元素的随机存取迭代器器
-    s.end() // 返回指向尾元素的下⼀一个位置的随机存取迭代器器
-    s.insert(it, val) // 向迭代器器it指向的元素前插⼊入新元素val
-    s.insert(it, n, val) // 向迭代器器it指向的元素前插⼊入n个新元素val
-    s.insert(it, first, last)
-    // 将由迭代器器first和last所指定的序列列[first, last)插⼊入到迭代器器it指向的元素前⾯面
-    s.erase(it) // 删除由迭代器器it所指向的元素
-    s.erase(first, last) // 删除由迭代器器first和last所指定的序列列[first, last)
-    s.reserve(n) // 预分配缓冲空间，使存储空间⾄至少可容纳n个元素
-    s.resize(n) // 改变序列列⻓长度，超出的元素将会全部被删除，如果序列列需要扩展（原空间
-    ⼩小于n），元素默认值将填满扩展出的空间
-    s.resize(n, val) // 改变序列列⻓长度，超出的元素将会全部被删除，如果序列列需要扩展（原空间
-    ⼩小于n），val将填满扩展出的空间
-    s.clear() // 删除容器器中的所有元素
-    s.swap(v) // 将s与另⼀一个vector对象进⾏行行交换
-    s.assign(first, last)
-    // 将序列列替换成由迭代器器first和last所指定的序列列[first, last)，[first, last)不不能是原序列列中的⼀一部分
-    // 要注意的是，resize操作和clear操作都是对表的有效元素进⾏行行的操作，但并不不⼀一定会改变缓冲
-    空间的⼤大⼩小
-    // 另外，vector还有其他的⼀一些操作，如反转、取反等，不不再⼀一⼀一列列举
-    // vector上还定义了了序列列之间的⽐比较操作运算符（&gt;、&lt;、&gt;=、&lt;=、==、!=），可以按照字典序⽐比
-    较两个序列列。
-    // 还是来看⼀一些示例例代码吧……
-    /*
-* 输⼊入个数不不定的⼀一组整数，再将这组整数按倒序输出
-*/
-    int main()
-&#123;
-    vector&lt;int&gt; L;
-    int x;
-    while(cin &gt;&gt; x)
-    &#123;
-        L.push_back(x);
-    &#125;
-    for (int i = L.size() - 1; i &gt;= 0; i--)
-    &#123;
-        cout &lt;&lt; L[i] &lt;&lt; &quot; &quot;;
-    &#125;
-    cout &lt;&lt; endl;
-    return 0;
-&#125;
-</code></pre>
-<p>string</p>
-<pre><code class="cpp">int main()
-&#123;
-    string s = &quot;Hello!&quot;, name;
-    cin &gt;&gt; name;
-    s += name;
-    s += &#39;!&#39;;
-    cout &lt;&lt; s &lt;&lt; endl;
-    return 0;
-&#125;
-</code></pre>
-<pre><code class="cpp">/*
-* 1064--Parencoding(吉林林⼤大学OJ) 题解⽚片段
-* ⽤用string作为容器器,实现由P代码还原括号字符串串
-*/
-int main()
-&#123;
-    int m;
-    cin &gt;&gt; m; // p编码的⻓长度
-    string str; // ⽤用来存放还原出来的括号字符串串
-    int leftpa = 0; // 记录已经出现的左括号的总数
-    for (int i = 0; i &lt; m; i++)
-    &#123;
-        int p;
-        cin &gt;&gt; p;
-        for (int j = 0; j &lt; p - leftpa; j++)
-        &#123;
-            str += &#39;(&#39;;
-        &#125;
-        str += &#39;)&#39;;
-        leftpa = p;
-    &#125;
-    return 0;
-&#125;
-</code></pre>
-<p>定义stack对象：</p>
-<pre><code class="cpp">stack&lt;int&gt; s;
-stack&lt;string&gt; ss;
-</code></pre>
-<pre><code class="cpp">s.push(x); // ⼊入栈
-s.pop(); // 出栈
-s.top(); // 访问栈顶
-s.empty(); // 当栈空时，返回true
-s.size(); // 访问栈中元素个数
-</code></pre>
-<pre><code class="cpp">/*
-* 1064--Parencoding（吉林林⼤大学OJ）
-* string和stack实现
-*/
-int main()
-&#123;
-    int n;
-    cin &gt;&gt; n;
-    for (int i = 0; i &lt; n; i++)
-    &#123;
-        int m;
-        cin &gt;&gt; m;
-        string str;
-        int leftpa = 0;
-        for (int j = 0; j &lt; m; j++)
-        &#123;
-            int p;
-            cin &gt;&gt; p;
-            for (int k = 0; k &lt; p - leftpa; k++)
-            &#123;
-                str += &#39;(&#39;;
-            &#125;
-            str += &#39;)&#39;;
-            leftpa = p;
-        &#125;
-        stack&lt;int&gt; s;
-        for (string::iterator it = str.begin(); it != str.end(); it++)
-        &#123;
-            if (*it == &#39;(&#39;)
-            &#123;
-                s.push(1);
-            &#125;
-            else
-            &#123;
-                int p = s.top();
-                s.pop();
-                cout &lt;&lt; p &lt;&lt; &quot; &quot;;
-                if (!s.empty())
-                &#123;
-                    s.top() += p;
-                &#125;
-            &#125;
-            cout &lt;&lt; &#39;\n&#39;;
-        &#125;
-    &#125;
-    return 0;
-&#125;
-</code></pre>
-<p>STL queue</p>
-<pre><code class="cpp">queue&lt;int&gt; q;
-queue&lt;double&gt; qq;
-</code></pre>
-<pre><code class="cpp">q.push(x); // ⼊入队列列
-q.pop(); // 出队列列
-q.front(); // 访问队⾸首元素
-q.back(); // 访问队尾元素
-q.empty(); // 判断队列列是否为空
-q.size(); // 访问队列列中的元素个数
-</code></pre>
-<pre><code class="cpp">priority_queue&lt;int&gt; q;
-priority_queue&lt;pair&lt;int, int&gt; &gt; qq; // 注意在两个尖括号之间⼀一定要留留空格，防⽌止误判
-priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt; &gt; qqq; // 定义⼩小的先出队列列
-</code></pre>
-<p>priority_queue的基本操作：</p>
-<pre><code class="cpp">q.empty() // 如果队列列为空，则返回true，否则返回false
-q.size() // 返回队列列中元素的个数
-q.pop() // 删除队⾸首元素，但不不返回其值
-q.top() // 返回具有最⾼高优先级的元素值，但不不删除该元素
-q.push(item) // 在基于优先级的适当位置插⼊入新元素
-</code></pre>
-<pre><code class="cpp">class T
-&#123;
-    public:
-    int x, y, z;
-    T(int a, int b, int c) : x(a), y(b), z(c) &#123;&#125;
-&#125;;
-bool operator &lt; (const T &amp;tOne, const T &amp;tTwo)
-&#123;
-    return tOne.z &lt; tTwo.z; // 按照z的顺序来决定tOne和tTwo的顺序
-&#125;
-int main()
-&#123;
-    priority_queue&lt;T&gt; q;
-    q.push(T(4, 4, 3));
-    q.push(T(2, 2, 5));
-    q.push(T(1, 5, 4));
-    q.push(T(3, 3, 6));
-    while (!q.empty())
-    &#123;
-        T t = q.top();
-        q.pop();
-        cout &lt;&lt; t.x &lt;&lt; &quot; &quot; &lt;&lt; t.y &lt;&lt; &quot; &quot; &lt;&lt; t.z &lt;&lt; &#39;\n&#39;;
-    &#125;
-    return 0;
-&#125;
-/*
-* 输出结果为：
-* 4 4 3
-* 1 5 4
-* 2 2 5
-* 3 3 6
-*/
-如果我们将第⼀一个例例⼦子中的⽐比较运算符重载为：
-    bool operator &lt; (const T &amp;tOne, const T &amp;tTwo)
-&#123;
-    return tOne.z &gt; tTwo.z; // 按照z的顺序来决定tOne和tTwo的顺序
-&#125;
-</code></pre>
-<p> STL map</p>
-<p>定义map对象：</p>
-<pre><code class="cpp">map&lt;string, int&gt; m;
-</code></pre>
-<p>map的基本操作：</p>
-<pre><code class="cpp">/* 向map中插⼊入元素 */
-m[key] = value; // [key]操作是map很有特⾊色的操作,如果在map中存在键值为
-key的元素对, 则返回该元素对的值域部分,否则将会创建⼀一个键值为key的元素对,值域为默认值。
-    所以可以⽤用该操作向map中插⼊入元素对或修改已经存在的元素对的值域部分。
-    m.insert(make_pair(key, value)); // 也可以直接调⽤用insert⽅方法插⼊入元素对,insert操作会返回⼀一个
-pair,当map中没有与key相匹配的键值时,其first是指向插⼊入元素对的迭代器器,其second为true;若
-    map中已经存在与key相等的键值时,其first是指向该元素对的迭代器器,second为false。
-    /* 查找元素 */
-    int i = m[key]; // 要注意的是,当与该键值相匹配的元素对不不存在时,会创建键
-值为key（当另⼀一个元素是整形时，m[key]=0）的元素对。
-    map&lt;string, int&gt;::iterator it = m.find(key); // 如果map中存在与key相匹配的键值时,find操作将返
-回指向该元素对的迭代器器,否则,返回的迭代器器等于map的end()(参⻅见vector中提到的begin()和end()
-                                   操作)。
-    /* 删除元素 */
-    m.erase(key); // 删除与指定key键值相匹配的元素对,并返回被删除的元素的个数。
-m.erase(it); // 删除由迭代器器it所指定的元素对,并返回指向下⼀一个元素对的迭代器器。
-/* 其他操作 */
-m.size(); // 返回元素个数
-m.empty(); // 判断是否为空
-m.clear(); // 清空所有元素
-Ex_One:
-typedef map&lt;int, string, less&lt;int&gt; &gt; M_TYPE
-    typedef M_TYPE::iterator M_IT
-    typedef M_TYPR::const_iterator M_CIT
-    int main()
-&#123;
-    /? 17 358 v 2.1 2017.09.21
-        M_TYPR myTestMap;
-    myTestMap[3] = &quot;No.3&quot;;
-    myTestMap[5] = &quot;No.5&quot;;
-    myTestMap[1] = &quot;No.1&quot;;
-    myTestMap[2] = &quot;No.2&quot;;
-    myTestMap[4] = &quot;No.4&quot;;
-    M_IT itStop = myTestMap.find(2);
-    cout &lt;&lt; &quot;myTestMap[2] = &quot; &lt;&lt; itStop-&gt;second &lt;&lt; endl;
-    itStop-&gt;second = &quot;No.2 After modification&quot;;
-    cout &lt;&lt; &quot;myTestMap[2] = &quot; &lt;&lt; itStop-&gt;second &lt;&lt; endl;
-    cout &lt;&lt; &quot;Map contents:&quot; &lt;&lt; endl;
-    for (M_CIT it = myTestMap.begin(); it != myTestMap.end(); it++)
-    &#123;
-        cout &lt;&lt; it-&gt;second &lt;&lt; endl;
-    &#125;
-    return 0;
-&#125;
-/*
-* 程序的输出结果为：
-* MyTestMap[2] = No.2
-* MyTestMap[2] = No.2 After modification Map contents :
-* No.1
-* No.2 After modification
-* No.3
-* No.4
-* No.5
-*/
-</code></pre>
-<pre><code class="cpp">Ex_Two:
-int main()
-&#123;
-    map&lt;string, int&gt; m;
-    m[&quot;one&quot;] = 1;
-    m[&quot;two&quot;] = 2;
-    // ⼏几种不不同的 insert 调⽤用⽅方法
-    m.insert(make_pair(&quot;three&quot;, 3));
-    m.insert(map&lt;string, int&gt;::value_type(&quot;four&quot;, 4));
-    m.insert(pair&lt;string, int&gt;(&quot;five&quot;, 5));
-    string key;
-    while (cin &gt;&gt; key)
-    &#123;
-        map&lt;string, int&gt;::iterator it = m.find(key);
-        if (it == m.end())
-        &#123;
-            cout &lt;&lt; &quot;No such key!&quot; &lt;&lt; endl;
-        &#125;
-        else
-        &#123;
-            cout &lt;&lt; key &lt;&lt; &quot; is &quot; &lt;&lt; it-&gt;second &lt;&lt; endl;
-            cout &lt;&lt; &quot;Erased &quot; &lt;&lt; m.erase(key) &lt;&lt; endl;
-        &#125;
-    &#125;
-    return 0;
-&#125;
-</code></pre>
+        <h2 id="一、MLIR简介"><a href="#一、MLIR简介" class="headerlink" title="一、MLIR简介"></a>一、MLIR简介</h2><p>下面这张图分为高级编程语言和机器学习框架两个部分。</p>
+<p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920162058.png" alt="常见的IR表示系统"></p>
+<p>以C语言为例，在编译阶段，会由前端Clang编译生成抽象语法树（AST），AST之后会被转换成LLVM IR,再转换成机器码，在指定的机器上运行。值得注意的是，C语言在转换成LLVM IR之前，不会进行特定语言的优化，程序的优化，主要集中在LLVM IR阶段，它会丢失很多信息，也会带来优化不充分的问题。</p>
+<p>Java语言不会生成AST，而是将Java代码转换成Java字节码，这是一种内部IR，他可以进行自己语言的优化，在此之后Java字节码会转换成LLVM IR，进一步的优化，根据LLVM后端进一步的转换成字节码。</p>
+<p>Swift语言转换成AST之后，也会创建自己语言的IR，这种方式也被Rust等语言采用。</p>
+<p>不仅在高级语言中，在深度学习框架中也有类似的情况，如TensorFlow框架，会先转化成图IR，进一步转换成针对某个硬件的IR表示，如针对TPU，手机设备等，面对这种情况，开发人员需要进行不同的IR设计以及针对这种IR的优化。</p>
+<p>但是随着IR种类的增多，会出现一些问题：</p>
+<ol>
+<li>针对不同种类的IR开发的Pass优化可能重复，也就是不同的IR的同类Pass不兼容，针对新的IR编写同类的Pass需要重新学习IR语法，门槛过高</li>
+<li>不同类型的IR所做的Pass优化在下一层中不可见，各种IR都想在当前层中优化做的更好，这就会导致优化的重复，导致效率偏低。</li>
+<li>不同类型IR间转换开销大，从图IR到LLVM IR直接转换存在较大的开销，比如从图IR转换到LLVM IR 。</li>
+</ol>
+<p>因此，   TensorFlow团队提出了MLIR，它希望作为一种编译器的基础设施，将编译流程中的各个层次的IR进行统一的表示，降低新加入的前端语言或是后端硬件构建编译器的成本，帮助现在已有的编译器连接在一起，进行复用。</p>
+<p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920160838.png" alt="常见的IR种类"></p>
+<hr>
+<center>以下的内容还待完善</center>
+
+<hr>
+<p>MLIR中最重要的概念是它的Dialect方言系统。</p>
+<p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920160754.png" alt="使用Dialect构建IR表示系统"></p>
+<p>Dialect其实是表示一种层次的IR，将各种IR转换成对应的MLIR Dialect。  </p>
+<img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920152804.png" alt="MLIR表达式" style="zoom: 67%;" />
+
+
+
+<p>MLIR Dialect</p>
+<p>一个 MLIR dialect 包括 :</p>
+<ul>
+<li>命名空间</li>
+<li>一组自定义类型</li>
+<li><strong>一组 operations，这是核心元素</strong></li>
+<li>解析器、打印器</li>
+<li><strong>优化（pass): analysis, transformations,  dialect conversions.</strong></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920153435.png" alt="translation,conversion,transformation之间的区别"></p>
+<p>conversion : Dialect之间的转换</p>
+<p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920153650.png" alt="conversion : Dialect之间的转换"></p>
+<p>可以利用mlirGen模块来遍历AST，生成对应的Toy Dialect的MLIR表达式，那么builder创建的operation是从哪来的？以及Toy Dialect是从哪来的？针对这两个问题，我们需要了解MLIR系统是如何引用自定义的Dialect和其中的一些Operation</p>
+<p>后面ODS框架有点没听懂 </p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Hd4y1U7mb?spm_id_from=333.999.0.0&amp;vd_source=3945e3962fa714687a283b476b79aa64">https://www.bilibili.com/video/BV1Hd4y1U7mb?spm_id_from=333.999.0.0&amp;vd_source=3945e3962fa714687a283b476b79aa64</a></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1149440709@qq.com </span>

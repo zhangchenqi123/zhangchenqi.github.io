@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Writing an LLVM pass | 牛衣古柳卖黄瓜</title>
+  <title>Pass_01 写一个pass | 牛衣古柳卖黄瓜</title>
   <meta name="keywords" content=" LLVM , Pass ">
-  <meta name="description" content="Writing an LLVM pass | 牛衣古柳卖黄瓜">
+  <meta name="description" content="Pass_01 写一个pass | 牛衣古柳卖黄瓜">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
@@ -112,7 +112,7 @@
     <li>
         <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(29)</small>
+                <small>(30)</small>
             
         </div>
     </li>
@@ -184,7 +184,7 @@
                     <div data-rel="LLVM">
                         
                         LLVM
-                        <small>(1)</small>
+                        <small>(2)</small>
                         
                     </div>
                     
@@ -230,8 +230,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="29">
-<input type="hidden" id="yelog_site_word_count" value="61.6k">
+<input type="hidden" id="yelog_site_posts_number" value="30">
+<input type="hidden" id="yelog_site_word_count" value="63.2k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -370,10 +370,18 @@
     <nav id="title-list-nav">
         
         <a  class="全部文章 LLVM "
-           href="/2022/10/04/LLVM/CS6120/Writing%20an%20LLVM%20pass/"
+           href="/2022/10/05/LLVM/CS6120/Pass_02%20%E6%8C%87%E4%BB%A4%E7%9A%84%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/"
            data-tag="LLVM,Pass"
            data-author="" >
-            <span class="post-title" title="Writing an LLVM pass">Writing an LLVM pass</span>
+            <span class="post-title" title="Pass_02 指令的相关操作">Pass_02 指令的相关操作</span>
+            <span class="post-date" title="2022-10-05 18:42:00">2022/10/05</span>
+        </a>
+        
+        <a  class="全部文章 LLVM "
+           href="/2022/10/04/LLVM/CS6120/Pass_01%20%E5%86%99%E4%B8%80%E4%B8%AApass/"
+           data-tag="LLVM,Pass"
+           data-author="" >
+            <span class="post-title" title="Pass_01 写一个pass">Pass_01 写一个pass</span>
             <span class="post-date" title="2022-10-04 21:28:18">2022/10/04</span>
         </a>
         
@@ -385,20 +393,20 @@
             <span class="post-date" title="2022-09-18 17:53:00">2022/09/18</span>
         </a>
         
-        <a  class="全部文章 MLIR "
-           href="/2022/09/17/MLIR/MLIR%E7%AE%80%E4%BB%8B/"
-           data-tag="MLIR"
-           data-author="" >
-            <span class="post-title" title="00_MLIR简介">00_MLIR简介</span>
-            <span class="post-date" title="2022-09-17 22:12:00">2022/09/17</span>
-        </a>
-        
         <a  class="全部文章 论文 "
            href="/2022/09/15/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/01_ScaleHLS/"
            data-tag="论文,论文笔记,MLIR"
            data-author="" >
             <span class="post-title" title="01_ScaleHLS">01_ScaleHLS</span>
             <span class="post-date" title="2022-09-15 10:21:00">2022/09/15</span>
+        </a>
+        
+        <a  class="全部文章 MLIR "
+           href="/2022/09/08/MLIR/MLIR%E7%AE%80%E4%BB%8B/"
+           data-tag="MLIR"
+           data-author="" >
+            <span class="post-title" title="00_MLIR简介">00_MLIR简介</span>
+            <span class="post-date" title="2022-09-08 08:53:53">2022/09/08</span>
         </a>
         
         <a  class="全部文章 算法 sjtu机试 "
@@ -619,9 +627,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-LLVM/CS6120/Writing an LLVM pass" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-LLVM/CS6120/Pass_01 写一个pass" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Writing an LLVM pass</h1>
+        <h1 class="article-title">Pass_01 写一个pass</h1>
     
     <div class="article-meta">
         
@@ -648,7 +656,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-10-05 00:40:23'>2022-10-04 21:28</time>
+            发布时间 : <time class="date" title='最后更新: 2022-10-07 23:26:17'>2022-10-04 21:28</time>
         
     </div>
     <div class="article-meta">
@@ -706,7 +714,7 @@
 <pre><code>$ git clone https://github.com/sampsyo/llvm-pass-skeleton.git
 </code></pre>
 <p>这个模板十分简单，仅仅实现了一些打印的功能，并没有对IR代码进行修改，下面对模板中的代码进行详细讲解：</p>
-<p>首先引入头文件，并使用llvm的命名空间</p>
+<p>首先引入头文件：</p>
 <pre><code class="cpp">#include &quot;llvm/Pass.h&quot;
 #include &quot;llvm/IR/Function.h&quot;
 #include &quot;llvm/Support/raw_ostream.h&quot;
@@ -832,7 +840,7 @@ int main()&#123;
     └── Skeleton.cpp
 </code></pre>
 <h2 id="查看IR的组件结构"><a href="#查看IR的组件结构" class="headerlink" title="查看IR的组件结构"></a>查看IR的组件结构</h2><p>IR中的组件结构：</p>
-<p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20221004235336.png" alt="image-20221004235336356"></p>
+<p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20221004235336.png" alt="IR中的组件结构"></p>
 <ul>
 <li><p>一个<a href="https://link.zhihu.com/?target=http://llvm.org/docs/doxygen/html/classllvm_1_1Module.html">模块</a>（<a href="https://link.zhihu.com/?target=http://llvm.org/docs/doxygen/html/classllvm_1_1Module.html">Module</a>）代表一个源文件（粗略地）或一个<em>翻译单元</em>。Module是其他LLVM IR的对象的顶级容器，每个Module都直接包含了一系列全局变量、函数、该Module依赖的库（或其他Module）以及有关目标特性的各种数据。</p>
 </li>
@@ -906,7 +914,7 @@ $ clang -Xclang -load -Xclang build/skeleton/libSkeletonPass.so a.c
 </code></pre>
 <p>说明：</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://llvm.org/docs/ProgrammersManual.html#isa:~:text=the%20dyn_cast%3C%3E%20operator.-,dyn_cast%3C%3E%3A,-The%20dyn_cast%3C%3E">dyn_cast<BinaryOperator>(&amp;I)</a>是检查强制转换的操作，它检查操作数是否属于指定的类型，如果是则返回指向他的指针，否则返回空。</li>
+<li><a target="_blank" rel="noopener" href="https://llvm.org/docs/ProgrammersManual.html#isa:~:text=the%20dyn_cast%3C%3E%20operator.-,dyn_cast%3C%3E%3A,-The%20dyn_cast%3C%3E">dyn_cast<BinaryOperator>(&amp;I)</a>是检查强制转换的操作，它检查操作数是否属于指定的类型，如果是则返回指向他的指针，否则返回空，在我们这个例子中，它用来检验<code>I</code> 是不是二元操作符。</li>
 <li><a target="_blank" rel="noopener" href="https://llvm.org/doxygen/classllvm_1_1IRBuilder.html">IRBuilder</a>帮助我们创建可能想要的任何类型的指令。</li>
 <li>将新指令拼接到代码中，我们必须找到它原来的所有位置并将新指令作为参数进行交换。</li>
 </ul>
@@ -973,12 +981,13 @@ $ clang -Xclang -load -Xclang build/skeleton/libSkeletonPass.so a.c
 
 $ clang a.c
 </code></pre>
+<p>然后运行，并传入参数：</p>
 <p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20221004110653.png" alt="image-20221004110653818"></p>
 <p><strong>结果说明：</strong></p>
-<p>echo $?是询问返回码，即return的值，源文件没有变，输出：argc+5</p>
+<p><code>echo $?</code>是询问返回码，即return的值，源文件没有变，输出：argc+5</p>
 <p>可以看到当不给a.out传入参数的时候，默认参数个数是1，输出5,即1*5</p>
 <p>当给a.out传入3个参数的时候，参数个数是4，输出20，即4*5</p>
-<p>说明<code>+</code>实现的确实是<code>x</code>的功能</p>
+<p>说明实现了用<code>x</code>（乘法）替换<code>+</code>的功能：）</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://vod.video.cornell.edu/media/1_4nrtmvc9">CS 6120</a></p>
 <p><a target="_blank" rel="noopener" href="https://llvm.org/docs/WritingAnLLVMPass.html#writing-an-llvm-pass-registration">LLVM 官网</a></p>
 <p><a target="_blank" rel="noopener" href="https://llvm.liuxfe.com/tutorial/writepass/quickstart">LLVM 中文网</a></p>

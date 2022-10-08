@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>00_MLIR简介 | 牛衣古柳卖黄瓜</title>
-  <meta name="keywords" content=" MLIR ">
-  <meta name="description" content="00_MLIR简介 | 牛衣古柳卖黄瓜">
+  <title>Pass_02 指令的相关操作 | 牛衣古柳卖黄瓜</title>
+  <meta name="keywords" content=" LLVM , Pass ">
+  <meta name="description" content="Pass_02 指令的相关操作 | 牛衣古柳卖黄瓜">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
@@ -112,7 +112,7 @@
     <li>
         <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(29)</small>
+                <small>(30)</small>
             
         </div>
     </li>
@@ -184,7 +184,7 @@
                     <div data-rel="LLVM">
                         
                         LLVM
-                        <small>(1)</small>
+                        <small>(2)</small>
                         
                     </div>
                     
@@ -230,8 +230,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="29">
-<input type="hidden" id="yelog_site_word_count" value="61.6k">
+<input type="hidden" id="yelog_site_posts_number" value="30">
+<input type="hidden" id="yelog_site_word_count" value="63.2k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -370,10 +370,18 @@
     <nav id="title-list-nav">
         
         <a  class="全部文章 LLVM "
-           href="/2022/10/04/LLVM/CS6120/Writing%20an%20LLVM%20pass/"
+           href="/2022/10/05/LLVM/CS6120/Pass_02%20%E6%8C%87%E4%BB%A4%E7%9A%84%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/"
            data-tag="LLVM,Pass"
            data-author="" >
-            <span class="post-title" title="Writing an LLVM pass">Writing an LLVM pass</span>
+            <span class="post-title" title="Pass_02 指令的相关操作">Pass_02 指令的相关操作</span>
+            <span class="post-date" title="2022-10-05 18:42:00">2022/10/05</span>
+        </a>
+        
+        <a  class="全部文章 LLVM "
+           href="/2022/10/04/LLVM/CS6120/Pass_01%20%E5%86%99%E4%B8%80%E4%B8%AApass/"
+           data-tag="LLVM,Pass"
+           data-author="" >
+            <span class="post-title" title="Pass_01 写一个pass">Pass_01 写一个pass</span>
             <span class="post-date" title="2022-10-04 21:28:18">2022/10/04</span>
         </a>
         
@@ -385,20 +393,20 @@
             <span class="post-date" title="2022-09-18 17:53:00">2022/09/18</span>
         </a>
         
-        <a  class="全部文章 MLIR "
-           href="/2022/09/17/MLIR/MLIR%E7%AE%80%E4%BB%8B/"
-           data-tag="MLIR"
-           data-author="" >
-            <span class="post-title" title="00_MLIR简介">00_MLIR简介</span>
-            <span class="post-date" title="2022-09-17 22:12:00">2022/09/17</span>
-        </a>
-        
         <a  class="全部文章 论文 "
            href="/2022/09/15/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/01_ScaleHLS/"
            data-tag="论文,论文笔记,MLIR"
            data-author="" >
             <span class="post-title" title="01_ScaleHLS">01_ScaleHLS</span>
             <span class="post-date" title="2022-09-15 10:21:00">2022/09/15</span>
+        </a>
+        
+        <a  class="全部文章 MLIR "
+           href="/2022/09/08/MLIR/MLIR%E7%AE%80%E4%BB%8B/"
+           data-tag="MLIR"
+           data-author="" >
+            <span class="post-title" title="00_MLIR简介">00_MLIR简介</span>
+            <span class="post-date" title="2022-09-08 08:53:53">2022/09/08</span>
         </a>
         
         <a  class="全部文章 算法 sjtu机试 "
@@ -619,9 +627,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-MLIR/MLIR简介" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-LLVM/CS6120/Pass_02 指令的相关操作" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">00_MLIR简介</h1>
+        <h1 class="article-title">Pass_02 指令的相关操作</h1>
     
     <div class="article-meta">
         
@@ -631,7 +639,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="MLIR">MLIR</a>
+            <a  data-rel="LLVM">LLVM</a>
             
         </span>
         
@@ -639,19 +647,21 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color5">MLIR</a>
+            <a class="color5">LLVM</a>
+            
+            <a class="color5">Pass</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-09-20 17:03:47'>2022-09-17 22:12</time>
+            发布时间 : <time class="date" title='最后更新: 2022-10-08 10:07:01'>2022-10-05 18:42</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:762</span>
+        <span>字数:1.5k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -681,7 +691,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81MLIR%E7%AE%80%E4%BB%8B"><span class="toc-text">一、MLIR简介</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%8D%E5%8E%86%E6%93%8D%E4%BD%9C"><span class="toc-text">遍历操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86Function%E4%B8%AD%E7%9A%84BasicBlock"><span class="toc-text">遍历Function中的BasicBlock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86BasicBlock%E4%B8%AD%E7%9A%84Instruction"><span class="toc-text">遍历BasicBlock中的Instruction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86Function%E4%B8%AD%E7%9A%84Instruction"><span class="toc-text">遍历Function中的Instruction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%8A%E8%BF%AD%E4%BB%A3%E5%99%A8%E8%BD%AC%E6%8D%A2%E6%88%90%E7%B1%BB%E6%8C%87%E9%92%88"><span class="toc-text">把迭代器转换成类指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E7%A8%8D%E5%BE%AE%E5%A4%8D%E6%9D%82%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-text">一个稍微复杂的例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8def-use-%E5%92%8C-use-def-%E9%93%BE%E4%B8%AD%E9%81%8D%E5%8E%86"><span class="toc-text">在def-use 和 use-def 链中遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86%E6%9F%90%E4%B8%80%E4%B8%AABB%E7%9A%84%E5%89%8D%E9%9D%A2%E7%9A%84BB%E5%92%8C%E5%90%8E%E9%9D%A2%E7%9A%84BB"><span class="toc-text">遍历某一个BB的前面的BB和后面的BB</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%8C%87%E4%BB%A4"><span class="toc-text">创建指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%92%8C%E6%8F%92%E5%85%A5%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%9A%84Instructions"><span class="toc-text">创建和插入一些简单的Instructions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%99%E6%8C%87%E4%BB%A4%E7%9A%84%E5%80%BC%E5%91%BD%E5%90%8D"><span class="toc-text">给指令的值命名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%8C%87%E4%BB%A4"><span class="toc-text">插入指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%8C%87%E4%BB%A4"><span class="toc-text">删除指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%8C%87%E4%BB%A4%EF%BC%9A"><span class="toc-text">删除指令：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%EF%BC%9A"><span class="toc-text">删除全局变量：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2%E6%8C%87%E4%BB%A4"><span class="toc-text">替换指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ReplaceInstWithValue"><span class="toc-text">ReplaceInstWithValue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ReplaceInstWithInst"><span class="toc-text">ReplaceInstWithInst</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5%EF%BC%9A"><span class="toc-text">参考链接：</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -697,46 +707,190 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、MLIR简介"><a href="#一、MLIR简介" class="headerlink" title="一、MLIR简介"></a>一、MLIR简介</h2><p>下面这张图分为高级编程语言和机器学习框架两个部分。</p>
-<p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920162058.png" alt="常见的IR表示系统"></p>
-<p>以C语言为例，在编译阶段，会由前端Clang编译生成抽象语法树（AST），AST之后会被转换成LLVM IR,再转换成机器码，在指定的机器上运行。值得注意的是，C语言在转换成LLVM IR之前，不会进行特定语言的优化，程序的优化，主要集中在LLVM IR阶段，它会丢失很多信息，也会带来优化不充分的问题。</p>
-<p>Java语言不会生成AST，而是将Java代码转换成Java字节码，这是一种内部IR，他可以进行自己语言的优化，在此之后Java字节码会转换成LLVM IR，进一步的优化，根据LLVM后端进一步的转换成字节码。</p>
-<p>Swift语言转换成AST之后，也会创建自己语言的IR，这种方式也被Rust等语言采用。</p>
-<p>不仅在高级语言中，在深度学习框架中也有类似的情况，如TensorFlow框架，会先转化成图IR，进一步转换成针对某个硬件的IR表示，如针对TPU，手机设备等，面对这种情况，开发人员需要进行不同的IR设计以及针对这种IR的优化。</p>
-<p>但是随着IR种类的增多，会出现一些问题：</p>
-<ol>
-<li>针对不同种类的IR开发的Pass优化可能重复，也就是不同的IR的同类Pass不兼容，针对新的IR编写同类的Pass需要重新学习IR语法，门槛过高</li>
-<li>不同类型的IR所做的Pass优化在下一层中不可见，各种IR都想在当前层中优化做的更好，这就会导致优化的重复，导致效率偏低。</li>
-<li>不同类型IR间转换开销大，从图IR到LLVM IR直接转换存在较大的开销，比如从图IR转换到LLVM IR 。</li>
-</ol>
-<p>因此，   TensorFlow团队提出了MLIR，它希望作为一种编译器的基础设施，将编译流程中的各个层次的IR进行统一的表示，降低新加入的前端语言或是后端硬件构建编译器的成本，帮助现在已有的编译器连接在一起，进行复用。</p>
-<p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920160838.png" alt="常见的IR种类"></p>
-<hr>
-<center>以下的内容还待完善</center>
+        <p>在 [上一节](.&#x2F;Pass_01 写一个pass) 的基础上，本节展示一些指令的相关操作</p>
+<h2 id="遍历操作"><a href="#遍历操作" class="headerlink" title="遍历操作"></a>遍历操作</h2><p>这一节主要是讲如何进行一些简单的转换和遍历的操作</p>
+<p>首先回顾LLVM IR中的组件结构：</p>
+<p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20221004235336.png" alt="IR中的组件结构"></p>
+<p>对于一个可迭代的序列，<code>xxxbegin()</code> 返回一个指向序列开始的迭代器，<code>xxxend()</code> 返回一个指向序列结尾的迭代器，两者之间有一些<code>xxxiterator()</code>。</p>
+<p>在各个组件结构中，有一些常见的遍历方法：</p>
+<h3 id="遍历Function中的BasicBlock"><a href="#遍历Function中的BasicBlock" class="headerlink" title="遍历Function中的BasicBlock"></a><strong>遍历Function中的BasicBlock</strong></h3><pre><code>Function &amp;Func = ...
+for (BasicBlock &amp;BB : Func)
+    // 遍历Function中的所有BasicBlock，并输出每个BB中有几个Instruction
+      errs() &lt;&lt; &quot;Basic block (name=&quot; &lt;&lt; BB.getName() &lt;&lt; &quot;) has &quot;
+             &lt;&lt; BB.size() &lt;&lt; &quot; instructions.\n&quot;;
+</code></pre>
+<h3 id="遍历BasicBlock中的Instruction"><a href="#遍历BasicBlock中的Instruction" class="headerlink" title="遍历BasicBlock中的Instruction"></a><strong>遍历BasicBlock中的Instruction</strong></h3><pre><code>BasicBlock&amp; BB = ...
+for (Instruction &amp;I : BB)
+   // The next statement works since operator&lt;&lt;(ostream&amp;,...)
+   // is overloaded for Instruction&amp;
+   errs() &lt;&lt; I &lt;&lt; &quot;\n&quot;;
+</code></pre>
+<p>然而这其实不是输出BB中的Ins的最好方法，因为ostream对几乎所有内容都是重载的。</p>
+<p>可以在基本块本身调用<code>errs() &lt;&lt; BB &lt;&lt; &quot;\n&quot;;</code></p>
+<h3 id="遍历Function中的Instruction"><a href="#遍历Function中的Instruction" class="headerlink" title="遍历Function中的Instruction"></a><strong>遍历Function中的Instruction</strong></h3><pre><code>#include &quot;llvm/IR/InstIterator.h&quot;
 
-<hr>
-<p>MLIR中最重要的概念是它的Dialect方言系统。</p>
-<p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920160754.png" alt="使用Dialect构建IR表示系统"></p>
-<p>Dialect其实是表示一种层次的IR，将各种IR转换成对应的MLIR Dialect。  </p>
-<img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920152804.png" alt="MLIR表达式" style="zoom: 67%;" />
+// F is a pointer to a Function instance
+for (inst_iterator I = inst_begin(F), E = inst_end(F); I != E; ++I)
+  errs() &lt;&lt; *I &lt;&lt; &quot;\n&quot;;
+</code></pre>
+<p>或者用一个<code>worklist</code>把所有的Ins都保存下来：</p>
+<pre><code>std::set&lt;Instruction*&gt; worklist;
 
+for (inst_iterator I = inst_begin(F), E = inst_end(F); I != E; ++I)
+  worklist.insert(&amp;*I);
+</code></pre>
+<h3 id="把迭代器转换成类指针"><a href="#把迭代器转换成类指针" class="headerlink" title="把迭代器转换成类指针"></a><strong>把迭代器转换成类指针</strong></h3><p>为什么要这么转换呢？因为有时，手边只有一个迭代器，这时候获取实例的指针就很有用。</p>
+<p>假设<code>i</code> 是一个  <code>BasicBlock::iterator</code> ，<code>j</code> 是 <code>BasicBlock::const_iterator</code>:</p>
+<pre><code>Instruction&amp; inst = *i;
+// 下面两行等价
+Instruction* pinst = &amp;*i; 
+Instruction *pinst = i;
+const Instruction&amp; inst = *j;
+</code></pre>
+<p>也可以把类指针转换成迭代器，这个操作很高效。</p>
+<p>获取某个对象的迭代器：</p>
+<pre><code>void printNextInstruction(Instruction* inst) &#123;
+  BasicBlock::iterator it(inst);
+  ++it; // After this line, it refers to the instruction after *inst
+  if (it != inst-&gt;getParent()-&gt;end()) errs() &lt;&lt; *it &lt;&lt; &quot;\n&quot;;
+&#125;
+</code></pre>
+<h3 id="一个稍微复杂的例子"><a href="#一个稍微复杂的例子" class="headerlink" title="一个稍微复杂的例子"></a><strong>一个稍微复杂的例子</strong></h3><p>假如你正在写一个<code>FunctionPass</code>，想要数一数整个模块中的某个函数在域中的出现了多少次（不用<code>InstVisitor</code>）。</p>
+<p>由于正在写<code>FunctionPass</code>所以你要重写<code>runOnFunction</code>函数</p>
+<pre><code class="cpp">Function* targetFunc = ...;
 
+class OurFunctionPass : public FunctionPass &#123;
+    public:
+    OurFunctionPass(): callCounter(0) &#123;&#125;
 
-<p>MLIR Dialect</p>
-<p>一个 MLIR dialect 包括 :</p>
+    virtual runOnFunction(Function&amp; F) &#123;
+        for (BasicBlock &amp;B : F) &#123;
+            for (Instruction &amp;I: B) &#123;
+                // dyn_cast&lt;CallBase&gt;(&amp;I)来检查指令I是否符合CallBase的模式匹配
+                if (auto *CB = dyn_cast&lt;CallBase&gt;(&amp;I)) &#123;
+                    // 检查是否是目标函数
+                    if (CB-&gt;getCalledFunction() == targetFunc)
+                        ++callCounter;
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+
+    private:
+    unsigned callCounter;
+&#125;;
+</code></pre>
+<h3 id="在def-use-和-use-def-链中遍历"><a href="#在def-use-和-use-def-链中遍历" class="headerlink" title="在def-use 和 use-def 链中遍历"></a><strong>在def-use 和 use-def 链中遍历</strong></h3><p>我们经常拿到一个<a target="_blank" rel="noopener" href="https://llvm.org/doxygen/classllvm_1_1Value.html">Value类</a>的实例，想要决定哪个<code>User</code>正在用这个<code>Value</code>，这个Value的所有的<code>users</code>叫做<code>def-use</code>链，找到所有的用<code>Function *F</code>的指令:</p>
+<pre><code class="cpp">Function *F = ...;
+
+for (User *U : F-&gt;users()) &#123;
+    if (Instruction *Inst = dyn_cast&lt;Instruction&gt;(U)) &#123;
+        errs() &lt;&lt; &quot;F is used in instruction:\n&quot;;
+        errs() &lt;&lt; *Inst &lt;&lt; &quot;\n&quot;;
+    &#125;
+</code></pre>
+<p>同理，我们拿到一个<a target="_blank" rel="noopener" href="https://llvm.org/doxygen/classllvm_1_1User.html">User类</a>的实例时，想要知道它用了哪些<code>Value</code>，所有的这个<code>User</code>用的<code>Value</code>叫做<code>use-def</code>链.</p>
+<p><code>Instruction</code>类的实例是最普通的<code>User</code>，所以我们想要遍历某个Ins用的所有的<code>values</code></p>
+<pre><code class="cpp">Instruction *pi = ...;
+
+for (Use &amp;U : pi-&gt;operands()) &#123;
+    Value *v = U.get();
+&#125;
+</code></pre>
+<h3 id="遍历某一个BB的前面的BB和后面的BB"><a href="#遍历某一个BB的前面的BB和后面的BB" class="headerlink" title="遍历某一个BB的前面的BB和后面的BB"></a><strong>遍历某一个BB的前面的BB和后面的BB</strong></h3><pre><code class="cpp">#include &quot;llvm/IR/CFG.h&quot;
+BasicBlock *BB = ...;
+
+for (BasicBlock *Pred : predecessors(BB)) &#123;
+  // ...
+&#125;
+</code></pre>
+<p>同理<code>successors</code></p>
+<h2 id="创建指令"><a href="#创建指令" class="headerlink" title="创建指令"></a>创建指令</h2><h3 id="创建和插入一些简单的Instructions"><a href="#创建和插入一些简单的Instructions" class="headerlink" title="创建和插入一些简单的Instructions"></a><strong>创建和插入一些简单的Instructions</strong></h3><pre><code class="cpp">auto *ai = new AllocaInst(Type::Int32Ty);
+</code></pre>
+<p>上面这行创建了一个<code>AllocaInst</code>Ins,它代表一个整数在当前栈的位置，每一个Ins的子类都有不同的默认参数，这些参数会改变Ins的语意，可以看这个链接： <a target="_blank" rel="noopener" href="https://llvm.org/doxygen/classllvm_1_1Instruction.html">doxygen documentation for the subclass of Instruction</a></p>
+<h3 id="给指令的值命名"><a href="#给指令的值命名" class="headerlink" title="给指令的值命名"></a><strong>给指令的值命名</strong></h3><p>如果你查看机器码，你肯定想把指令的结果和逻辑名关联起来。可以通过给指令的构造函数的<code>Name</code>参数提供一个值。</p>
+<p>例如，我正在写一个transform,动态的给堆栈上的一个整数分配空间，这个证书将被其他的一些代码用作某个索引：</p>
+<pre><code class="cpp">auto *pa = new AllocaInst(Type::Int32Ty, 0, &quot;indexLoc&quot;);
+</code></pre>
+<h3 id="插入指令"><a href="#插入指令" class="headerlink" title="插入指令"></a><strong>插入指令</strong></h3><p>有3种方法可以将指令插入到构成BB的现有指令序列中：</p>
 <ul>
-<li>命名空间</li>
-<li>一组自定义类型</li>
-<li><strong>一组 operations，这是核心元素</strong></li>
-<li>解析器、打印器</li>
-<li><strong>优化（pass): analysis, transformations,  dialect conversions.</strong></li>
+<li><p>插入到显式指令列表中</p>
+<p>想把<code>NewInst</code>插入到<code>pi</code>的前面：</p>
+<pre><code class="cpp">BasicBlock *pb = ...;
+Instruction *pi = ...;
+auto *newInst = new Instruction(...);
+
+pb-&gt;getInstList().insert(pi, newInst); 
+</code></pre>
+<p>插到BB的结尾：</p>
+<pre><code class="cpp">BasicBlock *pb = ...;
+auto *newInst = new Instruction(...);
+
+pb-&gt;getInstList().push_back(newInst); 
+</code></pre>
+<p>或者更简单的：</p>
+<pre><code class="cpp">BasicBlock *pb = ...;
+auto *newInst = new Instruction(..., pb);
+</code></pre>
+</li>
+<li><p>插到隐式指令列表里</p>
+<p>BB中的指令实例隐式的与一个指令列表相关联，因此，我们可以在没有BB的情况下完成上面代码相同的事情：</p>
+<pre><code class="cpp">Instruction *pi = ...;
+auto *newInst = new Instruction(...);
+
+pi-&gt;getParent()-&gt;getInstList().insert(pi, newInst);
+</code></pre>
+<p>可以直接用构造函数，把新指令插到某一个指令的前面：</p>
+<pre><code class="cpp">Instruction* pi = ...;
+auto *newInst = new Instruction(..., pi);
+</code></pre>
+</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920153435.png" alt="translation,conversion,transformation之间的区别"></p>
-<p>conversion : Dialect之间的转换</p>
-<p><img src="https://raw.githubusercontent.com/zhangchenqi123/imgCloud/main/img/20220920153650.png" alt="conversion : Dialect之间的转换"></p>
-<p>可以利用mlirGen模块来遍历AST，生成对应的Toy Dialect的MLIR表达式，那么builder创建的operation是从哪来的？以及Toy Dialect是从哪来的？针对这两个问题，我们需要了解MLIR系统是如何引用自定义的Dialect和其中的一些Operation</p>
-<p>后面ODS框架有点没听懂：）</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Hd4y1U7mb?spm_id_from=333.999.0.0&amp;vd_source=3945e3962fa714687a283b476b79aa64">https://www.bilibili.com/video/BV1Hd4y1U7mb?spm_id_from=333.999.0.0&amp;vd_source=3945e3962fa714687a283b476b79aa64</a></p>
+<p>​        当你要构造很多Ins并把它们加到BB中，可以用上面这个方法。</p>
+<ul>
+<li><p>用<code>IRBuilder</code>的实例插</p>
+<p><code>IRBuilder</code>可以很方便的在某个BB的结尾或是某个指令的前面插入多条指令。</p>
+<p>下面这个例子展示了<code>IRBuilder</code>的一个简单用法，在<code>pi</code>之前插入3条指令。</p>
+<pre><code class="cpp">Instruction *pi = ...;
+IRBuilder&lt;&gt; Builder(pi);
+CallInst* callOne = Builder.CreateCall(...);
+CallInst* callTwo = Builder.CreateCall(...);
+Value* result = Builder.CreateMul(callOne, callTwo);
+</code></pre>
+<p>在BB的后面插入指令：</p>
+<pre><code class="cpp">BasicBlock *pb = ...;
+IRBuilder&lt;&gt; Builder(pb);
+CallInst* callOne = Builder.CreateCall(...);
+CallInst* callTwo = Builder.CreateCall(...);
+Value* result = Builder.CreateMul(callOne, callTwo);
+</code></pre>
+</li>
+</ul>
+<h2 id="删除指令"><a href="#删除指令" class="headerlink" title="删除指令"></a>删除指令</h2><h3 id="删除指令："><a href="#删除指令：" class="headerlink" title="删除指令："></a><strong>删除指令</strong>：</h3><pre><code class="cpp">Instruction *I = .. ;
+I-&gt;eraseFromParent();
+</code></pre>
+<p>如果你只想把这个指令和BB取消链接而不删它，可以用<code>removeFromParent()</code>方法</p>
+<h3 id="删除全局变量："><a href="#删除全局变量：" class="headerlink" title="删除全局变量："></a><strong>删除全局变量</strong>：</h3><pre><code class="cpp">GlobalVariable *GV = .. ;
+
+GV-&gt;eraseFromParent();
+</code></pre>
+<h2 id="替换指令"><a href="#替换指令" class="headerlink" title="替换指令"></a>替换指令</h2><p>先<code>#include &quot;llvm/Transforms/Utils/BasicBlockUtils.h&quot;</code></p>
+<p>然后就能用2个很好用的替换函数： <code>ReplaceInstWithValue</code> 和 <code>ReplaceInstWithInst</code>.</p>
+<h3 id="ReplaceInstWithValue"><a href="#ReplaceInstWithValue" class="headerlink" title="ReplaceInstWithValue"></a><strong>ReplaceInstWithValue</strong></h3><p>把某一个指令的所有use都用一个value替换，然后删除原指令:</p>
+<pre><code class="cpp">AllocaInst* instToReplace = ...;
+BasicBlock::iterator ii(instToReplace);
+
+ReplaceInstWithValue(instToReplace-&gt;getParent()-&gt;getInstList(), ii,
+                     Constant::getNullValue(PointerType::getUnqual(Type::Int32Ty)));
+</code></pre>
+<h3 id="ReplaceInstWithInst"><a href="#ReplaceInstWithInst" class="headerlink" title="ReplaceInstWithInst"></a><strong>ReplaceInstWithInst</strong></h3><p>用新指令替换旧指令，同时替换所有的<code>use</code></p>
+<pre><code class="cpp">AllocaInst* instToReplace = ...;
+BasicBlock::iterator ii(instToReplace);
+
+ReplaceInstWithInst(instToReplace-&gt;getParent()-&gt;getInstList(), ii,
+                    new AllocaInst(Type::Int32Ty, 0, &quot;ptrToReplacedInt&quot;));
+</code></pre>
+<h2 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h2><p><a href="https://link.zhihu.com/?target=https://llvm.org/docs/ProgrammersManual.html%23helpful-hints-for-common-operations">helpful-hints-for-common-operations</a></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1149440709@qq.com </span>
